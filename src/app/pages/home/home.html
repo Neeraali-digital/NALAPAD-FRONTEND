@@ -3,192 +3,205 @@
   
   <!-- ULTRA ADVANCED IMMERSIVE BACKGROUND -->
   <div class="fixed inset-0 pointer-events-none z-0">
-    <div class="absolute top-[-10%] right-[10%] w-[55%] h-[55%] bg-rose-50/70 rounded-full blur-[140px] animate-float opacity-50"></div>
-    <div class="absolute bottom-[-10%] left-[-5%] w-[50%] h-[50%] bg-blue-50/60 rounded-full blur-[140px] animate-float-delayed opacity-40"></div>
-    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] grayscale"></div>
+    <div class="absolute top-[-10%] right-[10%] w-[55%] h-[55%] bg-rose-50/70 rounded-full blur-[140px] animate-float opacity-20"></div>
+    <div class="absolute bottom-[-10%] left-[-5%] w-[50%] h-[50%] bg-blue-50/60 rounded-full blur-[140px] animate-float-delayed opacity-15"></div>
   </div>
 
-  <!-- SLIDER ADVERTISING AREA -->
-  <section class="relative w-full h-[70vh] md:h-[85vh] overflow-hidden group mb-20">
-    <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out" 
+  <!-- SECTION 1: ADVERTISING AREA (SLIDER) -->
+  <section class="relative w-full h-[50vh] lg:h-[85vh] overflow-hidden group">
+    <div class="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out" 
          *ngFor="let slide of slides; let i = index"
          [class.opacity-100]="activeSlide === i"
          [class.opacity-0]="activeSlide !== i"
          [class.z-10]="activeSlide === i">
       
-      <!-- Slide Image -->
-      <div class="absolute inset-0 scale-105" [class.animate-pulse-slow]="activeSlide === i">
-        <img [src]="slide.image" [alt]="slide.title" class="w-full h-full object-cover grayscale-[0.2] brightness-[0.6]">
+      <!-- Slide Image (No Overlay/Blinking/Filters) -->
+      <div class="absolute inset-0">
+        <img [src]="slide.image" [alt]="slide.title" class="w-full h-full object-cover">
       </div>
 
-      <!-- Slide Content -->
-      <div class="absolute inset-0 flex items-center justify-center text-center px-4 sm:px-6 lg:px-12">
+      <!-- Slide Content (Slightly smaller headings) -->
+      <div class="absolute inset-x-0 bottom-20 flex items-center justify-center text-center px-4">
         <div class="max-w-4xl transform transition-all duration-1000"
              [class.translate-y-0]="activeSlide === i"
-             [class.translate-y-12]="activeSlide !== i"
+             [class.translate-y-10]="activeSlide !== i"
              [class.opacity-100]="activeSlide === i"
-              [class.opacity-0]="activeSlide !== i">
+             [class.opacity-0]="activeSlide !== i">
           
-          <h3 class="text-brand-secondary text-sm md:text-lg font-black uppercase tracking-[0.4em] mb-4 drop-shadow-md">
+          <h3 class="text-white text-xs md:text-sm font-black uppercase tracking-[0.5em] mb-4 drop-shadow-lg">
             {{ slide.subtitle }}
           </h3>
           
-          <h1 class="text-white text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-10 drop-shadow-2xl">
+          <h1 class="text-white text-3xl md:text-6xl font-black uppercase tracking-tighter leading-tight mb-8 drop-shadow-2xl">
             {{ slide.title }}
           </h1>
           
-          <div class="flex flex-wrap justify-center gap-6">
-            <a [routerLink]="slide.link" class="group relative px-10 py-5 bg-brand-primary text-white rounded-full font-black uppercase tracking-[0.2em] text-xs shadow-2xl overflow-hidden transition-transform hover:-translate-y-1">
-               <span class="absolute inset-0 bg-neutral-900 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
-               <span class="relative z-10">{{ slide.cta }}</span>
+          <div class="flex justify-center">
+            <a [routerLink]="slide.link" class="group px-8 py-3.5 bg-brand-primary text-white rounded-full font-black uppercase tracking-[0.2em] text-[0.65rem] shadow-2xl transition hover:bg-neutral-900">
+               {{ slide.cta }}
             </a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Directional Controls -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4">
+    <!-- Minimal Dots -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
       <button *ngFor="let dot of slides; let i = index" 
               (click)="goToSlide(i)"
-              class="w-3 md:w-4 h-3 md:h-4 rounded-full border-2 border-white/50 transition-all duration-500 hover:border-white"
+              class="w-2.5 h-2.5 rounded-full border border-white/40 transition-all duration-700"
               [class.bg-white]="activeSlide === i"
-              [class.scale-125]="activeSlide === i"
-              [class.w-10]="activeSlide === i">
+              [class.px-4]="activeSlide === i">
       </button>
     </div>
   </section>
 
-  <div class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12">
+  <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- 1. OLD ADVANCED HERO (Now Secondary Section) -->
-    <section class="relative w-full flex items-center mb-48 pt-10">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
-        
-        <!-- Typography Side -->
-        <div class="lg:col-span-12 xl:col-span-7 flex flex-col justify-center relative z-20 order-2 lg:order-1">
-          
-          <div class="flex items-center gap-4 mb-10">
-             <div class="w-1.5 h-16 bg-brand-primary rounded-full"></div>
-             <div>
-               <h3 class="text-xs font-black tracking-[0.4em] uppercase text-gray-400 mb-1">Elite Medical Education</h3>
-               <p class="text-lg font-bold text-neutral-800">Approved by <span class="text-brand-primary">INC & KNC</span></p>
-             </div>
-          </div>
-          
-          <h1 class="text-6xl md:text-8xl xl:text-[9.5rem] font-black uppercase tracking-tighter leading-[0.82] text-neutral-900 mb-12 drop-shadow-sm select-none">
-            Scale <br/>
-            <span class="text-transparent bg-clip-text bg-gradient-to-br from-brand-primary via-red-600 to-orange-500 italic block">Excellence.</span>
-            The Future <br/>
-            <span class="text-gray-300">Of Nursing.</span>
-          </h1>
-          
-          <div class="max-w-xl space-y-8 mb-16 px-2">
-            <p class="text-xl md:text-2xl text-gray-500 font-medium leading-relaxed">
-              Join a community that values deep human connection and advanced technical mastery in the heart of Bangalore.
-            </p>
-          </div>
-
-          <!-- Quick Stats Panel -->
-          <div class="grid grid-cols-2 lg:grid-cols-3 gap-10 mt-10 md:mt-20 border-t border-gray-100 pt-12">
-            <div>
-              <h4 class="text-4xl font-black text-neutral-900 tracking-tighter">100%</h4>
-              <p class="text-[0.6rem] font-black uppercase tracking-[0.2em] text-gray-400 mt-2">Placements</p>
-            </div>
-            <div>
-              <h4 class="text-4xl font-black text-neutral-900 tracking-tighter">INC</h4>
-              <p class="text-[0.6rem] font-black uppercase tracking-[0.2em] text-gray-400 mt-2">Approved</p>
-            </div>
+    <!-- SECTION 2: ABOUT COLLAGE (Video Left, Text Right) -->
+    <section class="py-32 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- VIDEO PANEL -->
+        <div class="relative aspect-video rounded-[2.5rem] overflow-hidden bg-neutral-100 shadow-xl group border-4 border-white">
+          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition"></div>
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/95 rounded-full flex items-center justify-center text-brand-primary shadow-xl cursor-not-allowed">
+            <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
           </div>
         </div>
         
-        <!-- Advanced Visual Side -->
-        <div class="lg:col-span-12 xl:col-span-5 relative order-1 lg:order-2">
-          
-          <div class="relative w-full aspect-[4/5] rounded-[4rem] p-4 bg-white/40 glass-white shadow-[0_40px_100px_rgba(0,0,0,0.1)] group">
-             
-             <!-- Floating Badge -->
-             <div class="absolute -top-10 -right-10 glass-white p-6 rounded-[2.5rem] z-30 shadow-2xl flex flex-col items-center gap-2 animate-float">
-                <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-white shadow-lg">
-                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-                </div>
-                <span class="text-[0.65rem] font-bold tracking-widest text-neutral-900 uppercase">Top Institution</span>
-             </div>
-
-             <div class="w-full h-full rounded-[3rem] overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Healers" class="w-full h-full object-cover group-hover:scale-105 transition duration-[5s] shadow-inner">
-                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent"></div>
-             </div>
-             
-             <!-- Admissions Floating Card -->
-             <div class="absolute bottom-10 left-[-15%] xl:left-[-25%] glass-dark p-8 rounded-[2.5rem] w-[80%] z-20 group-hover:translate-x-4 transition-transform duration-700 shadow-2xl border-l-4 border-l-brand-primary">
-                <h4 class="text-white font-black uppercase tracking-widest mb-2 text-xl italic">Join Us</h4>
-                <p class="text-gray-300 text-sm font-medium leading-loose">Admissions are officially open for <span class="text-white font-bold">2025-26</span> academic cycle.</p>
-                <div class="mt-6 h-1 w-20 bg-brand-primary rounded-full"></div>
-             </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 2. ABOUT COLLEGE -->
-    <section class="mb-56 relative group">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-        <!-- Video Container -->
-        <div class="relative w-full aspect-[4/3] rounded-[3.5rem] overflow-hidden bg-white shadow-2xl border border-gray-100 flex items-center justify-center group cursor-pointer transition-transform duration-700 hover:scale-[1.02]">
-          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Campus Video" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition duration-1000">
-          <div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition duration-500"></div>
-          <div class="relative w-24 h-24 rounded-full bg-white/95 flex items-center justify-center group-hover:scale-110 transition duration-500 shadow-2xl border-4 border-white">
-            <svg class="w-10 h-10 text-brand-primary ml-1.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            <div class="absolute inset-[-10%] rounded-full border-2 border-brand-primary/20 animate-ping opacity-0 group-hover:opacity-100"></div>
-          </div>
-        </div>
-        
+        <!-- ABOUT TEXT -->
         <div class="flex flex-col">
-          <h3 class="text-xs font-black tracking-[0.4em] uppercase text-brand-primary mb-10 flex items-center gap-6">
-             <span class="w-16 h-px bg-brand-primary"></span>
-             Advanced Excellence
+          <h3 class="text-[0.6rem] font-black tracking-[0.4em] uppercase text-brand-primary mb-6 flex items-center gap-4">
+             <span class="w-12 h-px bg-brand-primary"></span>
+             Academic Profile
           </h3>
-          <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.88] text-neutral-900 mb-12">
-            The Benchmark of <br/><span class="text-brand-primary italic">Practical</span> Healing.
+          <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-tight text-neutral-900 mb-8 italic">
+            Nalapad <span class="not-italic text-brand-primary">Nursing Education</span>
           </h2>
-          <div class="space-y-10 text-gray-500 font-medium text-lg leading-relaxed max-w-xl border-l-4 border-gray-100 pl-8">
-            <p>Our curriculum is not just about theory; it is a meticulously crafted clinical path that prepares you for the high-intensity environments of modern medicine.</p>
+          <p class="text-lg text-gray-500 font-medium leading-relaxed max-w-xl pb-8 border-b border-gray-100">
+            Welcome to Nalapad GNM & B.Sc Nursing. We bridge the gap between rigorous academia and real-world clinical compassion in Bangalore's heartbeat.
+          </p>
+          <div class="mt-8">
+            <a routerLink="/admissions" class="text-xs font-black uppercase tracking-[0.3em] text-neutral-900 border-b border-neutral-900 pb-1 hover:text-brand-primary hover:border-brand-primary transition">Enrollment Policy</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. VIGNETTE TIMELINE -->
-    <section class="mb-56 relative">
-      <div class="w-full mb-24 text-center">
-        <h3 class="text-xs font-black tracking-[0.4em] uppercase text-gray-400 mb-6">Life & Vignettes</h3>
-        <h2 class="text-6xl md:text-[5rem] font-black uppercase tracking-tighter text-neutral-900">
-          Campus <span class="text-brand-primary italic">Vibe.</span>
+    <!-- SECTION 3: EVENT SECTION (VIGNETTE - 4 SMALL CARDS) -->
+    <section class="mb-40 pt-10">
+      <div class="w-full mb-20 text-center">
+        <h3 class="text-[0.6rem] font-black tracking-[0.4em] uppercase text-gray-400 mb-4">The Campus Hub</h3>
+        <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-neutral-900 italic">
+          Campus <span class="not-italic text-brand-primary">Vignettes.</span>
         </h2>
       </div>
       
-      <div class="relative w-full overflow-x-auto pb-14 no-scrollbar touch-pan-x cursor-grab active:cursor-grabbing">
-        <div class="w-max px-12 flex items-center gap-16 min-h-[550px] relative">
-          
-          <div class="absolute top-[50%] left-0 right-0 h-0.5 bg-gray-200 -translate-y-1/2 z-0 opacity-40"></div>
-          
-          <!-- Events Staggered -->
-          <a routerLink="/gallery" class="relative z-10 group block shrink-0 translate-y-[-12%]">
-            <div class="w-72 md:w-96 h-[450px] bg-white rounded-[4rem] shadow-2xl border-4 border-white hover:border-brand-primary transition-all duration-700 overflow-hidden relative group-hover:scale-[1.03]">
-              <img src="https://images.unsplash.com/photo-1543326127-185675c2e35b?auto=format&fit=crop&w=600&q=80" alt="Football" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-[2.5s]">
-              <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent"></div>
-              <div class="absolute bottom-12 left-10 text-left">
-                <h4 class="text-white font-black uppercase tracking-widest text-3xl">Football</h4>
-                <p class="text-[#ffc107] font-bold text-xs uppercase tracking-[0.2em] mt-3">Campus Sports</p>
-              </div>
-            </div>
-          </a>
-          <!-- More events would be here -->
+      <!-- 4 CARDS VISIBLE AS PER REQUEST -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1 -->
+        <a routerLink="/gallery" class="group relative h-[380px] rounded-[3rem] overflow-hidden shadow-lg border-2 border-transparent transition hover:border-brand-primary">
+           <img src="https://images.unsplash.com/photo-1543326127-185675c2e35b?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+           <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
+              <h4 class="text-white font-black uppercase tracking-widest text-lg">Football</h4>
+              <p class="text-brand-secondary text-[0.6rem] font-bold uppercase tracking-widest">Outdoor Life</p>
+           </div>
+        </a>
+        <!-- Card 2 -->
+        <a routerLink="/gallery" class="group relative h-[380px] rounded-[3rem] overflow-hidden shadow-lg border-2 border-transparent transition hover:border-emerald-500">
+           <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+           <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
+              <h4 class="text-white font-black uppercase tracking-widest text-lg">Arts Fest</h4>
+              <p class="text-emerald-400 text-[0.6rem] font-bold uppercase tracking-widest">Cultural Hub</p>
+           </div>
+        </a>
+        <!-- Card 3 -->
+        <a routerLink="/gallery" class="group relative h-[380px] rounded-[3rem] overflow-hidden shadow-lg border-2 border-transparent transition hover:border-blue-500">
+           <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+           <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
+              <h4 class="text-white font-black uppercase tracking-widest text-lg">Graduation</h4>
+              <p class="text-blue-400 text-[0.6rem] font-bold uppercase tracking-widest">The Victory</p>
+           </div>
+        </a>
+        <!-- Card 4 -->
+        <a routerLink="/gallery" class="group relative h-[380px] rounded-[3rem] overflow-hidden shadow-lg border-2 border-transparent transition hover:border-purple-500">
+           <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+           <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
+              <h4 class="text-white font-black uppercase tracking-widest text-lg">Clinical</h4>
+              <p class="text-purple-400 text-[0.6rem] font-bold uppercase tracking-widest">Practical Mastery</p>
+           </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION 4: OUTCOMES FOCUSED (PLACEMENTS - NEAT & CLEAN VERSION) -->
+    <section class="mb-48 border-t border-gray-100 pt-24">
+      <div class="w-full text-center mb-16 px-4">
+        <h3 class="text-[0.6rem] font-black tracking-[0.4em] uppercase text-gray-400 mb-4">The Result Core</h3>
+        <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-neutral-900 leading-tight">
+          Global <span class="italic text-brand-primary">Outcomes.</span>
+        </h2>
+      </div>
+      
+      <!-- Minimalist Logo Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-4 mb-20">
+        <div class="p-8 border border-gray-100 rounded-[2rem] hover:bg-gray-50 transition flex items-center justify-center grayscale hover:grayscale-0">
+           <span class="text-2xl font-black uppercase tracking-tighter text-gray-300">Apollo</span>
+        </div>
+        <div class="p-8 border border-gray-100 rounded-[2rem] hover:bg-gray-50 transition flex items-center justify-center grayscale hover:grayscale-0">
+           <span class="text-2xl font-black uppercase tracking-tighter text-gray-300">Fortis</span>
+        </div>
+        <div class="p-8 border border-gray-100 rounded-[2rem] hover:bg-gray-50 transition flex items-center justify-center grayscale hover:grayscale-0">
+           <span class="text-2xl font-black uppercase tracking-tighter text-gray-300">Aster CMI</span>
+        </div>
+        <div class="p-8 border border-gray-100 rounded-[2rem] hover:bg-gray-50 transition flex items-center justify-center grayscale hover:grayscale-0">
+           <span class="text-2xl font-black uppercase tracking-tighter text-gray-300">Manipal</span>
         </div>
       </div>
+      
+      <!-- Clean Student Gallery (Using local generated images) -->
+      <div class="grid grid-cols-3 md:grid-cols-6 gap-3 lg:max-w-5xl mx-auto px-4">
+         <!-- Row 1 -->
+         <img src="/st1.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition">
+         <img src="/st2.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition mt-6 md:mt-10">
+         <img src="/st3.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition">
+         <img src="/st4.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition mt-6 md:mt-10">
+         <img src="/st5.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition">
+         <img src="/st6.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition mt-6 md:mt-10">
+         
+         <!-- Row 2 (Repeated for neatness until more are added) -->
+         <img src="/st6.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition">
+         <img src="/st5.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition mt-6 md:mt-10">
+         <img src="/st4.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition">
+         <img src="/st3.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition mt-6 md:mt-10">
+         <img src="/st2.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition">
+         <img src="/st1.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition mt-6 md:mt-10">
+      </div>
+    </section>
+
+    <!-- SECTION 5: FOUNDER'S MESSAGE (Image Left, Quote Right - NEAT & CLEAN) -->
+    <section class="pb-40 relative group">
+       <div class="flex flex-col md:flex-row items-center border border-gray-100 rounded-[3.5rem] overflow-hidden bg-white shadow-lg relative min-h-[500px]">
+          <!-- FOUNDER IMAGE (Left) -->
+          <div class="w-full md:w-[40%] h-[400px] md:h-[650px] relative bg-neutral-100">
+             <img src="/founder.jpg" alt="Chairman" class="w-full h-full object-cover">
+          </div>
+          
+          <!-- MESSAGE (Right) -->
+          <div class="w-full md:w-[60%] p-10 lg:p-24 bg-white relative">
+             <h3 class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary mb-8 border-b-2 border-brand-primary/10 pb-4 w-max">Founder's Vision</h3>
+             
+             <p class="text-3xl lg:text-5xl font-light leading-[1] mb-12 text-neutral-900 tracking-[-0.03em]">
+               "Compassion is the soul of <span class="italic text-brand-primary">medicine.</span> We foster elite <span class="font-black text-brand-primary underline underline-offset-8">Healers.</span>"
+             </p>
+             
+             <div class="border-l-4 border-brand-primary pl-10 mt-10">
+                <h4 class="text-2xl font-black uppercase tracking-tighter text-neutral-900">N. A. Haris</h4>
+                <p class="text-[0.6rem] font-bold text-gray-400 uppercase tracking-[0.4em] mt-2">Founder & Chairman, Nalapad Group</p>
+             </div>
+          </div>
+       </div>
     </section>
 
   </div>

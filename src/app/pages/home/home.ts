@@ -14,21 +14,21 @@ export class Home implements OnInit, OnDestroy {
 
   slides = [
     {
-      image: '/nursing_college_slide_1_1774326987946.png',
+      image: '/slide1.png',
       title: 'World-Class Nursing Education',
       subtitle: 'INC & KNC Approved Programs',
       cta: 'Explore Courses',
       link: '/departments'
     },
     {
-      image: '/nursing_college_slide_2_1774327008717.png',
+      image: '/slide2.png',
       title: 'Shaping Future Healthcare Leaders',
       subtitle: 'Join a Community of Healers',
       cta: 'Apply Online',
       link: '/admissions'
     },
     {
-      image: '/nursing_college_slide_3_1774327026559.png',
+      image: '/slide3.png',
       title: 'Advanced Clinical Simulation',
       subtitle: 'Hands-on Training in Modern Labs',
       cta: 'View Facilities',
