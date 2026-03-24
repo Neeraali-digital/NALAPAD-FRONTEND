@@ -90,53 +90,74 @@
     </section>
 
     <!-- SECTION 3: EVENT SECTION (VIGNETTE - 4 SMALL CARDS) -->
-    <section class="mb-40 pt-10">
+    <section class="relative mb-40 pt-10 overflow-hidden">
       <div class="w-full mb-20 text-center">
         <h3 class="text-[0.6rem] font-black tracking-[0.4em] uppercase text-gray-400 mb-4">The Campus Hub</h3>
         <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-neutral-900 italic">
           Campus <span class="not-italic text-brand-primary">Vignettes.</span>
         </h2>
       </div>
+      <!-- POLISHED INTERACTIVE TIMELINE (THE CAMPUS HUB) -->
+      <div class="relative w-full overflow-hidden py-10 mb-20">
+        <!-- Visual Axis -->
+        <div class="absolute top-1/2 left-0 right-0 h-px bg-gray-200 -translate-y-1/2 z-0"></div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative z-10 px-4">
+          <!-- Event Node 1 -->
+          <div class="group relative flex flex-col items-center">
+            <div class="mb-8 p-4 bg-white rounded-3xl border border-gray-100 shadow-xl group-hover:-translate-y-4 transition duration-500 w-full max-w-[220px]">
+              <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=400&q=80" class="w-full h-32 object-cover rounded-2xl mb-4">
+              <h4 class="text-sm font-black uppercase text-neutral-900 leading-none">Football</h4>
+              <p class="text-[0.6rem] font-bold text-gray-400 mt-2">Campus Sports Meet</p>
+            </div>
+            <div class="w-4 h-4 rounded-full border-4 border-white bg-brand-primary shadow-lg group-hover:scale-150 transition duration-500"></div>
+          </div>
+
+          <!-- Event Node 2 -->
+          <div class="group relative flex flex-col items-center md:flex-col-reverse">
+            <div class="mt-8 md:mb-0 md:mt-8 p-4 bg-white rounded-3xl border border-gray-100 shadow-xl group-hover:translate-y-4 transition duration-500 w-full max-w-[220px]">
+              <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=400" class="w-full h-32 object-cover rounded-2xl mb-4">
+              <h4 class="text-sm font-black uppercase text-neutral-900 leading-none">Arts Fest</h4>
+              <p class="text-[0.6rem] font-bold text-gray-400 mt-2">Cultural Showcase</p>
+            </div>
+            <div class="w-4 h-4 rounded-full border-4 border-white bg-emerald-500 shadow-lg group-hover:scale-150 transition duration-500"></div>
+          </div>
+
+          <!-- Event Node 3 -->
+          <div class="group relative flex flex-col items-center">
+            <div class="mb-8 p-4 bg-white rounded-3xl border border-gray-100 shadow-xl group-hover:-translate-y-4 transition duration-500 w-full max-w-[220px]">
+              <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=400" class="w-full h-32 object-cover rounded-2xl mb-4">
+              <h4 class="text-sm font-black uppercase text-neutral-900 leading-none">Graduation</h4>
+              <p class="text-[0.6rem] font-bold text-gray-400 mt-2">Success & Honor</p>
+            </div>
+            <div class="w-4 h-4 rounded-full border-4 border-white bg-blue-500 shadow-lg group-hover:scale-150 transition duration-500"></div>
+          </div>
+
+          <!-- Event Node 4 -->
+          <div class="group relative flex flex-col items-center md:flex-col-reverse">
+            <div class="mt-8 md:mb-0 md:mt-8 p-4 bg-white rounded-3xl border border-gray-100 shadow-xl group-hover:translate-y-4 transition duration-500 w-full max-w-[220px]">
+              <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&w=400" class="w-full h-32 object-cover rounded-2xl mb-4">
+              <h4 class="text-sm font-black uppercase text-neutral-900 leading-none">Clinics</h4>
+              <p class="text-[0.6rem] font-bold text-gray-400 mt-2">Hands-on Mastery</p>
+            </div>
+            <div class="w-4 h-4 rounded-full border-4 border-white bg-purple-500 shadow-lg group-hover:scale-150 transition duration-500"></div>
+          </div>
+        </div>
+      </div>
       
-      <!-- 4 CARDS VISIBLE AS PER REQUEST -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Card 1 -->
-        <a routerLink="/gallery" class="group relative h-[380px] rounded-[3rem] overflow-hidden shadow-lg border-2 border-transparent transition hover:border-brand-primary">
-           <img src="https://images.unsplash.com/photo-1543326127-185675c2e35b?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-           <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
-              <h4 class="text-white font-black uppercase tracking-widest text-lg">Football</h4>
-              <p class="text-brand-secondary text-[0.6rem] font-bold uppercase tracking-widest">Outdoor Life</p>
-           </div>
-        </a>
-        <!-- Card 2 -->
-        <a routerLink="/gallery" class="group relative h-[380px] rounded-[3rem] overflow-hidden shadow-lg border-2 border-transparent transition hover:border-emerald-500">
-           <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-           <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
-              <h4 class="text-white font-black uppercase tracking-widest text-lg">Arts Fest</h4>
-              <p class="text-emerald-400 text-[0.6rem] font-bold uppercase tracking-widest">Cultural Hub</p>
-           </div>
-        </a>
-        <!-- Card 3 -->
-        <a routerLink="/gallery" class="group relative h-[380px] rounded-[3rem] overflow-hidden shadow-lg border-2 border-transparent transition hover:border-blue-500">
-           <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-           <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
-              <h4 class="text-white font-black uppercase tracking-widest text-lg">Graduation</h4>
-              <p class="text-blue-400 text-[0.6rem] font-bold uppercase tracking-widest">The Victory</p>
-           </div>
-        </a>
-        <!-- Card 4 -->
-        <a routerLink="/gallery" class="group relative h-[380px] rounded-[3rem] overflow-hidden shadow-lg border-2 border-transparent transition hover:border-purple-500">
-           <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&w=400" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-           <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
-              <h4 class="text-white font-black uppercase tracking-widest text-lg">Clinical</h4>
-              <p class="text-purple-400 text-[0.6rem] font-bold uppercase tracking-widest">Practical Mastery</p>
-           </div>
-        </a>
+      <!-- ANIMATED BRAND RED WAVE TRANSITION -->
+      <div class="absolute bottom-[-2px] left-0 right-0 overflow-hidden h-32 pointer-events-none z-10 select-none">
+        <svg fill="#8b0000" class="absolute bottom-0 w-[200%] h-full opacity-60 animate-wave-reverse" viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <path d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+        <svg fill="#8b0000" class="absolute bottom-0 w-[200%] h-full opacity-100 animate-wave" viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <path d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,149.3C672,149,768,203,864,197.3C960,192,1056,128,1152,117.3C1248,107,1344,149,1392,170.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
       </div>
     </section>
 
     <!-- SECTION 4: OUTCOMES FOCUSED (PLACEMENTS - NEAT & CLEAN VERSION) -->
-    <section class="mb-48 border-t border-gray-100 pt-24">
+    <section class="mb-48 bg-neutral-50 pt-32 pb-24 -mt-1 relative z-10">
       <div class="w-full text-center mb-16 px-4">
         <h3 class="text-[0.6rem] font-black tracking-[0.4em] uppercase text-gray-400 mb-4">The Result Core</h3>
         <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-neutral-900 leading-tight">
