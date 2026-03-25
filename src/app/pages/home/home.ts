@@ -13,19 +13,20 @@ export class Home implements OnInit, OnDestroy {
   private slideInterval: any;
 
   slides = [
+      {
+      image: '/slide2.png',
+      title: 'Shaping Future Healthcare Leaders',
+      subtitle: 'Join a Community of Healers',
+      cta: 'Apply Online',
+      link: '/admissions'
+    },
+    
     {
       image: '/slide1.png',
       title: 'World-Class Nursing Education',
       subtitle: 'INC & KNC Approved Programs',
       cta: 'Explore Courses',
       link: '/departments'
-    },
-    {
-      image: '/slide2.png',
-      title: 'Shaping Future Healthcare Leaders',
-      subtitle: 'Join a Community of Healers',
-      cta: 'Apply Online',
-      link: '/admissions'
     },
     {
       image: '/slide3.png',

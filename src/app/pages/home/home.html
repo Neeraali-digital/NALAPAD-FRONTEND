@@ -16,7 +16,7 @@
          [class.z-10]="activeSlide === i">
       
       <!-- Slide Image (No Overlay/Blinking/Filters) -->
-      <div class="absolute inset-0">
+      <div class="absolute inset-0 skeleton">
         <img [src]="slide.image" [alt]="slide.title" class="w-full h-full object-cover">
       </div>
 
@@ -62,7 +62,7 @@
     <section class="py-32 relative">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <!-- VIDEO PANEL -->
-        <div class="relative aspect-video rounded-[2.5rem] overflow-hidden bg-neutral-100 shadow-xl group border-4 border-white">
+        <div class="relative aspect-video rounded-[2.5rem] overflow-hidden bg-neutral-100 shadow-xl group border-4 border-white skeleton">
           <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition"></div>
           <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/95 rounded-full flex items-center justify-center text-brand-primary shadow-xl cursor-not-allowed">
@@ -106,7 +106,9 @@
           <!-- Event Node 1 -->
           <div class="group relative flex flex-col items-center">
             <div class="mb-8 p-4 bg-white rounded-3xl border border-gray-100 shadow-xl group-hover:-translate-y-4 transition duration-500 w-full max-w-[220px]">
-              <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=400&q=80" class="w-full h-32 object-cover rounded-2xl mb-4">
+              <div class="w-full h-32 rounded-2xl mb-4 skeleton overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=400" class="w-full h-full object-cover rounded-2xl">
+              </div>
               <h4 class="text-sm font-black uppercase text-neutral-900 leading-none">Football</h4>
               <p class="text-[0.6rem] font-bold text-gray-400 mt-2">Campus Sports Meet</p>
             </div>
@@ -116,7 +118,9 @@
           <!-- Event Node 2 -->
           <div class="group relative flex flex-col items-center md:flex-col-reverse">
             <div class="mt-8 md:mb-0 md:mt-8 p-4 bg-white rounded-3xl border border-gray-100 shadow-xl group-hover:translate-y-4 transition duration-500 w-full max-w-[220px]">
-              <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=400" class="w-full h-32 object-cover rounded-2xl mb-4">
+              <div class="w-full h-32 rounded-2xl mb-4 skeleton overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=400" class="w-full h-full object-cover rounded-2xl">
+              </div>
               <h4 class="text-sm font-black uppercase text-neutral-900 leading-none">Arts Fest</h4>
               <p class="text-[0.6rem] font-bold text-gray-400 mt-2">Cultural Showcase</p>
             </div>
@@ -126,7 +130,9 @@
           <!-- Event Node 3 -->
           <div class="group relative flex flex-col items-center">
             <div class="mb-8 p-4 bg-white rounded-3xl border border-gray-100 shadow-xl group-hover:-translate-y-4 transition duration-500 w-full max-w-[220px]">
-              <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=400" class="w-full h-32 object-cover rounded-2xl mb-4">
+              <div class="w-full h-32 rounded-2xl mb-4 skeleton overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=400" class="w-full h-full object-cover rounded-2xl">
+              </div>
               <h4 class="text-sm font-black uppercase text-neutral-900 leading-none">Graduation</h4>
               <p class="text-[0.6rem] font-bold text-gray-400 mt-2">Success & Honor</p>
             </div>
@@ -136,7 +142,9 @@
           <!-- Event Node 4 -->
           <div class="group relative flex flex-col items-center md:flex-col-reverse">
             <div class="mt-8 md:mb-0 md:mt-8 p-4 bg-white rounded-3xl border border-gray-100 shadow-xl group-hover:translate-y-4 transition duration-500 w-full max-w-[220px]">
-              <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&w=400" class="w-full h-32 object-cover rounded-2xl mb-4">
+              <div class="w-full h-32 rounded-2xl mb-4 skeleton overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&w=400" class="w-full h-full object-cover rounded-2xl">
+              </div>
               <h4 class="text-sm font-black uppercase text-neutral-900 leading-none">Clinics</h4>
               <p class="text-[0.6rem] font-bold text-gray-400 mt-2">Hands-on Mastery</p>
             </div>
@@ -184,12 +192,12 @@
       <!-- Clean Student Gallery (Using local generated images) -->
       <div class="grid grid-cols-3 md:grid-cols-6 gap-3 lg:max-w-5xl mx-auto px-4">
          <!-- Row 1 -->
-         <img src="/st1.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition">
-         <img src="/st2.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition mt-6 md:mt-10">
-         <img src="/st3.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition">
-         <img src="/st4.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition mt-6 md:mt-10">
-         <img src="/st5.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition">
-         <img src="/st6.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition mt-6 md:mt-10">
+         <div class="w-full aspect-square rounded-2xl skeleton overflow-hidden"><img src="/st1.png" class="w-full h-full object-cover hover:translate-y-[-4px] transition"></div>
+         <div class="w-full aspect-square rounded-2xl skeleton overflow-hidden mt-6 md:mt-10"><img src="/st2.png" class="w-full h-full object-cover hover:translate-y-[-4px] transition"></div>
+         <div class="w-full aspect-square rounded-2xl skeleton overflow-hidden"><img src="/st3.png" class="w-full h-full object-cover hover:translate-y-[-4px] transition"></div>
+         <div class="w-full aspect-square rounded-2xl skeleton overflow-hidden mt-6 md:mt-10"><img src="/st4.png" class="w-full h-full object-cover hover:translate-y-[-4px] transition"></div>
+         <div class="w-full aspect-square rounded-2xl skeleton overflow-hidden"><img src="/st5.png" class="w-full h-full object-cover hover:translate-y-[-4px] transition"></div>
+         <div class="w-full aspect-square rounded-2xl skeleton overflow-hidden mt-6 md:mt-10"><img src="/st6.png" class="w-full h-full object-cover hover:translate-y-[-4px] transition"></div>
          
          <!-- Row 2 -->
          <img src="/st6.png" class="w-full aspect-square object-cover rounded-2xl shadow-sm hover:translate-y-[-4px] transition">
@@ -213,7 +221,7 @@
     <section class="pb-40 relative group">
        <div class="flex flex-col md:flex-row items-center border border-gray-100 rounded-[3.5rem] overflow-hidden bg-white shadow-lg relative min-h-[500px]">
           <!-- FOUNDER IMAGE (Left) -->
-          <div class="w-full md:w-[40%] h-[400px] md:h-[650px] relative bg-neutral-100">
+          <div class="w-full md:w-[40%] h-[400px] md:h-[650px] relative bg-neutral-100 skeleton">
              <img src="/founder.jpg" alt="Chairman" class="w-full h-full object-cover">
           </div>
           
