@@ -48,10 +48,42 @@
 
     <!-- Mobile Button -->
     <div class="flex items-center gap-4 lg:hidden ml-auto">
-      <button class="p-2 text-gray-800 focus:outline-none bg-gray-100 rounded-full">
-        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+      <button (click)="toggleMenu()" class="p-2 text-gray-800 focus:outline-none bg-gray-100 rounded-full transition-all hover:bg-red-50 hover:text-brand-primary">
+        <svg *ngIf="!isMenuOpen" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+        <svg *ngIf="isMenuOpen" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
     </div>
-    
   </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div *ngIf="isMenuOpen" class="lg:hidden fixed inset-0 z-[-1] pt-24 px-4 pb-10 bg-white animate-slide-down pointer-events-auto overflow-y-auto">
+    <div class="flex flex-col gap-4 max-w-lg mx-auto">
+      <!-- Mobile Logo -->
+      <!-- <div class="flex justify-center mb-8">
+        <img src="/logo.png" alt="Nalapad Logo" class="h-20 w-auto object-contain">
+      </div> -->
+
+      <a routerLink="/" (click)="closeMenu()" routerLinkActive="bg-brand-primary text-white" [routerLinkActiveOptions]="{exact: true}" class="px-6 py-4 rounded-3xl text-sm font-bold tracking-[0.1em] uppercase text-gray-700 bg-gray-50 flex items-center justify-center transition-all">Home</a>
+      
+      <a routerLink="/gallery" (click)="closeMenu()" routerLinkActive="bg-brand-primary text-white" class="px-6 py-4 rounded-3xl text-sm font-bold tracking-[0.1em] uppercase text-gray-700 bg-gray-50 flex items-center justify-center transition-all">Gallery</a>
+      
+      <a routerLink="/facilities" (click)="closeMenu()" routerLinkActive="bg-brand-primary text-white" class="px-6 py-4 rounded-3xl text-sm font-bold tracking-[0.1em] uppercase text-gray-700 bg-gray-50 flex items-center justify-center transition-all">Facilities</a>
+      
+      <div class="p-4 bg-gray-50 rounded-3xl flex flex-col gap-2">
+        <span class="text-[0.65rem] font-black uppercase tracking-[0.2em] text-brand-primary mb-2 text-center">Departments</span>
+        <a routerLink="/departments" (click)="closeMenu()" class="block text-center py-2 text-gray-700 font-bold uppercase text-[0.7rem] tracking-widest">B.Sc Nursing</a>
+        <a routerLink="/departments" (click)="closeMenu()" class="block text-center py-2 text-gray-700 font-bold uppercase text-[0.7rem] tracking-widest">GNM</a>
+      </div>
+
+      <div class="p-4 bg-gray-50 rounded-3xl flex flex-col gap-2">
+        <span class="text-[0.65rem] font-black uppercase tracking-[0.2em] text-brand-primary mb-2 text-center">Admissions</span>
+        <a routerLink="/admissions" (click)="closeMenu()" class="block text-center py-2 text-gray-700 font-bold uppercase text-[0.7rem] tracking-widest">Domestic</a>
+        <a routerLink="/admissions" (click)="closeMenu()" class="block text-center py-2 text-gray-700 font-bold uppercase text-[0.7rem] tracking-widest">International</a>
+        <a routerLink="/admissions" (click)="closeMenu()" class="block text-center py-2 text-gray-700 font-bold uppercase text-[0.7rem] tracking-widest">Scholarship</a>
+      </div>
+      
+      <a routerLink="/contact" (click)="closeMenu()" routerLinkActive="bg-brand-primary text-white" class="px-6 py-4 rounded-3xl text-sm font-bold tracking-[0.1em] uppercase text-gray-700 bg-gray-50 flex items-center justify-center transition-all">Contact</a>
+    </div>
+  </div>
 </header>
+
