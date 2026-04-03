@@ -119,3 +119,16 @@ html {
   animation: skeleton-pulse 1.5s ease-in-out infinite;
   @apply rounded-xl;
 }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-twinkle-delayed {
+  animation: twinkle 4s ease-in-out 1.5s infinite;
+}
