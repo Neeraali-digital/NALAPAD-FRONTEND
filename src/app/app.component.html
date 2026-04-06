@@ -7,12 +7,12 @@
 </div>
 
 <!-- 2026 PREMIUM FLOATING SYSTEM -->
-<div class="fixed bottom-8 right-8 z-[100] flex flex-col items-end gap-6">
+<div class="fixed bottom-8 right-8 z-[100] flex flex-col items-end gap-6 sm:right-12">
     
     <!-- WHATSAPP CALL TO ACTION -->
     <div class="flex items-center group">
         <!-- Text Label (Now static for cleaner look) -->
-        <div class="mr-3 bg-[#f8f9fa]/95 backdrop-blur-xl px-5 py-2.5 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-white/80 pointer-events-auto">
+        <div class="mr-3 bg-[#f8f9fa]/95 backdrop-blur-xl px-6 py-3 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-white/80 pointer-events-auto">
             <p class="text-[0.75rem] font-medium text-[#4b4e52] whitespace-nowrap">
                 Need Help? <span class="font-bold text-[#1d1d1f]">Chat with us</span>
             </p>
@@ -32,10 +32,11 @@
         </a>
     </div>
 
-    <!-- SCROLL TO TOP BUTTON (BRAND COLORS) -->
-    <button (click)="scrollToTop()" 
-            class="px-4 py-4 bg-brand-primary text-white rounded-xl shadow-[0_10px_25px_rgba(139,0,0,0.3)] hover:bg-brand-primary/90 hover:shadow-[0_15px_30px_rgba(139,0,0,0.4)] hover:scale-105 transition-all duration-300 pointer-events-auto">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <!-- SCROLL TO TOP BUTTON (DYNAMIC ACCESSIBILITY - ONLY SHOWN ON SCROLL STOP) -->
+    <button *ngIf="isScrollStopped()" 
+            (click)="scrollToTop()" 
+            class="w-12 h-12 bg-brand-primary text-white rounded-xl shadow-[0_10px_25px_rgba(139,0,0,0.3)] hover:bg-brand-primary/90 hover:shadow-[0_15px_30px_rgba(139,0,0,0.4)] hover:scale-110 transition-all duration-300 pointer-events-auto flex items-center justify-center animate-whatsapp-pulse">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7"/>
         </svg>
     </button>
