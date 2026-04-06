@@ -43,7 +43,6 @@ export class Home implements OnInit, OnDestroy {
   // (Rest of the data remains same...)
   certifications = [
     { name: 'Govt of Karnataka', image: '/certifications/Govt of Karnataka.png' },
-    { name: 'KA State Council', image: '/certifications/KA State Council.png' },
     { name: 'RGUHS University', image: '/certifications/RGUHS University.png' },
     { name: 'INC Approved', image: '/certifications/INC Approved.png' },
     { name: 'KNC Recognized', image: '/certifications/KNC Recognized.png' }
@@ -60,18 +59,6 @@ export class Home implements OnInit, OnDestroy {
       name: 'GNM Nursing', 
       image: '/courses/GNM Nursing.jpg',
       duration: '3 Years', 
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.' 
-    },
-    { 
-      name: 'Post Basic B.Sc', 
-      image: '/courses/Post Basic B.Sc.jpg',
-      duration: '2 Years', 
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.' 
-    },
-    { 
-      name: 'M.Sc Nursing', 
-      image: '/courses/M.Sc Nursing.jpg',
-      duration: '2 Years', 
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.' 
     }
   ];

@@ -12,6 +12,8 @@ export const routes: Routes = [
   { path: 'gallery', component: Gallery },
   { path: 'facilities', component: Facilities },
   { path: 'departments', component: Departments },
+  { path: 'departments/bsc-nursing', loadComponent: () => import('./pages/departments/bsc-nursing/bsc-nursing').then(m => m.BscNursing) },
+  { path: 'departments/gnm', loadComponent: () => import('./pages/departments/gnm/gnm').then(m => m.Gnm) },
   { path: 'admissions', component: Admissions },
   { path: 'contact', component: Contact },
   { path: '**', redirectTo: '' }

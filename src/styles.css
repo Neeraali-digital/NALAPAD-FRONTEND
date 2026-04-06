@@ -132,3 +132,26 @@ html {
 .animate-twinkle-delayed {
   animation: twinkle 4s ease-in-out 1.5s infinite;
 }
+
+@keyframes whatsapp-ripple {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 0.3; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+@keyframes whatsapp-pulse-icon {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.animate-whatsapp-ripple {
+  animation: whatsapp-ripple 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-whatsapp-pulse {
+  animation: whatsapp-pulse-icon 2s ease-in-out infinite;
+}
+
+.animate-whatsapp-ripple-slow {
+  animation: whatsapp-ripple 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

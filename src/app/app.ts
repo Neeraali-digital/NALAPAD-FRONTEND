@@ -10,4 +10,8 @@ import { Footer } from './components/footer/footer';
 })
 export class App {
   protected readonly title = signal('nalapad-site');
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
