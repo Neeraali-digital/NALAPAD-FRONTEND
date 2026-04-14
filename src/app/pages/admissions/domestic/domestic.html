@@ -1,0 +1,87 @@
+<main class="relative bg-white pt-32 pb-20 overflow-hidden font-sans">
+  <!-- Background Elements -->
+  <div class="fixed inset-0 pointer-events-none z-0">
+    <div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-50/50 rounded-full blur-[100px] animate-float opacity-70"></div>
+    <div class="absolute bottom-[20%] left-[-10%] w-[40%] h-[40%] bg-red-50/50 rounded-[100%] blur-[120px] animate-float-delayed opacity-50"></div>
+  </div>
+
+  <div class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Hero Section -->
+    <div class="text-center mb-24 max-w-4xl mx-auto">
+      <div class="inline-flex items-center gap-3 bg-red-50 px-6 py-2 rounded-full border border-brand-primary/10 mb-6 shadow-sm">
+         <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span>
+         <span class="text-[0.65rem] font-bold tracking-[0.2em] uppercase text-brand-primary">Indian Students</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl lg:text-[6rem] font-black uppercase tracking-tighter leading-[0.9] text-neutral-900 mb-8">
+        Domestic <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-rose-500">Admissions</span>
+      </h1>
+      <p class="text-xl text-neutral-500 font-medium leading-relaxed">
+        Building the future of Indian healthcare. We offer a streamlined admission process for students across India, ensuring merit-based selection and comprehensive support.
+      </p>
+    </div>
+
+    <!-- Features Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-24">
+      <!-- Requirement Card -->
+      <div class="glass-card rounded-[2.5rem] p-10 bg-white/40 border border-white shadow-xl hover:shadow-2xl transition-all duration-500 group">
+        <div class="w-14 h-14 bg-red-50 text-brand-primary rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+        </div>
+        <h3 class="text-2xl font-black text-neutral-900 uppercase tracking-tight mb-4">Eligibility</h3>
+        <p class="text-neutral-500 font-medium mb-6">Open to students who have completed 10+2 with Physics, Chemistry, and Biology from recognized Indian boards.</p>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-2 text-sm text-neutral-600 font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> 45% Minimum Aggregate</li>
+          <li class="flex items-center gap-2 text-sm text-neutral-600 font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> Age: 17-35 years</li>
+          <li class="flex items-center gap-2 text-sm text-neutral-600 font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> NEET Not Mandatory</li>
+        </ul>
+      </div>
+
+      <!-- Process Card -->
+      <div class="glass-card rounded-[2.5rem] p-10 bg-neutral-900 border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-500 group text-white">
+        <div class="w-14 h-14 bg-white/10 text-white rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        </div>
+        <h3 class="text-2xl font-black text-white uppercase tracking-tight mb-4">Simple Steps</h3>
+        <p class="text-neutral-400 font-medium mb-6">Our 4-step process ensures you can focus on your studies while we handle the paperwork.</p>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-primary text-[10px] flex items-center justify-center font-bold">1</span>
+            <span class="text-sm font-bold text-neutral-200 uppercase tracking-widest">Submit Inquiry</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-neutral-700 text-[10px] flex items-center justify-center font-bold">2</span>
+            <span class="text-sm font-bold text-neutral-400 uppercase tracking-widest">Document Verification</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-neutral-700 text-[10px] flex items-center justify-center font-bold">3</span>
+            <span class="text-sm font-bold text-neutral-400 uppercase tracking-widest">Interview Rounds</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Support Card -->
+      <div class="glass-card rounded-[2.5rem] p-10 bg-white/40 border border-white shadow-xl hover:shadow-2xl transition-all duration-500 group">
+        <div class="w-14 h-14 bg-red-50 text-brand-primary rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+        </div>
+        <h3 class="text-2xl font-black text-neutral-900 uppercase tracking-tight mb-4">Assistance</h3>
+        <p class="text-neutral-500 font-medium mb-6">Dedicated counselors to help you choose the right path and manage financial documentation.</p>
+        <a routerLink="/contact" class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-brand-primary border-b-2 border-red-100 hover:border-brand-primary pb-1 transition-all">Talk to an expert</a>
+      </div>
+    </div>
+
+    <!-- Visual CTA -->
+    <div class="relative rounded-[3rem] overflow-hidden bg-brand-primary p-12 md:p-20 text-center">
+      <div class="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent"></div>
+      <div class="relative z-10 max-w-2xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-6">Start Your Journey Today</h2>
+        <p class="text-red-100 text-lg mb-10">Don't miss the 2025 intake. Seats are filling up fast for B.Sc Nursing and GNM courses.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a routerLink="/contact" class="px-10 py-5 bg-white text-brand-primary rounded-full text-sm font-black uppercase tracking-widest hover:bg-neutral-900 hover:text-white transition-all shadow-xl">Apply Online</a>
+          <a routerLink="/contact" class="px-10 py-5 bg-transparent border border-white/30 text-white rounded-full text-sm font-black uppercase tracking-widest hover:bg-white/10 transition-all">Download Prospectus</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

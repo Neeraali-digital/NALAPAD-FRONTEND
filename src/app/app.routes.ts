@@ -15,6 +15,10 @@ export const routes: Routes = [
   { path: 'departments/bsc-nursing', loadComponent: () => import('./pages/departments/bsc-nursing/bsc-nursing').then(m => m.BscNursing) },
   { path: 'departments/gnm', loadComponent: () => import('./pages/departments/gnm/gnm').then(m => m.Gnm) },
   { path: 'admissions', component: Admissions },
+  { path: 'admissions/domestic', loadComponent: () => import('./pages/admissions/domestic/domestic').then(m => m.Domestic) },
+  { path: 'admissions/international', loadComponent: () => import('./pages/admissions/international/international').then(m => m.International) },
+  { path: 'admissions/scholarship', loadComponent: () => import('./pages/admissions/scholarship/scholarship').then(m => m.Scholarship) },
+  { path: 'admissions/video-counselling', loadComponent: () => import('./pages/admissions/video-counselling/video-counselling').then(m => m.VideoCounselling) },
   { path: 'contact', component: Contact },
   { path: '**', redirectTo: '' }
 ];

@@ -36,10 +36,10 @@
           <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <div class="absolute top-12 left-0 mt-2 w-64 bg-white border border-gray-100 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform origin-top-left -translate-y-2 group-hover:translate-y-0 text-sm z-[1000]">
-          <a routerLink="/admissions" class="block px-6 py-4 text-gray-800 hover:bg-red-50 hover:text-brand-primary font-bold border-b border-gray-50 uppercase text-[0.65rem] tracking-widest">Domestic</a>
-          <a routerLink="/admissions" class="block px-6 py-4 text-gray-800 hover:bg-red-50 hover:text-brand-primary font-bold border-b border-gray-50 uppercase text-[0.65rem] tracking-widest">International</a>
-          <a routerLink="/admissions" class="block px-6 py-4 text-gray-800 hover:bg-red-50 hover:text-brand-primary font-bold border-b border-gray-50 uppercase text-[0.65rem] tracking-widest">Scholarship</a>
-          <a routerLink="/admissions" class="block px-6 py-4 text-gray-800 hover:bg-red-50 hover:text-brand-primary font-bold uppercase text-[0.65rem] tracking-widest">Video Counselling</a>
+          <a routerLink="/admissions/domestic" class="block px-6 py-4 text-gray-800 hover:bg-red-50 hover:text-brand-primary font-bold border-b border-gray-50 uppercase text-[0.65rem] tracking-widest">Domestic</a>
+          <a routerLink="/admissions/international" class="block px-6 py-4 text-gray-800 hover:bg-red-50 hover:text-brand-primary font-bold border-b border-gray-50 uppercase text-[0.65rem] tracking-widest">International</a>
+          <a routerLink="/admissions/scholarship" class="block px-6 py-4 text-gray-800 hover:bg-red-50 hover:text-brand-primary font-bold border-b border-gray-50 uppercase text-[0.65rem] tracking-widest">Scholarship</a>
+          <a routerLink="/admissions/video-counselling" class="block px-6 py-4 text-gray-800 hover:bg-red-50 hover:text-brand-primary font-bold uppercase text-[0.65rem] tracking-widest">Video Counselling</a>
         </div>
       </div>
       
@@ -80,9 +80,10 @@
 
       <div class="p-6 bg-gray-50 rounded-3xl flex flex-col gap-4 text-center">
         <span class="text-[0.65rem] font-black uppercase tracking-[0.2em] text-brand-primary">Admissions</span>
-        <a routerLink="/admissions" (click)="closeMenu()" class="block text-gray-700 font-bold uppercase text-[0.8rem] tracking-widest">Domestic</a>
-        <a routerLink="/admissions" (click)="closeMenu()" class="block text-gray-700 font-bold uppercase text-[0.8rem] tracking-widest">International</a>
-        <a routerLink="/admissions" (click)="closeMenu()" class="block text-gray-700 font-bold uppercase text-[0.8rem] tracking-widest">Scholarship</a>
+        <a routerLink="/admissions/domestic" (click)="closeMenu()" class="block text-gray-700 font-bold uppercase text-[0.8rem] tracking-widest">Domestic</a>
+        <a routerLink="/admissions/international" (click)="closeMenu()" class="block text-gray-700 font-bold uppercase text-[0.8rem] tracking-widest">International</a>
+        <a routerLink="/admissions/scholarship" (click)="closeMenu()" class="block text-gray-700 font-bold uppercase text-[0.8rem] tracking-widest">Scholarship</a>
+        <a routerLink="/admissions/video-counselling" (click)="closeMenu()" class="block text-gray-700 font-bold uppercase text-[0.8rem] tracking-widest">Video Counselling</a>
       </div>
       
       <a routerLink="/contact" (click)="closeMenu()" routerLinkActive="!bg-brand-primary !text-white" class="px-6 py-4 rounded-3xl text-sm font-bold tracking-[0.1em] uppercase text-gray-700 bg-gray-50 flex items-center justify-center transition-all">Contact</a>
