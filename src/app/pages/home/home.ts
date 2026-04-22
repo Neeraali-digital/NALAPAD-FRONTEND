@@ -15,25 +15,25 @@ export class Home implements OnInit, OnDestroy {
   // 1. ADVERTISING AREA (4 SIDES)
   slides = [
     {
-      image: '/banners/Best%20hospital%20Internal%20Medicine%20in%20Ranchi.jpg',
+      image: '/banners/WhatsApp Image 2026-04-22 at 07.40.45.jpeg',
       title: 'Excellence in Nursing Education',
       cta: 'Apply Now 2026',
       link: '/admissions'
     },
     {
-      image: '/banners/Gyógyszerek%20koronavírus-fertőzöttek%20kezelésére%20–%20Keserű%20György%20Miklós%20akadémikus%20összefoglalója.jpg',
+      image: '/banners/WhatsApp Image 2026-04-22 at 07.40.46.jpeg',
       title: 'Advanced Clinical Training',
       cta: 'Explore Programs',
       link: '/departments'
     },
     {
-      image: '/banners/Pharma%20Leaders%20%20_%20DEZIN.jpg',
+      image: '/banners/WhatsApp Image 2026-04-22 at 07.40.46 (1).jpeg',
       title: 'Shape Your Medical Career',
       cta: 'View Placements',
       link: '/facilities'
     },
     {
-      image: '/banners/Rule-based%20Expert%20Systems.jpg',
+      image: '/banners/Rule-based Expert Systems.jpg',
       title: 'World-Class Lab Facilities',
       cta: 'Take a Tour',
       link: '/contact'
