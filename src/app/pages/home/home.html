@@ -7,48 +7,56 @@
   </div>
 
   <!-- SECTION 1: ADVERTISING AREA (4-SIDE SLIDER) -->
-  <section id="advertising" class="relative w-full h-[60vh] lg:h-[90vh] overflow-hidden group z-10">
-    <div class="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out" 
+  <section id="advertising" class="relative w-full overflow-hidden group z-10 bg-neutral-900">
+    <!-- Invisible placeholder image to set container height to match image exactly (prevents edge cutting) -->
+    <picture class="invisible w-full h-auto block pointer-events-none">
+      <source media="(max-width: 768px)" [srcset]="slides[0].mobileImage">
+      <img [src]="slides[0].image" class="w-full h-auto block">
+    </picture>
+
+    <div class="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out cursor-pointer" 
          *ngFor="let slide of slides; let i = index"
+         [routerLink]="slide.link"
          [class.opacity-100]="activeSlide === i"
          [class.opacity-0]="activeSlide !== i"
          [class.z-10]="activeSlide === i">
       
-      <!-- Slide Image with Depth Effect -->
-      <div class="absolute inset-0 scale-105 transition-transform duration-[10000ms]"
-           [class.scale-100]="activeSlide === i">
-        <img [src]="slide.image" [alt]="slide.title" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+      <!-- Slide Image -->
+      <div class="absolute inset-0 transition-transform duration-[10000ms]">
+        <picture>
+          <source media="(max-width: 768px)" [srcset]="slide.mobileImage">
+          <img [src]="slide.image" [alt]="slide.titleTop" class="w-full h-full object-cover">
+        </picture>
       </div>
 
-      <!-- Slide Content -->
-      <div class="absolute inset-0 flex items-center justify-center text-center px-4">
-        <div class="max-w-5xl transform transition-all duration-1000 delay-300"
-             [class.translate-y-0]="activeSlide === i"
-             [class.translate-y-12]="activeSlide !== i"
-             [class.opacity-100]="activeSlide === i"
-             [class.opacity-0]="activeSlide !== i">
-          
-          <h1 class="text-white text-4xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-10 drop-shadow-2xl">
-            {{ slide.title }}
-          </h1>
-          
-          <div class="flex justify-center gap-6">
-            <a [routerLink]="slide.link" class="group px-10 py-4 bg-brand-primary text-white rounded-full font-black uppercase tracking-[0.2em] text-[0.7rem] shadow-2xl transition-all duration-500 hover:bg-white hover:text-brand-primary hover:scale-105 active:scale-95">
-               {{ slide.cta }}
-            </a>
-          </div>
-        </div>
+      <!-- Gradient Overlay matching Reference Image (Brand Primary gradient from bottom) -->
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-primary/95 via-brand-primary/40 to-transparent"></div>
+      
+      <!-- Bottom Content Area -->
+      <div class="absolute inset-x-0 bottom-0 pb-20 md:pb-24 lg:pb-32 px-4 sm:px-10 lg:px-16 flex flex-col items-center justify-end text-center z-20">
+         <h2 class="text-3xl sm:text-5xl md:text-7xl lg:text-[7rem] font-black text-white uppercase tracking-tighter leading-[0.9] mb-4 md:mb-8 drop-shadow-2xl">
+            {{ slide.titleTop }} <br>
+            <span class="font-normal normal-case tracking-normal">{{ slide.titleBottom }}</span>
+         </h2>
+         
+         <div class="grid md:grid-cols-2 gap-3 md:gap-16 max-w-6xl mx-auto text-left">
+            <p class="text-white text-[0.65rem] sm:text-sm md:text-lg font-medium leading-relaxed drop-shadow-md">
+               {{ slide.desc1 }}
+            </p>
+            <p class="text-white text-[0.65rem] sm:text-sm md:text-lg font-medium leading-relaxed drop-shadow-md">
+               {{ slide.desc2 }}
+            </p>
+         </div>
       </div>
     </div>
 
-    <!-- Navigation Dots (Side-shifted look) -->
-    <div class="absolute right-8 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-4">
+    <!-- Navigation Dots -->
+    <div class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4">
       <button *ngFor="let dot of slides; let i = index" 
-              (click)="goToSlide(i)"
+              (click)="goToSlide(i); $event.stopPropagation()"
               class="w-1.5 transition-all duration-700 rounded-full"
               [class.h-12]="activeSlide === i"
-              [class.bg-brand-primary]="activeSlide === i"
+              [class.bg-white]="activeSlide === i"
               [class.h-3]="activeSlide !== i"
               [class.bg-white/30]="activeSlide !== i">
       </button>

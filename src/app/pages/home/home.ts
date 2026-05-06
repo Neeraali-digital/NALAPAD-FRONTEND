@@ -12,31 +12,42 @@ export class Home implements OnInit, OnDestroy {
   activeSlide = 0;
   private slideInterval: any;
 
-  // 1. ADVERTISING AREA (4 SIDES)
   slides = [
     {
-      image: '/banners/WhatsApp Image 2026-04-22 at 07.40.45.jpeg',
-      title: 'Excellence in Nursing Education',
-      cta: 'Apply Now 2026',
+      image: '/banners/slide1-largerscreens.jpeg',
+      mobileImage: '/banners/slide1-moblie.jpeg',
+      titleTop: 'ADMISSIONS OPEN',
+      titleBottom: '2026-2027',
+      desc1: 'Join Nalapad College of Nursing for the academic year 2026-2027. We offer state-of-the-art facilities, expert faculty, and global standard education to shape the next generation of healthcare leaders.',
+      desc2: 'Secure your seat today and step into a world of clinical excellence. We provide 100% placement assistance across top international healthcare institutions and comprehensive practical training.',
       link: '/admissions'
     },
     {
-      image: '/banners/WhatsApp Image 2026-04-22 at 07.40.46.jpeg',
-      title: 'Advanced Clinical Training',
-      cta: 'Explore Programs',
+      image: '/banners/slide2-largerscreens.jpeg',
+      mobileImage: '/banners/slide2-mobile.jpeg',
+      titleTop: 'VIBRANT CAMPUS',
+      titleBottom: 'College Events',
+      desc1: 'Experience a dynamic and enriching college life at Nalapad. Our campus is alive with regular cultural, athletic, and academic events that foster holistic student development and leadership.',
+      desc2: 'From the annual Milan Cultural Ceremony to the Athletic Pinnacle, our events provide the perfect platform for students to showcase their talents, build lifelong memories, and connect with peers.',
+      link: '/gallery'
+    },
+    {
+      image: '/banners/slide3-largerscreens.jpeg',
+      mobileImage: '/banners/slide3-mobile.jpeg',
+      titleTop: 'ABOUT OUR',
+      titleBottom: 'Organization',
+      desc1: 'Nalapad Group of Institutions is committed to providing world-class education. Our foundation is built on the core values of integrity, discipline, and scholarly excellence to empower students.',
+      desc2: 'With decades of experience in shaping professionals, we are dedicated to creating a nurturing environment where innovation meets tradition for a better tomorrow in the healthcare industry.',
       link: '/departments'
     },
     {
-      image: '/banners/WhatsApp Image 2026-04-22 at 07.40.46 (1).jpeg',
-      title: 'Shape Your Medical Career',
-      cta: 'View Placements',
-      link: '/facilities'
-    },
-    {
-      image: '/banners/Rule-based Expert Systems.jpg',
-      title: 'World-Class Lab Facilities',
-      cta: 'Take a Tour',
-      link: '/contact'
+      image: '/banners/slide4-largerscreens.jpeg',
+      mobileImage: '/banners/slide4-mobile.jpeg',
+      titleTop: 'ENGAGING STUDENT',
+      titleBottom: 'Activities',
+      desc1: 'We believe education goes beyond the classroom. Our extensive extracurricular programs ensure that students stay physically active, creative, and socially connected throughout their journey.',
+      desc2: 'Participate in inter-college sports, art exhibitions, and student-led clubs to build essential leadership skills and enjoy a truly well-rounded, vibrant educational experience at Nalapad.',
+      link: '/gallery'
     }
   ];
 
