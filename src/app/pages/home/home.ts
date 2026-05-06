@@ -1,14 +1,16 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CinematicAnimationsService } from '../../services/cinematic-animations';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [RouterLink, CommonModule],
   templateUrl: './home.html',
+  providers: [CinematicAnimationsService]
 })
-export class Home implements OnInit, OnDestroy {
+export class Home implements OnInit, OnDestroy, AfterViewInit {
   activeSlide = 0;
   private slideInterval: any;
 
@@ -51,7 +53,6 @@ export class Home implements OnInit, OnDestroy {
     }
   ];
 
-  // (Rest of the data remains same...)
   certifications = [
     { name: 'Govt of Karnataka', image: '/certifications/Govt of Karnataka.png' },
     { name: 'RGUHS University', image: '/certifications/RGUHS University.png' },
@@ -60,17 +61,17 @@ export class Home implements OnInit, OnDestroy {
   ];
 
   courses = [
-    { 
-      name: 'B.Sc Nursing', 
+    {
+      name: 'B.Sc Nursing',
       image: '/courses/B.Sc Nursing.jpg',
-      duration: '4 Years', 
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.' 
+      duration: '4 Years',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.'
     },
-    { 
-      name: 'GNM Nursing', 
+    {
+      name: 'GNM Nursing',
       image: '/courses/GNM Nursing.jpg',
-      duration: '3 Years', 
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.' 
+      duration: '3 Years',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.'
     }
   ];
 
@@ -82,38 +83,38 @@ export class Home implements OnInit, OnDestroy {
   ];
 
   clubs = [
-    { 
-      name: 'Gryffindor', 
-      trait: 'Bravery & Courage', 
-      color: 'bg-[#740001]', 
-      accent: 'border-[#EEBA30]', 
+    {
+      name: 'Gryffindor',
+      trait: 'Bravery & Courage',
+      color: 'bg-[#740001]',
+      accent: 'border-[#EEBA30]',
       text: 'text-[#EEBA30]',
       icon: 'zap',
       description: 'The house of the brave, daring, and chivalrous. Focus on leadership and emergency care.'
     },
-    { 
-      name: 'Ravenclaw', 
-      trait: 'Wit & Wisdom', 
-      color: 'bg-[#222f5b]', 
-      accent: 'border-[#946b2d]', 
+    {
+      name: 'Ravenclaw',
+      trait: 'Wit & Wisdom',
+      color: 'bg-[#222f5b]',
+      accent: 'border-[#946b2d]',
       text: 'text-[#946b2d]',
       icon: 'brain',
       description: 'Defined by intelligence, creativity, and wisdom. Focus on research and diagnosis.'
     },
-    { 
-      name: 'Slytherin', 
-      trait: 'Ambition & Pride', 
-      color: 'bg-[#1a472a]', 
-      accent: 'border-[#aaaaaa]', 
+    {
+      name: 'Slytherin',
+      trait: 'Ambition & Pride',
+      color: 'bg-[#1a472a]',
+      accent: 'border-[#aaaaaa]',
       text: 'text-[#aaaaaa]',
       icon: 'trending-up',
       description: 'The house of ambition, resourcefulness, and determination. Focus on healthcare management.'
     },
-    { 
-      name: 'Hufflepuff', 
-      trait: 'Loyalty & Patience', 
-      color: 'bg-[#ecb939]', 
-      accent: 'border-[#000000]', 
+    {
+      name: 'Hufflepuff',
+      trait: 'Loyalty & Patience',
+      color: 'bg-[#ecb939]',
+      accent: 'border-[#000000]',
       text: 'text-black',
       icon: 'heart',
       description: 'Known for hard work, patience, and loyalty. Focus on community health and patient care.'
@@ -146,21 +147,29 @@ export class Home implements OnInit, OnDestroy {
     { label: 'Alumni Network', value: '5000+', subLabel: 'Working Worldwide' }
   ];
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private cinematic: CinematicAnimationsService
+  ) {}
 
   ngOnInit() {
     this.startSlideShow();
   }
 
+  ngAfterViewInit() {
+    this.cinematic.init();
+  }
+
   ngOnDestroy() {
     this.stopSlideShow();
+    this.cinematic.killAll();
   }
 
   startSlideShow() {
-    this.stopSlideShow(); // Avoid duplicates
+    this.stopSlideShow();
     this.slideInterval = setInterval(() => {
       this.nextSlide();
-    }, 4500); 
+    }, 4500);
   }
 
   stopSlideShow() {
@@ -171,7 +180,7 @@ export class Home implements OnInit, OnDestroy {
 
   nextSlide() {
     this.activeSlide = (this.activeSlide + 1) % this.slides.length;
-    this.cdr.detectChanges(); // Force update
+    this.cdr.detectChanges();
   }
 
   goToSlide(index: number) {
@@ -180,4 +189,3 @@ export class Home implements OnInit, OnDestroy {
     this.cdr.detectChanges();
   }
 }
-
