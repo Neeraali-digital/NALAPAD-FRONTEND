@@ -1,26 +1,30 @@
-<main class="relative bg-white pt-32 pb-40 overflow-hidden font-sans">
+<main class="relative bg-transparent pt-24 lg:pt-32 pb-32 lg:pb-40 overflow-hidden font-sans">
   
-  <!-- DEPTH LAYERS -->
-  <div class="fixed inset-0 pointer-events-none z-0">
-    <div class="absolute top-0 right-0 w-[80%] h-[60%] bg-brand-primary/5 rounded-full blur-[140px] opacity-40"></div>
-    <div class="absolute bottom-0 left-0 w-[50%] h-[50%] bg-rose-50/30 rounded-full blur-[140px] opacity-30"></div>
+  <!-- CREATIVE GLOBAL BACKGROUND (NO WHITE FEEL) -->
+  <!-- You can copy this exact <div> and place it in your app.component.html to apply this to all pages! -->
+  <div class="fixed inset-0 pointer-events-none z-0 bg-[#eff3f7]">
+    
+    <!-- Dynamic Mesh Gradients (Highly visible, cinematic colors) -->
+    <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[60vh] rounded-full bg-gradient-to-br from-brand-primary/20 to-rose-300/30 blur-[120px] mix-blend-multiply animate-float"></div>
+    <div class="absolute top-[20%] right-[-10%] w-[60vw] h-[70vh] rounded-full bg-gradient-to-bl from-orange-400/20 to-amber-300/30 blur-[150px] mix-blend-multiply animate-pulse-slow"></div>
+    <div class="absolute bottom-[-10%] left-[10%] w-[50vw] h-[50vh] rounded-full bg-gradient-to-tr from-sky-400/20 to-blue-300/30 blur-[130px] mix-blend-multiply animate-float" style="animation-delay: 2s;"></div>
+
+    <!-- Structural High-Tech Contour/Topography Map Overlay -->
+    <div class="absolute inset-0 opacity-[0.15] mix-blend-color-burn" style="background-image: url('data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z\' fill=\'%2364748b\' fill-opacity=\'1\' fill-rule=\'evenodd\'/%3E%3C/svg%3E'); background-size: 80px 80px;"></div>
   </div>
 
   <div class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- 1. DYNAMIC HERO SECTION -->
-    <div class="relative mb-32 lg:mb-48">
-        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            <div class="flex-1 lg:pr-10">
-                <div class="inline-flex items-center gap-4 mb-8">
-                    <span class="w-12 h-px bg-brand-primary"></span>
-                    <span class="text-[0.65rem] md:text-[0.7rem] font-black tracking-[0.4em] uppercase text-brand-primary bg-brand-primary/5 px-4 py-1.5 rounded-full">Premier Academic Program</span>
-                </div>
-                <h1 class="text-6xl md:text-8xl lg:text-[10rem] font-black uppercase tracking-tighter leading-[0.85] text-neutral-900 mb-8 transform -translate-x-1 lg:-translate-x-2">
+    <div class="relative mb-8 lg:mb-14 lg:min-h-[85vh] flex items-center">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 w-full">
+            <div class="flex-1 lg:pr-10 pt-2">
+                
+                <h1 class="text-5xl md:text-6xl lg:text-[6.5rem] font-black uppercase tracking-tighter leading-[0.9] text-neutral-900 mb-8 transform -translate-x-1 lg:-translate-x-2">
                     B.Sc <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-orange-500 italic drop-shadow-sm">Nursing.</span>
                 </h1>
-                <p class="text-lg md:text-xl text-neutral-500 font-medium leading-relaxed max-w-xl mb-12 border-l-4 border-brand-primary/30 pl-6">
-                    A degree engineered for the future of global medicine. Merging high-science mastery with profound human compassion to create healthcare leaders.
+                <p class="text-lg md:text-xl text-neutral-500 font-medium leading-relaxed max-w-2xl mb-12 border-l-4 border-brand-primary/30 pl-6">
+                    A degree engineered for the absolute future of global medicine. We merge high-science clinical mastery with profound human compassion to cultivate the next generation of healthcare leaders. Our curriculum is designed to empower students with international expertise, immersive simulation training, and direct pathways to the world's most elite medical institutions.
                 </p>
                 <div class="flex flex-wrap items-center gap-6 md:gap-10">
                     <a routerLink="/admissions" class="px-10 py-5 md:px-14 md:py-6 bg-neutral-900 text-white rounded-full font-black uppercase tracking-widest text-xs md:text-sm hover:bg-brand-primary hover:scale-105 transition-all duration-500 shadow-2xl">Apply Now</a>
@@ -33,7 +37,7 @@
             
             <div class="flex-1 w-full relative group perspective-1000">
                 <!-- Main Image Card -->
-                <div class="relative h-[400px] md:h-[600px] lg:h-[700px] w-full rounded-[3rem] lg:rounded-[4rem] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.15)] bg-neutral-100 transform transition-transform duration-[2s] group-hover:rotate-y-[-5deg]">
+                <div class="relative h-[300px] md:h-[350px] lg:h-[500px] w-full rounded-[3rem] lg:rounded-[4rem] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.15)] bg-neutral-100 transform transition-transform duration-[2s] group-hover:rotate-y-[-5deg]">
                     <img src="/bsc_nursing_hero.png" class="w-full h-full object-cover transition duration-[3s] group-hover:scale-110" alt="Nursing Students in Sim Lab">
                     <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/10 to-transparent"></div>
                     
@@ -45,7 +49,7 @@
                 </div>
                 
                 <!-- Floating Glass Card Stats -->
-                <div class="absolute top-10 -right-4 lg:-right-10 glass-white p-6 md:p-8 rounded-[2rem] shadow-2xl border border-white/40 backdrop-blur-3xl animate-float z-20 hidden md:block">
+                <div class="absolute top-10 -right-4 lg:-right-10 glass-white p-6 md:p-8 rounded-[2rem] shadow-2xl border border-white/40 backdrop-blur-3xl animate-float z-20 block scale-75 md:scale-100 origin-top-right">
                     <h4 class="text-[0.6rem] font-black uppercase tracking-widest text-brand-primary mb-2">Placement Rate</h4>
                     <span class="text-5xl font-black text-neutral-900 tracking-tighter">100<span class="text-brand-primary">%</span></span>
                 </div>
@@ -53,8 +57,109 @@
         </div>
     </div>
 
-    <!-- 2. WHY CHOOSE NALAPAD FOR B.SC NURSING (ADVANCED BENTO) -->
-    <section class="mb-32 lg:mb-48">
+    <!-- 2. CAREER PATHWAYS (NEON BENTO) -->
+    <section class="mb-10 lg:mb-20">
+        <div class="text-center mb-16 lg:mb-20">
+            <h3 class="text-[0.65rem] font-bold tracking-[0.4em] uppercase text-brand-primary mb-4">Post-Graduation</h3>
+            <h2 class="text-5xl lg:text-7xl font-black text-neutral-900 uppercase tracking-tighter leading-none italic">Career <span class="not-italic text-brand-primary">Outcomes.</span></h2>
+        </div>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Card 1: Clinical Master -->
+            <div class="relative group h-64 md:h-80 perspective-1000">
+                 <div class="w-full h-full relative preserve-3d transition-transform duration-700 group-hover:rotate-y-180 cursor-pointer">
+                     <!-- Front Face -->
+                     <div class="absolute inset-0 backface-hidden rounded-[2.5rem] overflow-hidden shadow-lg group-hover:shadow-2xl transition-shadow">
+                         <img src="/clinical_master.png" class="absolute inset-0 w-full h-full object-cover">
+                         <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-neutral-900/20 to-transparent"></div>
+                         <div class="relative z-10 p-6 flex flex-col items-center justify-end h-full w-full">
+                             <div class="w-10 h-10 rounded-full bg-brand-primary/80 backdrop-blur-md flex items-center justify-center mb-4">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                             </div>
+                             <h4 class="text-xl font-black text-white uppercase tracking-tighter text-center">Clinical Master</h4>
+                         </div>
+                     </div>
+                     <!-- Back Face -->
+                     <div class="absolute inset-0 backface-hidden rotate-y-180 bg-neutral-950 border border-brand-primary/30 rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center shadow-[0_0_30px_rgba(230,57,70,0.2)]">
+                         <h4 class="text-lg font-black text-brand-primary uppercase tracking-tighter mb-4">Clinical Master</h4>
+                         <p class="text-xs text-white/70 font-medium leading-relaxed">Direct entry into high-impact leadership roles in top-tier global medical facilities with exceptional starting packages.</p>
+                     </div>
+                 </div>
+            </div>
+
+            <!-- Card 2: Nursing Educator -->
+            <div class="relative group h-64 md:h-80 perspective-1000">
+                 <div class="w-full h-full relative preserve-3d transition-transform duration-700 group-hover:rotate-y-180 cursor-pointer">
+                     <!-- Front Face -->
+                     <div class="absolute inset-0 backface-hidden rounded-[2.5rem] overflow-hidden shadow-lg group-hover:shadow-2xl transition-shadow">
+                         <img src="/nursing_educator.png" class="absolute inset-0 w-full h-full object-cover">
+                         <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-neutral-900/20 to-transparent"></div>
+                         <div class="relative z-10 p-6 flex flex-col items-center justify-end h-full w-full">
+                             <div class="w-10 h-10 rounded-full bg-brand-primary/80 backdrop-blur-md flex items-center justify-center mb-4">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                             </div>
+                             <h4 class="text-xl font-black text-white uppercase tracking-tighter text-center">Nursing Educator</h4>
+                         </div>
+                     </div>
+                     <!-- Back Face -->
+                     <div class="absolute inset-0 backface-hidden rotate-y-180 bg-neutral-950 border border-brand-primary/30 rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center shadow-[0_0_30px_rgba(230,57,70,0.2)]">
+                         <h4 class="text-lg font-black text-brand-primary uppercase tracking-tighter mb-4">Nursing Educator</h4>
+                         <p class="text-xs text-white/70 font-medium leading-relaxed">Shape the next generation of healthcare professionals as esteemed faculty in elite medical universities worldwide.</p>
+                     </div>
+                 </div>
+            </div>
+
+            <!-- Card 3: Global Researcher -->
+            <div class="relative group h-64 md:h-80 perspective-1000">
+                 <div class="w-full h-full relative preserve-3d transition-transform duration-700 group-hover:rotate-y-180 cursor-pointer">
+                     <!-- Front Face -->
+                     <div class="absolute inset-0 backface-hidden rounded-[2.5rem] overflow-hidden shadow-lg group-hover:shadow-2xl transition-shadow">
+                         <img src="/global_researcher.png" class="absolute inset-0 w-full h-full object-cover">
+                         <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-neutral-900/20 to-transparent"></div>
+                         <div class="relative z-10 p-6 flex flex-col items-center justify-end h-full w-full">
+                             <div class="w-10 h-10 rounded-full bg-brand-primary/80 backdrop-blur-md flex items-center justify-center mb-4">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                             </div>
+                             <h4 class="text-xl font-black text-white uppercase tracking-tighter text-center">Global Researcher</h4>
+                         </div>
+                     </div>
+                     <!-- Back Face -->
+                     <div class="absolute inset-0 backface-hidden rotate-y-180 bg-neutral-950 border border-brand-primary/30 rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center shadow-[0_0_30px_rgba(230,57,70,0.2)]">
+                         <h4 class="text-lg font-black text-brand-primary uppercase tracking-tighter mb-4">Global Researcher</h4>
+                         <p class="text-xs text-white/70 font-medium leading-relaxed">Lead advanced clinical trials and publish breakthrough medical research that influences global health policies.</p>
+                     </div>
+                 </div>
+            </div>
+
+            <!-- Card 4: Healthcare Lead -->
+            <div class="relative group h-64 md:h-80 perspective-1000">
+                 <div class="w-full h-full relative preserve-3d transition-transform duration-700 group-hover:rotate-y-180 cursor-pointer">
+                     <!-- Front Face -->
+                     <div class="absolute inset-0 backface-hidden rounded-[2.5rem] overflow-hidden shadow-lg group-hover:shadow-2xl transition-shadow">
+                         <img src="/healthcare_lead.png" class="absolute inset-0 w-full h-full object-cover">
+                         <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-neutral-900/20 to-transparent"></div>
+                         <div class="relative z-10 p-6 flex flex-col items-center justify-end h-full w-full">
+                             <div class="w-10 h-10 rounded-full bg-brand-primary/80 backdrop-blur-md flex items-center justify-center mb-4">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                             </div>
+                             <h4 class="text-xl font-black text-white uppercase tracking-tighter text-center">Healthcare Lead</h4>
+                         </div>
+                     </div>
+                     <!-- Back Face -->
+                     <div class="absolute inset-0 backface-hidden rotate-y-180 bg-neutral-950 border border-brand-primary/30 rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center shadow-[0_0_30px_rgba(230,57,70,0.2)]">
+                         <h4 class="text-lg font-black text-brand-primary uppercase tracking-tighter mb-4">Healthcare Lead</h4>
+                         <p class="text-xs text-white/70 font-medium leading-relaxed">Direct hospital departments, manage large-scale clinical teams, and drive operational excellence in healthcare institutions.</p>
+                     </div>
+                 </div>
+            </div>
+
+        </div>
+    </section>
+
+    
+    <!-- 3. WHY CHOOSE NALAPAD FOR B.SC NURSING (ADVANCED BENTO) -->
+    <section class="mb-10 lg:mb-20">
        <div class="flex flex-col md:flex-row justify-between items-end mb-16 lg:mb-24 gap-8">
           <h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-neutral-900 tracking-tighter uppercase leading-none">The Nalapad <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-orange-500 italic drop-shadow-sm">Advantage.</span></h2>
           <p class="max-w-md text-neutral-400 font-medium text-sm md:text-base border-l-2 border-brand-primary pl-4">Beyond traditional education. We engineer the clinical leaders of tomorrow through immersive environments.</p>
@@ -62,7 +167,7 @@
        
        <div class="grid md:grid-cols-12 gap-6 lg:gap-8">
           <!-- Big Card -->
-          <div class="md:col-span-8 bg-neutral-950 p-10 lg:p-16 rounded-[3rem] lg:rounded-[4rem] shadow-2xl overflow-hidden relative group">
+          <div class="md:col-span-8 bg-neutral-950 p-8 lg:p-16 rounded-[3rem] lg:rounded-[4rem] shadow-2xl overflow-hidden relative group">
              <!-- Interactive Background Image -->
              <img src="/global_network_bg.png" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-105 transition-all duration-[3s]" alt="Global Network">
              <!-- Dark overlay to ensure text readability -->
@@ -104,15 +209,103 @@
        </div>
     </section>
 
-    <!-- 3. CORE ELIGIBILITY (HOLOGRAPHIC TICKET UI) -->
-    <div class="mb-32 lg:mb-48 relative">
+    <!-- 3.5 STUDENT REVIEWS (BENTO CARDS) -->
+    <section class="mb-10 lg:mb-16">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-6 lg:mb-8 gap-4">
+            <div>
+                <h3 class="text-[0.6rem] font-bold tracking-[0.4em] uppercase text-brand-primary mb-2">Testimonials</h3>
+                <h2 class="text-3xl md:text-4xl lg:text-6xl font-black text-neutral-900 uppercase tracking-tighter leading-none italic">Student <span class="not-italic text-brand-primary">Voices.</span></h2>
+            </div>
+        </div>
+        
+        <div class="grid md:grid-cols-12 gap-5 lg:gap-6">
+            <!-- Row 1: Rectangle (8) + Square (4) -->
+            <div class="md:col-span-8 bg-white rounded-[2rem] lg:rounded-[3rem] p-5 md:p-7 shadow-[0_15px_40px_rgba(0,0,0,0.04)] border border-neutral-100 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-500 group relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-brand-primary/5 rounded-full blur-[50px] -translate-y-1/2 translate-x-1/2"></div>
+                <div class="relative z-10">
+                    <div class="mb-4">
+                        <svg class="w-8 h-8 text-brand-primary/20" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    </div>
+                    <p class="text-neutral-600 text-sm lg:text-base font-medium leading-relaxed max-w-2xl mb-6">"The simulation labs at Nalapad are world-class. I felt completely prepared before my first rotation. The hands-on experience on advanced manikins is truly unique to this campus."</p>
+                </div>
+                <div class="flex items-center gap-4 relative z-10">
+                    <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-brand-primary/20 p-1 group-hover:border-brand-primary transition-colors duration-500">
+                        <img src="/student_1.png" class="w-full h-full rounded-full object-cover" alt="Anjali Desai">
+                    </div>
+                    <div>
+                        <h4 class="text-neutral-900 text-sm md:text-base font-black uppercase tracking-tight">Anjali Desai</h4>
+                        <p class="text-brand-primary text-[0.6rem] md:text-[0.65rem] font-bold uppercase tracking-widest">B.Sc Nursing - Batch 2024</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 bg-white rounded-[2rem] lg:rounded-[3rem] p-5 md:p-7 shadow-[0_15px_40px_rgba(0,0,0,0.04)] border border-neutral-100 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-500 group relative overflow-hidden">
+                <div class="relative z-10">
+                    <div class="mb-4">
+                        <svg class="w-8 h-8 text-brand-primary/20" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    </div>
+                    <p class="text-neutral-600 text-sm lg:text-base font-medium leading-relaxed mb-6">"The global network opportunities opened doors I didn't know existed. Truly a life-changing campus experience."</p>
+                </div>
+                <div class="flex items-center gap-4 relative z-10">
+                    <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-brand-primary/20 p-1 group-hover:border-brand-primary transition-colors duration-500">
+                        <img src="/student_2.png" class="w-full h-full rounded-full object-cover" alt="Rahul Menon">
+                    </div>
+                    <div>
+                        <h4 class="text-neutral-900 text-sm md:text-base font-black uppercase tracking-tight">Rahul Menon</h4>
+                        <p class="text-brand-primary text-[0.6rem] md:text-[0.65rem] font-bold uppercase tracking-widest">B.Sc Nursing - Batch 2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Square (4) + Rectangle (8) -->
+            <div class="md:col-span-4 bg-white rounded-[2rem] lg:rounded-[3rem] p-5 md:p-7 shadow-[0_15px_40px_rgba(0,0,0,0.04)] border border-neutral-100 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-500 group relative overflow-hidden">
+                <div class="relative z-10">
+                    <div class="mb-4">
+                        <svg class="w-8 h-8 text-brand-primary/20" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    </div>
+                    <p class="text-neutral-600 text-sm lg:text-base font-medium leading-relaxed mb-6">"Elite mentorship and serious academic rigour. I felt part of a global medical elite from day one."</p>
+                </div>
+                <div class="flex items-center gap-4 relative z-10">
+                    <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-brand-primary/20 p-1 group-hover:border-brand-primary transition-colors duration-500">
+                        <img src="/student_3.png" class="w-full h-full rounded-full object-cover" alt="Priya Sharma">
+                    </div>
+                    <div>
+                        <h4 class="text-neutral-900 text-sm md:text-base font-black uppercase tracking-tight">Priya Sharma</h4>
+                        <p class="text-brand-primary text-[0.6rem] md:text-[0.65rem] font-bold uppercase tracking-widest">B.Sc Nursing - Batch 2026</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-8 bg-white rounded-[2rem] lg:rounded-[3rem] p-5 md:p-7 shadow-[0_15px_40px_rgba(0,0,0,0.04)] border border-neutral-100 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-500 group relative overflow-hidden">
+                <div class="absolute bottom-0 left-0 w-48 h-48 bg-brand-primary/5 rounded-full blur-[50px] translate-y-1/2 -translate-x-1/2"></div>
+                <div class="relative z-10">
+                    <div class="mb-4">
+                        <svg class="w-8 h-8 text-brand-primary/20" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    </div>
+                    <p class="text-neutral-600 text-sm lg:text-base font-medium leading-relaxed max-w-2xl mb-6">"The priority hiring status with clinical partners like Apollo and Manipal made all the difference in my early career, allowing me to step directly into a specialized role with absolute confidence."</p>
+                </div>
+                <div class="flex items-center gap-4 relative z-10">
+                    <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-brand-primary/20 p-1 group-hover:border-brand-primary transition-colors duration-500">
+                        <img src="/student_4.png" class="w-full h-full rounded-full object-cover" alt="Vikram Singh">
+                    </div>
+                    <div>
+                        <h4 class="text-neutral-900 text-sm md:text-base font-black uppercase tracking-tight">Vikram Singh</h4>
+                        <p class="text-brand-primary text-[0.6rem] md:text-[0.65rem] font-bold uppercase tracking-widest">B.Sc Nursing - Batch 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CORE ELIGIBILITY (HOLOGRAPHIC TICKET UI) -->
+    <div class="mb-24 lg:mb-20 relative">
         <div class="absolute inset-0 bg-neutral-50 rounded-[4rem] transform -rotate-1 scale-105 z-0"></div>
         <div class="grid lg:grid-cols-12 gap-0 relative z-10 bg-white rounded-[4rem] shadow-2xl border border-neutral-100 overflow-hidden">
             
-            <div class="lg:col-span-7 p-10 md:p-16 lg:p-20 relative overflow-hidden group">
+            <div class="lg:col-span-7 p-6 md:p-12 lg:p-20 relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-brand-primary/5 to-transparent rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
                 <h3 class="text-xs font-black tracking-[0.4em] uppercase text-brand-primary mb-4">Admissions</h3>
-                <h2 class="text-5xl lg:text-7xl font-black text-neutral-900 uppercase tracking-tighter leading-none mb-12 italic">Core <br/><span class="text-neutral-300 not-italic">Eligibility.</span></h2>
+                <h2 class="text-5xl lg:text-7xl font-black text-neutral-900 uppercase tracking-tighter leading-none mb-12 italic">Core <br/><span class="text-brand-primary not-italic">Eligibility.</span></h2>
                 
                 <ul class="space-y-6">
                     <li class="flex items-start gap-6 group/item">
@@ -137,7 +330,7 @@
             </div>
             
             <!-- Ticket Stub (Right Side) -->
-            <div class="lg:col-span-5 bg-neutral-950 p-10 md:p-16 lg:p-20 flex flex-col justify-center relative border-t-2 lg:border-t-0 lg:border-l-2 border-dashed border-white/20">
+            <div class="lg:col-span-5 bg-neutral-950 p-8 md:p-16 lg:p-20 flex flex-col justify-center relative border-t-2 lg:border-t-0 lg:border-l-2 border-dashed border-white/20">
                 <div class="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full hidden lg:block"></div>
                 
                 <div class="mb-12">
@@ -151,7 +344,7 @@
                 </div>
                 
                 <div>
-                   <span class="text-brand-primary font-black text-8xl italic leading-none drop-shadow-[0_0_30px_rgba(230,57,70,0.4)] block mb-2">100</span>
+                   <span class="text-brand-primary font-black text-6xl md:text-8xl italic leading-none drop-shadow-[0_0_30px_rgba(230,57,70,0.4)] block mb-2">100</span>
                    <h4 class="text-xl font-black text-white uppercase tracking-tighter">Seats Intake</h4>
                    <p class="text-[0.65rem] text-white/40 font-bold uppercase tracking-widest mt-1">Per Academic Batch</p>
                 </div>
@@ -160,8 +353,8 @@
         </div>
     </div>
 
-    <!-- 4. HIGH-FIDELITY CLINICAL LABS (ASYMMETRIC PARALLAX) -->
-    <section class="mb-32 lg:mb-48">
+    <!-- 5. HIGH-FIDELITY CLINICAL LABS (ASYMMETRIC PARALLAX) -->
+    <section class="mb-24 lg:mb-24">
        <div class="grid lg:grid-cols-12 gap-10 items-center">
           
           <!-- Image Composition -->
@@ -172,7 +365,7 @@
              </div>
              
              <!-- Floating Overlay Image -->
-             <div class="absolute -bottom-10 -right-4 lg:-right-10 w-64 lg:w-80 h-64 lg:h-80 rounded-[3rem] overflow-hidden border-[6px] border-white shadow-[0_30px_60px_rgba(0,0,0,0.2)] transform transition-transform duration-[2s] group-hover:-translate-y-10 group-hover:-translate-x-5 animate-float-delayed z-20">
+             <div class="absolute -bottom-10 -right-4 lg:-right-10 w-36 md:w-56 lg:w-80 h-36 md:h-56 lg:h-80 rounded-[3rem] overflow-hidden border-[6px] border-white shadow-[0_30px_60px_rgba(0,0,0,0.2)] transform transition-transform duration-[2s] group-hover:-translate-y-10 group-hover:-translate-x-5 animate-float-delayed z-20">
                  <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=600" class="w-full h-full object-cover" alt="Detailed Lab Equipment">
              </div>
              
@@ -185,7 +378,7 @@
                 <span class="w-8 h-px bg-brand-primary"></span> Infrastructure
              </h3>
              <h2 class="text-4xl md:text-6xl font-black text-neutral-900 uppercase tracking-tighter leading-[0.9] mb-10">
-                High-Fidelity <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-orange-500 italic">Clinical Labs.</span>
+                High-Fidelity <br/><span class="text-brand-primary italic">Clinical Labs.</span>
              </h2>
              
              <div class="space-y-8 relative">
@@ -216,22 +409,23 @@
        </div>
     </section>
 
-    <!-- 5. SYLLABUS JOURNEY (INTERACTIVE FOLDERS) -->
-    <section class="mb-32 lg:mb-48 bg-neutral-950 py-24 px-6 md:px-12 lg:px-20 rounded-[4rem] relative overflow-hidden shadow-2xl">
+    <!-- 6. SYLLABUS JOURNEY (INTERACTIVE FOLDERS) -->
+    <section class="mb-6 lg:mb-20 bg-neutral-950 py-24 px-6 md:px-12 lg:px-20 rounded-[4rem] relative overflow-hidden shadow-2xl">
         <!-- Background Effects -->
-        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMSI+PHBhdGggZD0iTTM2IDM0djIwaDJ2LTIwaC0yeiIvPjxwYXRoIGQ9Ik0yNCAzNHYyaDIwdjJoLTIweiIvPjwvZz48L2c+PC9zdmc+')]"></div>
+        <img src="/curriculum_bg.png" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-screen" alt="Curriculum Background">
+        <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-neutral-950/80"></div>
         <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div class="relative z-10 flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div>
                 <h3 class="text-[0.65rem] font-bold tracking-[0.4em] uppercase text-brand-primary mb-6">Course Path</h3>
-                <h2 class="text-5xl lg:text-7xl font-black text-white uppercase tracking-tighter italic leading-none">Curriculum <br/><span class="not-italic text-white/40">Journey.</span></h2>
+                <h2 class="text-5xl lg:text-7xl font-black text-white uppercase tracking-tighter italic leading-none">Curriculum <br/><span class="not-italic text-brand-primary">Journey.</span></h2>
             </div>
             <p class="max-w-xs text-white/50 text-sm font-medium">A meticulously structured 4-year progression from foundational sciences to clinical mastery.</p>
         </div>
         
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div *ngFor="let step of syllabus; let i = index" class="group relative h-[350px] bg-white/5 border border-white/10 rounded-[2.5rem] p-8 hover:bg-brand-primary hover:border-brand-primary transition-all duration-700 ease-out cursor-pointer overflow-hidden flex flex-col justify-end">
+            <div *ngFor="let step of syllabus; let i = index" class="group relative h-[280px] md:h-[320px] lg:h-[350px] bg-white/5 border border-white/10 rounded-[2.5rem] p-8 hover:bg-brand-primary hover:border-brand-primary transition-all duration-700 ease-out cursor-pointer overflow-hidden flex flex-col justify-end">
                  <!-- Huge Background Number -->
                  <div class="absolute -right-4 -bottom-10 text-[12rem] font-black text-white/5 group-hover:text-black/10 transition-colors duration-700 leading-none z-0">
                     {{ i + 1 }}
@@ -253,103 +447,63 @@
         </div>
     </section>
 
-    <!-- 6. CAREER PATHWAYS (NEON BENTO) -->
-    <section class="mb-32 lg:mb-48">
-        <div class="text-center mb-16 lg:mb-20">
-            <h3 class="text-[0.65rem] font-bold tracking-[0.4em] uppercase text-brand-primary mb-4">Post-Graduation</h3>
-            <h2 class="text-5xl lg:text-7xl font-black text-neutral-900 uppercase tracking-tighter leading-none italic">Career <span class="not-italic text-neutral-300">Outcomes.</span></h2>
-        </div>
+    <!-- 6.5 UNIQUE GLOBAL PARTNERS SECTION -->
+    <section class="lg:mb-24 relative py-10 lg:py-16 overflow-hidden">
+        <!-- Background Accent -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-full bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
         
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <!-- Card 1: Clinical Master -->
-            <div class="relative group h-72 md:h-80 perspective-1000">
-                 <div class="w-full h-full relative preserve-3d transition-transform duration-700 group-hover:rotate-y-180 cursor-pointer">
-                     <!-- Front Face -->
-                     <div class="absolute inset-0 backface-hidden rounded-[2.5rem] overflow-hidden shadow-lg group-hover:shadow-2xl transition-shadow">
-                         <img src="/clinical_master.png" class="absolute inset-0 w-full h-full object-cover">
-                         <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-neutral-900/20 to-transparent"></div>
-                         <div class="relative z-10 p-6 flex flex-col items-center justify-end h-full w-full">
-                             <div class="w-10 h-10 rounded-full bg-brand-primary/80 backdrop-blur-md flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                             </div>
-                             <h4 class="text-xl font-black text-white uppercase tracking-tighter text-center">Clinical Master</h4>
-                         </div>
-                     </div>
-                     <!-- Back Face -->
-                     <div class="absolute inset-0 backface-hidden rotate-y-180 bg-neutral-950 border border-brand-primary/30 rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center shadow-[0_0_30px_rgba(230,57,70,0.2)]">
-                         <h4 class="text-lg font-black text-brand-primary uppercase tracking-tighter mb-4">Clinical Master</h4>
-                         <p class="text-xs text-white/70 font-medium leading-relaxed">Direct entry into high-impact leadership roles in top-tier global medical facilities with exceptional starting packages.</p>
-                     </div>
-                 </div>
+        <div class="relative z-10 max-w-[85rem] mx-auto px-4">
+            <div class="text-center mb-10 lg:mb-16">
+                <h3 class="text-[0.65rem] font-black tracking-[0.5em] uppercase text-brand-primary mb-4">International Gateway</h3>
+                <h2 class="text-4xl lg:text-7xl font-black text-neutral-900 uppercase tracking-tighter leading-none italic mb-6">Global <span class="not-italic text-brand-primary">Partners.</span></h2>
+                <p class="max-w-2xl mx-auto text-neutral-500 font-medium text-xs lg:text-sm leading-relaxed">
+                    Collaborating with the world's most prestigious healthcare institutions to ensure our graduates enter the professional world with international certification and priority hiring status.
+                </p>
             </div>
 
-            <!-- Card 2: Nursing Educator -->
-            <div class="relative group h-72 md:h-80 perspective-1000">
-                 <div class="w-full h-full relative preserve-3d transition-transform duration-700 group-hover:rotate-y-180 cursor-pointer">
-                     <!-- Front Face -->
-                     <div class="absolute inset-0 backface-hidden rounded-[2.5rem] overflow-hidden shadow-lg group-hover:shadow-2xl transition-shadow">
-                         <img src="/nursing_educator.png" class="absolute inset-0 w-full h-full object-cover">
-                         <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-neutral-900/20 to-transparent"></div>
-                         <div class="relative z-10 p-6 flex flex-col items-center justify-end h-full w-full">
-                             <div class="w-10 h-10 rounded-full bg-brand-primary/80 backdrop-blur-md flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                             </div>
-                             <h4 class="text-xl font-black text-white uppercase tracking-tighter text-center">Nursing Educator</h4>
-                         </div>
-                     </div>
-                     <!-- Back Face -->
-                     <div class="absolute inset-0 backface-hidden rotate-y-180 bg-neutral-950 border border-brand-primary/30 rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center shadow-[0_0_30px_rgba(230,57,70,0.2)]">
-                         <h4 class="text-lg font-black text-brand-primary uppercase tracking-tighter mb-4">Nursing Educator</h4>
-                         <p class="text-xs text-white/70 font-medium leading-relaxed">Shape the next generation of healthcare professionals as esteemed faculty in elite medical universities worldwide.</p>
-                     </div>
-                 </div>
-            </div>
+            <!-- Logos in Elegant Circular Glass Containers -->
+            <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 lg:gap-14">
+                <!-- Apollo -->
+                <div class="group relative">
+                    <div class="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full bg-white shadow-xl border border-neutral-100 flex items-center justify-center p-5 md:p-8 transition-all duration-700 hover:scale-110 hover:shadow-brand-primary/20 hover:border-brand-primary cursor-pointer relative z-10 overflow-hidden">
+                        <img src="/partners/Apollo%20Hospitals.jpg" alt="Apollo Hospitals" class="max-w-full max-h-full object-contain transition-all duration-700">
+                    </div>
+                    <div class="absolute inset-0 rounded-full bg-brand-primary/10 blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 -z-10"></div>
+                </div>
 
-            <!-- Card 3: Global Researcher -->
-            <div class="relative group h-72 md:h-80 perspective-1000">
-                 <div class="w-full h-full relative preserve-3d transition-transform duration-700 group-hover:rotate-y-180 cursor-pointer">
-                     <!-- Front Face -->
-                     <div class="absolute inset-0 backface-hidden rounded-[2.5rem] overflow-hidden shadow-lg group-hover:shadow-2xl transition-shadow">
-                         <img src="/global_researcher.png" class="absolute inset-0 w-full h-full object-cover">
-                         <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-neutral-900/20 to-transparent"></div>
-                         <div class="relative z-10 p-6 flex flex-col items-center justify-end h-full w-full">
-                             <div class="w-10 h-10 rounded-full bg-brand-primary/80 backdrop-blur-md flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                             </div>
-                             <h4 class="text-xl font-black text-white uppercase tracking-tighter text-center">Global Researcher</h4>
-                         </div>
-                     </div>
-                     <!-- Back Face -->
-                     <div class="absolute inset-0 backface-hidden rotate-y-180 bg-neutral-950 border border-brand-primary/30 rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center shadow-[0_0_30px_rgba(230,57,70,0.2)]">
-                         <h4 class="text-lg font-black text-brand-primary uppercase tracking-tighter mb-4">Global Researcher</h4>
-                         <p class="text-xs text-white/70 font-medium leading-relaxed">Lead advanced clinical trials and publish breakthrough medical research that influences global health policies.</p>
-                     </div>
-                 </div>
-            </div>
+                <!-- Aster -->
+                <div class="group relative">
+                    <div class="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full bg-white shadow-xl border border-neutral-100 flex items-center justify-center p-5 md:p-8 transition-all duration-700 hover:scale-110 hover:shadow-brand-primary/20 hover:border-brand-primary cursor-pointer relative z-10 overflow-hidden">
+                        <img src="/partners/Aster%20CMI.jpg" alt="Aster CMI" class="max-w-full max-h-full object-contain transition-all duration-700">
+                    </div>
+                    <div class="absolute inset-0 rounded-full bg-brand-primary/10 blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 -z-10"></div>
+                </div>
 
-            <!-- Card 4: Healthcare Lead -->
-            <div class="relative group h-72 md:h-80 perspective-1000">
-                 <div class="w-full h-full relative preserve-3d transition-transform duration-700 group-hover:rotate-y-180 cursor-pointer">
-                     <!-- Front Face -->
-                     <div class="absolute inset-0 backface-hidden rounded-[2.5rem] overflow-hidden shadow-lg group-hover:shadow-2xl transition-shadow">
-                         <img src="/healthcare_lead.png" class="absolute inset-0 w-full h-full object-cover">
-                         <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-neutral-900/20 to-transparent"></div>
-                         <div class="relative z-10 p-6 flex flex-col items-center justify-end h-full w-full">
-                             <div class="w-10 h-10 rounded-full bg-brand-primary/80 backdrop-blur-md flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                             </div>
-                             <h4 class="text-xl font-black text-white uppercase tracking-tighter text-center">Healthcare Lead</h4>
-                         </div>
-                     </div>
-                     <!-- Back Face -->
-                     <div class="absolute inset-0 backface-hidden rotate-y-180 bg-neutral-950 border border-brand-primary/30 rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center shadow-[0_0_30px_rgba(230,57,70,0.2)]">
-                         <h4 class="text-lg font-black text-brand-primary uppercase tracking-tighter mb-4">Healthcare Lead</h4>
-                         <p class="text-xs text-white/70 font-medium leading-relaxed">Direct hospital departments, manage large-scale clinical teams, and drive operational excellence in healthcare institutions.</p>
-                     </div>
-                 </div>
-            </div>
+                <!-- Fortis -->
+                <div class="group relative">
+                    <div class="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full bg-white shadow-xl border border-neutral-100 flex items-center justify-center p-5 md:p-8 transition-all duration-700 hover:scale-110 hover:shadow-brand-primary/20 hover:border-brand-primary cursor-pointer relative z-10 overflow-hidden">
+                        <img src="/partners/Fortis%20Health.jpg" alt="Fortis Health" class="max-w-full max-h-full object-contain transition-all duration-700">
+                    </div>
+                    <div class="absolute inset-0 rounded-full bg-brand-primary/10 blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 -z-10"></div>
+                </div>
 
+                <!-- Manipal -->
+                <div class="group relative">
+                    <div class="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full bg-white shadow-xl border border-neutral-100 flex items-center justify-center p-5 md:p-8 transition-all duration-700 hover:scale-110 hover:shadow-brand-primary/20 hover:border-brand-primary cursor-pointer relative z-10 overflow-hidden">
+                        <img src="/partners/Manipal%20Hospitals.png" alt="Manipal Hospitals" class="max-w-full max-h-full object-contain transition-all duration-700">
+                    </div>
+                    <div class="absolute inset-0 rounded-full bg-brand-primary/10 blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 -z-10"></div>
+                </div>
+
+                <!-- NHS Typography Style -->
+                <div class="group relative">
+                    <div class="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full bg-white shadow-xl border border-neutral-100 flex flex-col items-center justify-center p-5 md:p-8 transition-all duration-700 hover:scale-110 hover:shadow-brand-primary/20 hover:border-brand-primary cursor-pointer relative z-10 overflow-hidden">
+                        <span class="text-2xl md:text-4xl lg:text-5xl font-black text-neutral-900 tracking-widest uppercase group-hover:text-brand-primary transition-colors duration-700">NHS</span>
+                        <span class="text-[0.5rem] lg:text-[0.6rem] font-bold text-neutral-400 uppercase tracking-widest mt-1 group-hover:text-neutral-600 transition-colors duration-700">United Kingdom</span>
+                    </div>
+                    <div class="absolute inset-0 rounded-full bg-brand-primary/10 blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 -z-10"></div>
+                </div>
+            </div>
         </div>
     </section>
 
