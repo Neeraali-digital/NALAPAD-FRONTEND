@@ -16,7 +16,7 @@
       <!-- INITIAL LOADING INTERFACE -->
       <div id="initial-loader" style="position: fixed; inset: 0; background: white; z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif;">
         <div style="position: relative; margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center;">
-          <img src="/logo.png" alt="Logo" style="height: 100px; width: auto; animation: loader-pulse 2s infinite ease-in-out;">
+          <img src="/logo.png" alt="Logo" id="loader-logo">
           <div style="margin-top: 30px; width: 140px; height: 3px; background: #f3f4f6; border-radius: 10px; overflow: hidden;">
             <div style="height: 100%; background: #cc0000; width: 40%; animation: loader-bar 1.5s infinite ease-in-out;"></div>
           </div>
@@ -24,6 +24,20 @@
         <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6em; color: #cc0000; margin-top: 10px; animation: loader-fade 2s infinite;">NALAPAD 2026</span>
         
         <style>
+          #loader-logo {
+            height: 100px;
+            width: auto;
+            animation: loader-pulse 2s infinite ease-in-out;
+            display: block;
+            margin: 0 auto;
+          }
+
+          @media (max-width: 640px) {
+            #loader-logo {
+              height: 65px;
+            }
+          }
+
           @keyframes loader-pulse {
             0%, 100% { transform: scale(1); opacity: 0.9; }
             50% { transform: scale(1.03); opacity: 1; }
