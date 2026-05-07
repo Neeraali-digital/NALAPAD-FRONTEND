@@ -65,13 +65,15 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
       name: 'B.Sc Nursing',
       image: '/courses/B.Sc Nursing.jpg',
       duration: '4 Years',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.'
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.',
+      link: '/departments/bsc-nursing'
     },
     {
       name: 'GNM Nursing',
       image: '/courses/GNM Nursing.jpg',
       duration: '3 Years',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.'
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.',
+      link: '/departments/gnm'
     }
   ];
 
