@@ -70,6 +70,7 @@
              [alt]="item.title" 
              loading="lazy"
              (load)="onImageLoad(item)"
+             (error)="onImageLoad(item)"
              [class.opacity-0]="!item.loaded"
              class="w-full h-full object-cover transition-all duration-[2s] group-hover:scale-110 group-hover:rotate-1">
 
