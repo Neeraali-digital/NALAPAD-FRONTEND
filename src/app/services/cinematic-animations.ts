@@ -14,6 +14,7 @@ export class CinematicAnimationsService {
         this.heroAnim();
         this.certAnim();
         this.aboutAnim();
+        this.visionMissionGoalsAnim();
         this.courseAnim();
         this.hospitalAnim();
         this.pillarAnim();
@@ -84,6 +85,36 @@ export class CinematicAnimationsService {
         section.querySelectorAll('.grid.lg\\:grid-cols-12 img').forEach(el => {
           gsap.set(el, { yPercent: (s.progress - 0.5) * -15 });
         });
+      }
+    });
+  }
+
+  private visionMissionGoalsAnim() {
+    ScrollTrigger.create({
+      trigger: '#vision-mission-goals', start: 'top 80%', once: true,
+      onEnter: () => {
+        const el = document.querySelector('#vision-mission-goals');
+        if (!el) return;
+        
+        // 1. Animate Section Header
+        gsap.fromTo(el.querySelector('.border-l-8'),
+          { x: -50, opacity: 0 }, 
+          { x: 0, opacity: 1, duration: 1.1, ease: 'power4.out' });
+          
+        // 2. Animate Vision Card
+        gsap.fromTo(el.querySelector('.vision-card'),
+          { y: 60, opacity: 0, scale: 0.95 },
+          { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: 'power4.out', delay: 0.2 });
+          
+        // 3. Animate Mission Items
+        gsap.fromTo(el.querySelectorAll('.mission-item'),
+          { x: 60, opacity: 0 },
+          { x: 0, opacity: 1, duration: 1, ease: 'power3.out', stagger: 0.15, delay: 0.3 });
+          
+        // 4. Animate Goal Cards Grid
+        gsap.fromTo(el.querySelectorAll('.goal-card'),
+          { y: 70, opacity: 0, scale: 0.9 },
+          { y: 0, opacity: 1, scale: 1, duration: 1.1, ease: 'power4.out', stagger: 0.08, delay: 0.5 });
       }
     });
   }

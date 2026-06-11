@@ -17,7 +17,7 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
   slides = [
     {
       image: '/banners/slide1-largerscreens.jpeg',
-      mobileImage: '/banners/slide1-moblie.jpeg',
+      mobileImage: '/banners/slide1mobile.jpeg',
       titleTop: 'ADMISSIONS OPEN',
       titleBottom: '2026-2027',
       desc1: 'Join Nalapad College of Nursing for the academic year 2026-2027. We offer state-of-the-art facilities, expert faculty, and global standard education to shape the next generation of healthcare leaders.',
@@ -26,7 +26,7 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
     },
     {
       image: '/banners/slide2-largerscreens.jpeg',
-      mobileImage: '/banners/slide2-mobile.jpeg',
+      mobileImage: '/banners/slide2mobile.jpeg',
       titleTop: 'VIBRANT CAMPUS',
       titleBottom: 'College Events',
       desc1: 'Experience a dynamic and enriching college life at Nalapad. Our campus is alive with regular cultural, athletic, and academic events that foster holistic student development and leadership.',
@@ -35,7 +35,7 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
     },
     {
       image: '/banners/slide3-largerscreens.jpeg',
-      mobileImage: '/banners/slide3-mobile.jpeg',
+      mobileImage: '/banners/slide3mobile.jpeg',
       titleTop: 'ABOUT OUR',
       titleBottom: 'Organization',
       desc1: 'Nalapad Group of Institutions is committed to providing world-class education. Our foundation is built on the core values of integrity, discipline, and scholarly excellence to empower students.',
@@ -44,7 +44,7 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
     },
     {
       image: '/banners/slide4-largerscreens.jpeg',
-      mobileImage: '/banners/slide4-mobile.jpeg',
+      mobileImage: '/banners/slide4mobile.jpeg',
       titleTop: 'ENGAGING STUDENT',
       titleBottom: 'Activities',
       desc1: 'We believe education goes beyond the classroom. Our extensive extracurricular programs ensure that students stay physically active, creative, and socially connected throughout their journey.',
@@ -147,6 +147,78 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
     { label: 'Hospital Partners', value: '50+', subLabel: 'Global Network' },
     { label: 'Highest Package', value: '12 LPA', subLabel: 'Post-Graduation' },
     { label: 'Alumni Network', value: '5000+', subLabel: 'Working Worldwide' }
+  ];
+
+  visionText = 'Our vision is to inspire future nurses to serve humanity with compassion, empathy, integrity, and professionalism. We aspire to create a nurturing learning environment that encourages innovation, clinical excellence, and a deep commitment to caring for every individual with dignity and respect. By shaping competent and compassionate healthcare providers, we aim to bring hope, healing, and comfort to communities, improving the quality of life and making a meaningful difference in society.';
+
+  missionStatements = [
+    'To provide high-quality nursing education that combines evidence-based practice, critical thinking, and ethical care.',
+    'To develop skilled and compassionate nurses through rigorous academic programs, clinical training, and community engagement.',
+    'To foster lifelong learning, research, and professional growth in nursing students, preparing them to meet evolving healthcare challenges.',
+    'To promote health equity and patient-centered care by instilling leadership, empathy, and professionalism in future nurses.'
+  ];
+
+  goals = [
+    {
+      id: '01',
+      title: 'Competent & Compassionate Professionals',
+      desc: 'To provide quality nursing education that develops competent and compassionate healthcare professionals.',
+      icon: 'academic'
+    },
+    {
+      id: '02',
+      title: 'Clinical & Ethical Knowledge',
+      desc: 'To equip students with scientific knowledge, clinical skills, and ethical values required for effective patient care.',
+      icon: 'beaker'
+    },
+    {
+      id: '03',
+      title: 'Leadership & Decision-Making',
+      desc: 'To promote critical thinking, leadership, and decision-making abilities among nursing students.',
+      icon: 'brain'
+    },
+    {
+      id: '04',
+      title: 'Research & Innovation',
+      desc: 'To encourage research, innovation, and evidence-based nursing practice for improved healthcare outcomes.',
+      icon: 'microscope'
+    },
+    {
+      id: '05',
+      title: 'Global Healthcare Preparedness',
+      desc: 'To prepare graduates to meet the healthcare needs of individuals, families, and communities at local and global levels.',
+      icon: 'globe'
+    },
+    {
+      id: '06',
+      title: 'Empathy & Lifelong Learning',
+      desc: 'To foster professionalism, discipline, empathy, and lifelong learning in the nursing profession.',
+      icon: 'shield'
+    },
+    {
+      id: '07',
+      title: 'Practical Clinical Exposure',
+      desc: 'To provide practical clinical exposure through collaboration with hospitals and healthcare institutions.',
+      icon: 'briefcase'
+    },
+    {
+      id: '08',
+      title: 'Community Health Promotion',
+      desc: 'To develop socially responsible nurses committed to community health promotion and disease prevention.',
+      icon: 'users'
+    },
+    {
+      id: '09',
+      title: 'Multidisciplinary Teamwork',
+      desc: 'To enhance communication and teamwork skills necessary for multidisciplinary healthcare environments.',
+      icon: 'chat'
+    },
+    {
+      id: '10',
+      title: 'Advanced Career Opportunities',
+      desc: 'To create opportunities for continuous professional development and advanced nursing education.',
+      icon: 'trending-up'
+    }
   ];
 
   constructor(

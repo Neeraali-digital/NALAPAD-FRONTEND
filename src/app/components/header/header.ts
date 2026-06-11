@@ -37,11 +37,12 @@ export class Header implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       if (this.isHome) {
         const adArea = document.getElementById('advertising');
-        if (adArea) {
+        const isMobile = window.innerWidth < 768;
+        if (adArea && !isMobile) {
           // Show header slightly before the area finishes, or exactly when it finishes
           this.isScrolledPastAd = window.scrollY > (adArea.clientHeight * 0.7);
         } else {
-          this.isScrolledPastAd = window.scrollY > 100;
+          this.isScrolledPastAd = window.scrollY > 10;
         }
       } else {
         this.isScrolledPastAd = true;
