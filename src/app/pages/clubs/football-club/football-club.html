@@ -1,0 +1,208 @@
+<main class="min-h-screen bg-white font-sans">
+
+  <!-- ══════════════════════════ HERO ══════════════════════════ -->
+  <section class="relative h-[75vh] min-h-[500px] flex items-end overflow-hidden bg-neutral-950">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=2000&q=80"
+           class="w-full h-full object-cover object-center scale-105" alt="Football field">
+      <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-900/60 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-neutral-950/80 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 w-full max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 pb-16">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-6 h-[2px] bg-brand-primary"></div>
+        <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary">Athletics · Est. 2001</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-none mb-4">
+        Nalapad<br>Football Club
+      </h1>
+      <p class="text-neutral-300 text-base md:text-lg mb-8 font-light max-w-xl">
+        Five-time inter-collegiate champions. A storied tradition of discipline, brotherhood, and grit.
+      </p>
+      <div class="flex gap-4 flex-wrap">
+        <button (click)="setTab('gallery')" class="px-7 py-3 bg-brand-primary text-white font-black uppercase tracking-widest text-xs rounded-full hover:bg-red-700 transition-colors">View Gallery</button>
+        <button (click)="setTab('team')" class="px-7 py-3 bg-white/10 border border-white/30 text-white font-black uppercase tracking-widest text-xs rounded-full hover:bg-white/20 backdrop-blur-sm transition-colors">Meet the Team</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ TAB NAV ══════════════════════════ -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-neutral-100 shadow-sm">
+    <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20">
+      <div class="flex gap-0 overflow-x-auto scrollbar-none">
+        <button *ngFor="let tab of ['home', 'about', 'team', 'achievements', 'gallery']"
+          (click)="setTab(tab)"
+          class="shrink-0 px-6 py-5 text-sm font-bold uppercase tracking-widest transition-all duration-200 border-b-2 capitalize"
+          [ngClass]="activeTab() === tab
+            ? 'border-brand-primary text-brand-primary'
+            : 'border-transparent text-neutral-400 hover:text-neutral-800'">
+          {{ tab }}
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════ HOME TAB ══════════════════════════ -->
+  <div *ngIf="activeTab() === 'home'">
+
+    <!-- Our Story -->
+    <section class="py-20 md:py-28">
+      <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-4">Our Story</span>
+            <h2 class="text-5xl md:text-6xl font-black text-neutral-900 tracking-tighter leading-none mb-8">
+              A brotherhood<br>forged on the pitch.
+            </h2>
+            <p class="text-neutral-500 text-lg leading-relaxed mb-6">
+              For more than two decades, the Nalapad Football Club has been at the heart of student life — uniting nursing students from across our campuses through the beautiful game. From early-morning training sessions to last-minute winners in front of roaring crowds, the Club is more than a team — it's a family.
+            </p>
+            <p class="text-neutral-500 text-lg leading-relaxed mb-10">
+              Today, we field competitive squads across men's and women's divisions, regularly representing Karnataka in regional and national tournaments.
+            </p>
+            <div class="flex gap-4 flex-wrap">
+              <button (click)="setTab('team')" class="px-7 py-3.5 bg-brand-primary text-white font-black uppercase tracking-widest text-xs rounded-full hover:bg-red-700 transition-colors">Meet the Squad</button>
+              <button (click)="setTab('achievements')" class="px-7 py-3.5 border-2 border-neutral-200 text-neutral-700 font-black uppercase tracking-widest text-xs rounded-full hover:border-brand-primary hover:text-brand-primary transition-colors">View Honours</button>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="rounded-[3rem] overflow-hidden shadow-2xl aspect-[4/3]">
+              <img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover" alt="Football training">
+            </div>
+            <!-- Floating stat card -->
+            <div class="absolute -bottom-6 -left-6 bg-brand-primary text-white px-8 py-5 rounded-2xl shadow-2xl">
+              <p class="text-4xl font-black tracking-tighter">5×</p>
+              <p class="text-xs font-bold uppercase tracking-widest opacity-80">Champions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Honours Cabinet -->
+    <section class="py-16 bg-neutral-50">
+      <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20">
+        <div class="flex items-end justify-between mb-10">
+          <div>
+            <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-2">Recent Highlights</span>
+            <h2 class="text-4xl font-black text-neutral-900 tracking-tighter">Honours Cabinet</h2>
+          </div>
+          <button (click)="setTab('achievements')" class="text-brand-primary font-black text-sm uppercase tracking-widest hover:underline">See all →</button>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div *ngFor="let ach of achievements.slice(0,3)"
+               class="bg-white rounded-3xl p-7 border-l-4 border-brand-primary shadow-sm hover:shadow-md transition-shadow">
+            <span class="text-brand-primary font-black text-sm mb-2 block">{{ ach.year }}</span>
+            <h3 class="text-lg font-black text-neutral-900 tracking-tight mb-2">{{ ach.title }}</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">{{ ach.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Strip -->
+    <section class="py-16">
+      <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20">
+        <div class="flex items-end justify-between mb-10">
+          <div>
+            <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-2">From the Sidelines</span>
+            <h2 class="text-4xl font-black text-neutral-900 tracking-tighter">Moments in motion</h2>
+          </div>
+          <button (click)="setTab('gallery')" class="text-brand-primary font-black text-sm uppercase tracking-widest hover:underline">Full gallery →</button>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div *ngFor="let img of gallery.slice(0,4)" class="group relative rounded-2xl overflow-hidden aspect-square">
+            <img [src]="img" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Gallery">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ══════════════════════════ ABOUT TAB ══════════════════════════ -->
+  <div *ngIf="activeTab() === 'about'" class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 py-20 md:py-28">
+    <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-5">About the Club</span>
+    <h2 class="text-5xl md:text-6xl font-black text-neutral-900 tracking-tighter mb-10">Discipline. Brotherhood. Grit.</h2>
+    <p class="text-neutral-500 text-lg leading-relaxed mb-10 max-w-3xl">
+      Founded in 2001 by a group of nursing students who refused to let long clinical hours dim their love of the game, Nalapad Football Club has grown into one of South India's most respected collegiate sides.
+    </p>
+    <div class="grid md:grid-cols-3 gap-10 border-t border-neutral-100 pt-12">
+      <div *ngFor="let item of [
+        {label: 'Mission', text: 'To cultivate well-rounded healthcare professionals through the values of teamwork, resilience, and integrity that competitive football instils.'},
+        {label: 'Training', text: 'The senior squad trains four mornings a week at our turf complex, with strength & conditioning supervised by the Sports Science department.'},
+        {label: 'Membership', text: 'Open to all enrolled students. Trials are held at the start of every academic year. A women\'s squad joined the Club in 2018 and competes in the Karnataka Women\'s University League.'}
+      ]">
+        <div>
+          <h3 class="text-brand-primary font-black text-lg mb-3 tracking-tight">{{ item.label }}</h3>
+          <p class="text-neutral-500 text-base leading-relaxed">{{ item.text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════ TEAM TAB ══════════════════════════ -->
+  <div *ngIf="activeTab() === 'team'" class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 py-20 md:py-28">
+    <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-2">Squad 2025-26</span>
+    <h2 class="text-5xl md:text-6xl font-black text-neutral-900 tracking-tighter mb-14">Meet the Team</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div *ngFor="let player of squad" class="group">
+        <div class="relative rounded-3xl overflow-hidden aspect-[3/4] mb-4 bg-neutral-100">
+          <img [src]="player.image" [alt]="player.name" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="text-white font-black text-2xl">{{ player.number }}</span>
+          </div>
+        </div>
+        <div class="flex items-start justify-between">
+          <div>
+            <h3 class="font-black text-neutral-900 text-base">{{ player.name }}</h3>
+            <p class="text-neutral-400 text-xs font-medium mt-0.5">{{ player.position }}</p>
+          </div>
+          <span class="text-brand-primary font-black text-sm">{{ player.number }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════ ACHIEVEMENTS TAB ══════════════════════════ -->
+  <div *ngIf="activeTab() === 'achievements'" class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 py-20 md:py-28">
+    <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-2">Honours</span>
+    <h2 class="text-5xl md:text-6xl font-black text-neutral-900 tracking-tighter mb-14">Achievements</h2>
+    <div class="flex flex-col gap-0 divide-y divide-neutral-100">
+      <div *ngFor="let ach of achievements; let i = index"
+           class="group flex gap-8 items-start py-10 hover:bg-neutral-50 px-4 -mx-4 rounded-2xl transition-colors cursor-default">
+        <div class="shrink-0 w-10 h-10 rounded-full bg-brand-primary/10 group-hover:bg-brand-primary flex items-center justify-center transition-colors">
+          <span class="text-brand-primary group-hover:text-white font-black text-xs transition-colors">{{ i + 1 }}</span>
+        </div>
+        <div class="flex-1">
+          <span class="text-brand-primary font-black text-sm block mb-1">{{ ach.year }}</span>
+          <h3 class="text-xl font-black text-neutral-900 mb-2 group-hover:text-brand-primary transition-colors">{{ ach.title }}</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">{{ ach.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════ GALLERY TAB ══════════════════════════ -->
+  <div *ngIf="activeTab() === 'gallery'" class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 py-20 md:py-28">
+    <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-2">Gallery</span>
+    <h2 class="text-5xl md:text-6xl font-black text-neutral-900 tracking-tighter mb-14">Match Moments</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div *ngFor="let img of gallery" class="group relative rounded-3xl overflow-hidden aspect-video">
+        <img [src]="img" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Gallery">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back Link -->
+  <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 pb-16">
+    <a routerLink="/" class="inline-flex items-center gap-2 text-neutral-400 hover:text-brand-primary font-bold text-sm uppercase tracking-widest transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+      Back to Home
+    </a>
+  </div>
+
+</main>

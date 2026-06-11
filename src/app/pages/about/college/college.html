@@ -1,0 +1,87 @@
+<main class="min-h-screen bg-white font-sans overflow-hidden">
+  
+  <!-- HERO BANNER -->
+  <section class="relative pt-40 pb-32 bg-neutral-900 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover" alt="College Background">
+      <div class="absolute inset-0 bg-gradient-to-b from-neutral-900/80 via-neutral-900/70 to-neutral-900"></div>
+    </div>
+    
+    <div class="absolute inset-0 pointer-events-none z-0">
+      <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-brand-primary/20 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] bg-brand-primary/10 rounded-full blur-[100px]"></div>
+    </div>
+    
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <span class="inline-block py-1.5 px-4 rounded-full bg-white/10 border border-white/20 text-[0.65rem] font-black tracking-[0.5em] uppercase text-white mb-6 backdrop-blur-md">History & Legacy</span>
+      <h1 class="text-5xl md:text-7xl lg:text-[7rem] font-black text-white uppercase tracking-tighter leading-[0.9] drop-shadow-2xl mb-6">
+        About <br><span class="text-brand-primary">College.</span>
+      </h1>
+      <p class="text-neutral-300 max-w-2xl mx-auto text-sm lg:text-base leading-relaxed font-medium">
+        Discover the legacy of Nalapad Group of Institutions—where tradition meets innovation in shaping world-class healthcare professionals.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENT SECTION -->
+  <section class="py-24 relative z-10">
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Text Area -->
+        <div>
+          <span class="text-[0.65rem] font-black tracking-[0.5em] uppercase text-brand-primary mb-4 block">Our Story</span>
+          <h2 class="text-4xl md:text-5xl font-black text-neutral-900 tracking-tighter mb-8 leading-tight">
+            A Legacy of Excellence in Healthcare Education
+          </h2>
+          <div class="prose prose-neutral max-w-none text-neutral-500 font-medium leading-relaxed">
+            <p class="mb-6">
+              Nalapad College of Nursing was established with a singular focus: to redefine nursing education and elevate the standard of clinical practice globally. Over the years, we have grown into one of the most respected institutions in healthcare education.
+            </p>
+            <p class="mb-6">
+              Our curriculum is designed to balance rigorous academic theory with unparalleled practical exposure. We believe that true learning happens when knowledge is applied in real-world scenarios, which is why we maintain robust ties with leading multi-specialty hospitals.
+            </p>
+            <p>
+              At Nalapad, we don't just teach nursing; we instill compassion, discipline, and leadership. Our graduates are recognized worldwide for their clinical acumen and empathetic patient care, standing as proud ambassadors of our educational philosophy.
+            </p>
+          </div>
+        </div>
+
+        <!-- Image Grid Area -->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="flex flex-col gap-4 mt-12">
+            <div class="aspect-square rounded-[2rem] overflow-hidden shadow-lg border-4 border-white">
+              <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5ee5?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="College Building">
+            </div>
+            <div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-lg border-4 border-white">
+              <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Students in Lab">
+            </div>
+          </div>
+          <div class="flex flex-col gap-4">
+            <div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-lg border-4 border-white">
+              <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover" alt="Library">
+            </div>
+            <div class="aspect-square rounded-[2rem] overflow-hidden shadow-lg border-4 border-white bg-brand-primary flex items-center justify-center p-8 text-center text-white">
+              <h3 class="text-3xl font-black uppercase tracking-widest mb-2">Since</h3>
+              <span class="text-5xl font-black drop-shadow-md">2012</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS TAPE -->
+  <section class="py-12 bg-neutral-950 border-y border-white/10">
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/10">
+        <div *ngFor="let stat of stats" class="text-center px-4">
+          <h4 class="text-4xl md:text-5xl font-black text-brand-primary mb-2 drop-shadow-[0_0_15px_rgba(204,0,0,0.3)]">{{ stat.value }}</h4>
+          <p class="text-[0.65rem] md:text-xs font-bold uppercase tracking-widest text-neutral-400">{{ stat.label }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>

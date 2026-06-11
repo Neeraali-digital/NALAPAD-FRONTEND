@@ -1,0 +1,69 @@
+<main class="min-h-screen bg-neutral-50 font-sans overflow-hidden">
+  
+  <!-- HERO BANNER -->
+  <section class="relative pt-40 pb-32 bg-neutral-900 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80" class="w-full h-full object-cover" alt="Leadership Background">
+      <div class="absolute inset-0 bg-gradient-to-b from-neutral-900/80 via-neutral-900/70 to-neutral-900"></div>
+    </div>
+    
+    <div class="absolute inset-0 pointer-events-none z-0">
+      <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-brand-primary/20 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] bg-brand-primary/10 rounded-full blur-[100px]"></div>
+    </div>
+    
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <span class="inline-block py-1.5 px-4 rounded-full bg-white/10 border border-white/20 text-[0.65rem] font-black tracking-[0.5em] uppercase text-white mb-6 backdrop-blur-md">Our Visionaries</span>
+      <h1 class="text-5xl md:text-7xl lg:text-[7rem] font-black text-white uppercase tracking-tighter leading-[0.9] drop-shadow-2xl mb-6">
+        Leadership <br><span class="text-brand-primary">& Governance.</span>
+      </h1>
+      <p class="text-neutral-300 max-w-2xl mx-auto text-sm lg:text-base leading-relaxed font-medium">
+        Meet the dedicated minds who steer Nalapad College of Nursing toward global academic and clinical excellence.
+      </p>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP PROFILES -->
+  <section class="py-24 relative z-10">
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div *ngFor="let leader of leaders; let i = index" class="mb-24 last:mb-0">
+        <div class="flex flex-col lg:flex-row gap-12 items-center" [class.lg:flex-row-reverse]="i % 2 !== 0">
+          
+          <!-- Image Section -->
+          <div class="w-full lg:w-1/2 relative">
+            <div class="relative aspect-[4/5] max-w-md mx-auto lg:mx-0 rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white isolate">
+              <img [src]="leader.image" [alt]="leader.name" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              
+              <div class="absolute bottom-8 left-8 text-white">
+                <p class="text-[0.65rem] font-black tracking-[0.4em] uppercase text-brand-primary mb-1">{{ leader.role }}</p>
+                <h3 class="text-3xl font-black tracking-tight">{{ leader.name }}</h3>
+              </div>
+            </div>
+            
+            <!-- Abstract background shape -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[110%] max-h-[110%] bg-brand-primary/5 rounded-full blur-3xl -z-10"></div>
+          </div>
+          
+          <!-- Text Section -->
+          <div class="w-full lg:w-1/2 lg:px-10 text-center lg:text-left">
+            <svg class="w-12 h-12 text-brand-primary/20 mb-6 mx-auto lg:mx-0" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+            <h2 class="text-4xl font-black text-neutral-900 tracking-tighter mb-6">{{ leader.role }}'s Message</h2>
+            <p class="text-neutral-500 text-lg leading-relaxed italic mb-8 border-l-4 border-brand-primary pl-6 py-2">
+              "{{ leader.message }}"
+            </p>
+            <p class="text-sm text-neutral-400 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Under the visionary guidance of {{ leader.name }}, the institution has reached new heights in educational innovation and healthcare impact. Their commitment to student success remains the cornerstone of our philosophy.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
