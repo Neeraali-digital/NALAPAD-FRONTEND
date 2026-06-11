@@ -14,7 +14,7 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
+        sans: ['Montserrat', 'sans-serif'],
       }
     },
   },
