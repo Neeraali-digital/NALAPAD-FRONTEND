@@ -1,0 +1,90 @@
+<main class="min-h-screen bg-neutral-50 font-sans pb-32">
+
+  <!-- ════════════════════════════════ HERO ════════════════════════════════ -->
+  <section class="relative pt-40 pb-20 md:pt-48 md:pb-32 bg-neutral-950 overflow-hidden">
+    <!-- Cinematic Image Background -->
+    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=2000&q=80"
+         class="absolute inset-0 w-full h-full object-cover object-center opacity-40" alt="Academic Calendar">
+    
+    <!-- Rich Gradients -->
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/80 to-transparent"></div>
+    <div class="absolute inset-0 bg-brand-primary/10 mix-blend-overlay"></div>
+    
+    <div class="relative z-10 w-full max-w-[64rem] mx-auto px-6 sm:px-10 text-center">
+      <div class="inline-flex items-center gap-3 mb-6 justify-center">
+        <div class="w-8 h-[2px] bg-brand-primary"></div>
+        <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary">Nalapad College of Nursing</span>
+        <div class="w-8 h-[2px] bg-brand-primary"></div>
+      </div>
+      <h1 class="font-black text-white tracking-tighter leading-none mb-6"
+          style="font-size: clamp(3rem, 7vw, 6rem); text-shadow: 0 4px 32px rgba(0,0,0,0.5);">
+        Academic<br><span class="text-brand-primary italic">Calendar.</span>
+      </h1>
+      <p class="text-white/60 text-base md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+        Key dates, exams, holidays, and college events for the 2025-2026 academic year. Plan ahead and stay informed.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════ CALENDAR TIMELINE ════════════════════════════════ -->
+  <section class="relative py-20 md:py-32 overflow-hidden">
+    <!-- Decorative background blobs -->
+    <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-brand-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-blue-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-[64rem] mx-auto px-6 sm:px-10">
+
+      <div class="relative border-l-2 border-brand-primary/20 pl-8 md:pl-12 ml-4 md:ml-0">
+        
+        <!-- Monthly Blocks -->
+        <div *ngFor="let month of months; let i = index" class="mb-24 last:mb-0 relative group">
+          
+          <!-- Month Marker Dot (Brand styled) -->
+          <div class="absolute -left-[41px] md:-left-[57px] top-1 w-5 h-5 rounded-full bg-white border-4 border-brand-primary shadow-[0_0_0_4px_rgba(255,255,255,1)] z-10 group-hover:scale-125 group-hover:shadow-[0_0_15px_rgba(220,38,38,0.5)] transition-all duration-300"></div>
+          
+          <!-- Month Header -->
+          <div class="mb-8 flex items-baseline gap-4 border-b border-neutral-200/60 pb-4">
+            <h2 class="text-4xl md:text-5xl font-black text-neutral-900 tracking-tight">{{ month.name }}</h2>
+            <span class="text-xl md:text-2xl font-bold text-neutral-300">{{ month.year }}</span>
+          </div>
+
+          <!-- Events List for the Month -->
+          <div class="flex flex-col gap-6">
+            <div *ngFor="let event of month.events"
+                 class="group/card relative bg-white rounded-3xl p-6 sm:p-8 border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 hover:border-brand-primary/20 transition-all duration-400 overflow-hidden">
+              
+              <!-- Hover accent line -->
+              <div class="absolute top-0 left-0 w-1 h-full bg-brand-primary opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
+
+              <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-10">
+                <!-- Date block -->
+                <div class="shrink-0 sm:w-28 border-b sm:border-b-0 sm:border-r border-neutral-100 pb-4 sm:pb-0 sm:pr-8 text-center sm:text-left">
+                  <span class="block text-4xl sm:text-5xl font-black text-neutral-900 group-hover/card:text-brand-primary transition-colors leading-none tracking-tighter">{{ event.date.split(' ')[0] }}</span>
+                  <span class="block text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 mt-2">{{ event.date.split(' ')[1] }}</span>
+                </div>
+                
+                <!-- Event Details -->
+                <div class="flex-grow">
+                  <div class="flex flex-wrap items-center gap-3 mb-3">
+                    <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 group-hover/card:text-brand-primary transition-colors">{{ event.title }}</h3>
+                    <span class="text-[0.6rem] font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                          [ngClass]="getBadgeColor(event.type)">
+                      {{ event.type }}
+                    </span>
+                  </div>
+                  <p class="text-neutral-500 text-sm sm:text-base leading-relaxed">{{ event.desc }}</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div> <!-- End Monthly Block -->
+
+      </div>
+
+    </div>
+  </section>
+
+</main>

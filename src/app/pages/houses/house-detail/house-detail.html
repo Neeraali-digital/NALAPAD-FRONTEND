@@ -1,0 +1,362 @@
+<ng-container *ngIf="house() as h; else notFound">
+<main class="min-h-screen font-sans bg-white">
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- HERO                                                          -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <section class="relative h-screen max-h-[780px] min-h-[600px] flex items-end overflow-hidden">
+    <!-- Real background image - always visible -->
+    <img [src]="h.heroBg" [alt]="h.name"
+         class="absolute inset-0 w-full h-full object-cover object-center">
+
+    <!-- House-tinted dark overlay - tuned per-house -->
+    <div class="absolute inset-0"
+         [style.background]="'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.25) 100%)'">
+    </div>
+
+    <!-- Subtle house colour bleed from bottom -->
+    <div class="absolute bottom-0 left-0 right-0 h-1/3"
+         [ngClass]="h.color"
+         style="opacity:0.25; mix-blend-mode: multiply;">
+    </div>
+
+    <!-- Giant house initial watermark -->
+    <span class="absolute top-1/2 right-10 -translate-y-1/2 text-[22rem] font-black text-white/[0.04] select-none pointer-events-none leading-none">
+      {{ h.name[0] }}
+    </span>
+
+    <!-- Content -->
+    <div class="relative z-10 w-full max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 pb-20 md:pb-28">
+
+      <!-- Eyebrow -->
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-[2px]" [style.background-color]="h.accentColor"></div>
+        <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-white/60">
+          Nalapad House System · Est. {{ h.founded }}
+        </span>
+      </div>
+
+      <!-- House name -->
+      <h1 class="font-black text-white uppercase tracking-tighter leading-none mb-3"
+          style="font-size: clamp(4rem, 10vw, 9rem); line-height: 0.9;">
+        {{ h.name }}
+      </h1>
+
+      <!-- Trait in house accent colour -->
+      <p class="font-black uppercase tracking-[0.4em] text-sm mb-5"
+         [style.color]="h.accentColor">
+        {{ h.trait }}
+      </p>
+
+      <!-- Tagline -->
+      <p class="text-white/70 text-base md:text-xl max-w-xl font-light leading-relaxed mb-10">
+        {{ h.tagline }}
+      </p>
+
+      <!-- Quick stats row -->
+      <div class="flex flex-wrap gap-4">
+        <div *ngFor="let stat of [
+          {label: 'Members', value: h.members},
+          {label: 'Honours', value: h.achievements.length.toString()},
+          {label: 'Symbol', value: h.animal},
+          {label: 'Element', value: h.element}
+        ]" class="backdrop-blur-sm bg-white/10 border border-white/15 rounded-2xl px-6 py-4 min-w-[90px]">
+          <p class="text-xl md:text-2xl font-black text-white">{{ stat.value }}</p>
+          <p class="text-[0.55rem] font-bold uppercase tracking-widest text-white/40 mt-0.5">{{ stat.label }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- STICKY TAB NAV                                               -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-neutral-100 shadow-sm">
+    <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 flex items-center justify-between">
+      <div class="flex overflow-x-auto scrollbar-none">
+        <button *ngFor="let tab of ['home','about','team','achievements','gallery']"
+          (click)="setTab(tab)"
+          class="shrink-0 px-6 py-5 text-sm font-bold uppercase tracking-widest transition-all duration-200 border-b-2 capitalize"
+          [style.border-color]="activeTab() === tab ? h.accentColor : 'transparent'"
+          [ngClass]="activeTab() === tab ? 'text-neutral-900' : 'border-transparent text-neutral-400 hover:text-neutral-800'">
+          {{ tab }}
+        </button>
+      </div>
+      <a routerLink="/" class="hidden md:flex items-center gap-2 text-neutral-400 hover:text-neutral-900 text-xs font-bold uppercase tracking-widest transition-colors shrink-0 ml-4">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Home
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- HOME TAB                                                      -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <div *ngIf="activeTab() === 'home'">
+
+    <!-- Story + Image -->
+    <section class="py-24 md:py-32">
+      <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+          <!-- Text -->
+          <div>
+            <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase block mb-5"
+                  [style.color]="h.accentColor">Our Story</span>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-neutral-900 tracking-tighter leading-tight mb-8">
+              {{ h.trait }}.<br>
+              <span [style.color]="h.accentColor">Defined.</span>
+            </h2>
+            <p class="text-neutral-500 text-lg leading-relaxed mb-10">{{ h.story }}</p>
+            <div class="flex flex-wrap gap-4">
+              <button (click)="setTab('achievements')"
+                      class="px-8 py-4 text-white font-black uppercase tracking-widest text-xs rounded-full transition-opacity hover:opacity-90"
+                      [ngClass]="h.color">
+                View Honours
+              </button>
+              <button (click)="setTab('team')"
+                      class="px-8 py-4 border-2 border-neutral-200 text-neutral-700 font-black uppercase tracking-widest text-xs rounded-full hover:border-neutral-800 hover:text-neutral-900 transition-colors">
+                Meet the Team
+              </button>
+            </div>
+          </div>
+
+          <!-- Image -->
+          <div class="relative">
+            <div class="rounded-[3rem] overflow-hidden shadow-2xl aspect-[4/3]">
+              <img [src]="h.storyImg" [alt]="h.name" class="w-full h-full object-cover">
+            </div>
+            <!-- Floating stat badge -->
+            <div class="absolute -bottom-6 -left-6 px-8 py-5 rounded-2xl shadow-2xl text-white"
+                 [ngClass]="h.color">
+              <p class="text-3xl font-black tracking-tighter">{{ h.members }}+</p>
+              <p class="text-xs font-bold uppercase tracking-widest opacity-70 mt-0.5">Members</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Activities -->
+    <section class="py-20 bg-neutral-50">
+      <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20">
+        <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase block mb-3"
+              [style.color]="h.accentColor">What We Do</span>
+        <h2 class="text-4xl md:text-5xl font-black text-neutral-900 tracking-tighter mb-12">House Activities</h2>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div *ngFor="let act of h.activities; let ai = index"
+               class="bg-white rounded-3xl p-8 border border-neutral-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-400 flex flex-col gap-5">
+
+            <!-- Icon circle -->
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0"
+                 [ngClass]="h.color">
+              <!-- zap -->
+              <svg *ngIf="act.icon === 'zap'" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+              <!-- heart -->
+              <svg *ngIf="act.icon === 'heart'" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+              <!-- activity / pulse -->
+              <svg *ngIf="act.icon === 'activity'" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+              <!-- users -->
+              <svg *ngIf="act.icon === 'users'" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <!-- book -->
+              <svg *ngIf="act.icon === 'book'" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+              <!-- microscope -->
+              <svg *ngIf="act.icon === 'microscope'" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0zM2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <!-- brain -->
+              <svg *ngIf="act.icon === 'brain'" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+              </svg>
+              <!-- star -->
+              <svg *ngIf="act.icon === 'star'" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+              </svg>
+              <!-- briefcase -->
+              <svg *ngIf="act.icon === 'briefcase'" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <!-- trending-up -->
+              <svg *ngIf="act.icon === 'trending-up'" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+              <!-- chat -->
+              <svg *ngIf="act.icon === 'chat'" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+              <!-- globe -->
+              <svg *ngIf="act.icon === 'globe'" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9h18"/>
+              </svg>
+              <!-- shield -->
+              <svg *ngIf="act.icon === 'shield'" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+
+            <!-- Text -->
+            <div>
+              <h3 class="font-black text-neutral-900 text-lg mb-2 leading-tight">{{ act.name }}</h3>
+              <p class="text-neutral-400 text-sm leading-relaxed">{{ act.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Honours strip -->
+    <section class="py-20">
+      <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20">
+        <div class="flex items-end justify-between mb-10">
+          <div>
+            <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase block mb-2"
+                  [style.color]="h.accentColor">Recent Highlights</span>
+            <h2 class="text-4xl font-black text-neutral-900 tracking-tighter">Honours Cabinet</h2>
+          </div>
+          <button (click)="setTab('achievements')"
+                  class="text-sm font-black uppercase tracking-widest hover:underline"
+                  [style.color]="h.accentColor">See all →</button>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div *ngFor="let ach of h.achievements.slice(0,3)"
+               class="rounded-3xl p-7 bg-neutral-50 border-l-4 shadow-sm hover:shadow-md transition-shadow"
+               [style.border-color]="h.accentColor">
+            <span class="font-black text-sm block mb-2" [style.color]="h.accentColor">{{ ach.year }}</span>
+            <h3 class="text-lg font-black text-neutral-900 tracking-tight mb-2">{{ ach.title }}</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">{{ ach.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- end home tab -->
+
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- ABOUT TAB                                                     -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <div *ngIf="activeTab() === 'about'" class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 py-24 md:py-32">
+    <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase block mb-5"
+          [style.color]="h.accentColor">About the House</span>
+    <h2 class="text-5xl md:text-6xl font-black text-neutral-900 tracking-tighter mb-10">{{ h.trait }}.</h2>
+    <p class="text-neutral-500 text-xl leading-relaxed mb-16 max-w-4xl border-l-4 pl-8 py-2"
+       [style.border-color]="h.accentColor">
+      {{ h.description }}
+    </p>
+    <div class="grid md:grid-cols-3 gap-12 border-t border-neutral-100 pt-14">
+      <div *ngFor="let item of [
+        {label:'Mission', text: h.mission},
+        {label:'Training & Activities', text: h.training},
+        {label:'Membership', text: h.membership}
+      ]">
+        <h3 class="font-black text-xl mb-4 tracking-tight" [style.color]="h.accentColor">{{ item.label }}</h3>
+        <p class="text-neutral-500 leading-relaxed">{{ item.text }}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- TEAM TAB                                                      -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <div *ngIf="activeTab() === 'team'" class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 py-24 md:py-32">
+    <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase block mb-2"
+          [style.color]="h.accentColor">Core Team 2025-26</span>
+    <h2 class="text-5xl md:text-6xl font-black text-neutral-900 tracking-tighter mb-16">House Leadership</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div *ngFor="let member of h.team" class="group">
+        <div class="relative rounded-3xl overflow-hidden aspect-[3/4] mb-5 shadow-lg bg-neutral-100">
+          <img [src]="member.image" [alt]="member.name"
+               class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+          <!-- House stripe at bottom -->
+          <div class="absolute bottom-0 left-0 right-0 h-1.5" [ngClass]="h.color"></div>
+          <!-- Hover overlay -->
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
+        </div>
+        <h3 class="font-black text-neutral-900 text-base mb-1">{{ member.name }}</h3>
+        <p class="text-xs font-bold uppercase tracking-widest" [style.color]="h.accentColor">{{ member.role }}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- ACHIEVEMENTS TAB                                              -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <div *ngIf="activeTab() === 'achievements'" class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 py-24 md:py-32">
+    <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase block mb-2"
+          [style.color]="h.accentColor">Honours</span>
+    <h2 class="text-5xl md:text-6xl font-black text-neutral-900 tracking-tighter mb-16">Achievements</h2>
+    <div class="flex flex-col divide-y divide-neutral-100">
+      <div *ngFor="let ach of h.achievements; let i = index"
+           class="group flex gap-8 items-start py-10 hover:bg-neutral-50 px-4 -mx-4 rounded-2xl transition-colors cursor-default">
+        <!-- Number bubble -->
+        <div class="shrink-0 w-11 h-11 rounded-full border-2 flex items-center justify-center transition-all duration-300 group-hover:text-white"
+             [style.border-color]="h.accentColor"
+             [style.color]="h.accentColor"
+             [ngClass]="{'group-hover:bg-[#740001]': h.slug === 'gryffindor', 'group-hover:bg-[#222f5b]': h.slug === 'ravenclaw', 'group-hover:bg-[#1a472a]': h.slug === 'slytherin', 'group-hover:bg-[#ecb939]': h.slug === 'hufflepuff'}">
+          <span class="font-black text-xs">{{ i + 1 }}</span>
+        </div>
+        <div class="flex-1">
+          <span class="font-black text-sm block mb-1.5" [style.color]="h.accentColor">{{ ach.year }}</span>
+          <h3 class="text-xl font-black text-neutral-900 mb-2 group-hover:text-neutral-700 transition-colors">{{ ach.title }}</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">{{ ach.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!-- GALLERY TAB                                                   -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <div *ngIf="activeTab() === 'gallery'" class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 py-24 md:py-32">
+    <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase block mb-2"
+          [style.color]="h.accentColor">Gallery</span>
+    <h2 class="text-5xl md:text-6xl font-black text-neutral-900 tracking-tighter mb-16">House Moments</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div *ngFor="let img of h.gallery"
+           class="group relative rounded-3xl overflow-hidden aspect-video shadow-sm hover:shadow-2xl transition-all duration-500">
+        <img [src]="img" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" [alt]="h.name">
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-25 transition-opacity" [ngClass]="h.color"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back link -->
+  <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 pb-16 pt-4">
+    <a routerLink="/"
+       class="inline-flex items-center gap-2 text-neutral-400 hover:text-neutral-900 font-bold text-sm uppercase tracking-widest transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+      </svg>
+      Back to Home
+    </a>
+  </div>
+
+</main>
+</ng-container>
+
+<ng-template #notFound>
+  <div class="min-h-screen flex flex-col items-center justify-center gap-6 text-center px-6">
+    <h1 class="text-7xl font-black text-neutral-100">404</h1>
+    <p class="text-2xl font-black text-neutral-900">House not found</p>
+    <a routerLink="/" class="text-brand-primary font-bold uppercase tracking-widest text-sm hover:underline">← Back to Home</a>
+  </div>
+</ng-template>
