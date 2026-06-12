@@ -16,42 +16,48 @@ export class Placement implements OnInit {
       title: 'Clinical Skills Lab',
       duration: 'Throughout Programme',
       desc: 'State-of-the-art simulation labs with high-fidelity mannequins, IV trainers, and procedure kits. Students practice every clinical skill in a safe, supervised environment before entering the ward.',
-      tag: 'Hands-On'
+      tag: 'Hands-On',
+      image: '/training/clinical_skills.jpg'
     },
     {
       icon: 'activity',
       title: 'BLS & ACLS Certification',
       duration: '2-Day Intensive',
       desc: 'All students are certified in Basic Life Support and Advanced Cardiac Life Support by AHA-accredited trainers. Certificates are internationally recognised.',
-      tag: 'Certified'
+      tag: 'Certified',
+      image: '/training/bls_acls.jpg'
     },
     {
       icon: 'globe',
       title: 'Hospital Internship',
       duration: '6 Months',
       desc: 'Mandatory rotational internship across our 15+ partner hospitals covering ICU, OBG, Paediatrics, Emergency, OT, and Community Health departments.',
-      tag: 'Real-World'
+      tag: 'Real-World',
+      image: '/training/hospital_internship.jpg'
     },
     {
       icon: 'brain',
       title: 'Mental Health & Soft Skills',
       duration: 'Semester 3 & 4',
       desc: 'Communication, therapeutic relationship-building, patient advocacy, and empathy training. Delivered by practising clinical psychologists and senior nursing educators.',
-      tag: 'Core Skills'
+      tag: 'Core Skills',
+      image: '/training/mental_health.jpg'
     },
     {
       icon: 'trending',
       title: 'Leadership Development',
       duration: 'Year 3 & 4',
       desc: 'Designed for senior students — nursing management, healthcare operations, charge-nurse responsibilities, and hospital administration case studies.',
-      tag: 'Leadership'
+      tag: 'Leadership',
+      image: '/training/leadership_dev.jpg'
     },
     {
       icon: 'star',
       title: 'Research & Evidence-Based Practice',
       duration: 'Year 2 & 3',
       desc: 'Faculty-guided student research projects with presentation at national nursing conferences. Cultivates critical thinking and scientific inquiry.',
-      tag: 'Academic'
+      tag: 'Academic',
+      image: '/training/nursing_research.jpg'
     }
   ];
 

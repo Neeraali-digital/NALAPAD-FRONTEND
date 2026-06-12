@@ -13,6 +13,8 @@ export class Header implements OnInit {
   isMenuOpen = false;
   isHome = true;
   isScrolledPastAd = false;
+  isHeaderVisible = true;
+  hideTimeout: any;
 
   constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -26,11 +28,37 @@ export class Header implements OnInit {
     
     // Initial check
     setTimeout(() => this.checkScroll(), 100);
+    this.startHideTimer();
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.checkScroll();
+    this.isHeaderVisible = true;
+    this.startHideTimer();
+  }
+
+  startHideTimer() {
+    if (!isPlatformBrowser(this.platformId)) return;
+    
+    if (this.hideTimeout) {
+      clearTimeout(this.hideTimeout);
+    }
+    
+    this.hideTimeout = setTimeout(() => {
+      if (!this.isMenuOpen) {
+        this.isHeaderVisible = false;
+      }
+    }, 5000);
+  }
+
+  onMouseEnter() {
+    if (this.hideTimeout) clearTimeout(this.hideTimeout);
+    this.isHeaderVisible = true;
+  }
+
+  onMouseLeave() {
+    this.startHideTimer();
   }
 
   checkScroll() {
@@ -52,9 +80,16 @@ export class Header implements OnInit {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+    if (this.isMenuOpen) {
+      if (this.hideTimeout) clearTimeout(this.hideTimeout);
+      this.isHeaderVisible = true;
+    } else {
+      this.startHideTimer();
+    }
   }
 
   closeMenu() {
     this.isMenuOpen = false;
+    this.startHideTimer();
   }
 }

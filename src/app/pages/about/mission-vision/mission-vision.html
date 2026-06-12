@@ -6,14 +6,15 @@
   <section class="relative h-[55vh] min-h-[380px] flex items-center justify-center bg-neutral-950 overflow-hidden">
     <!-- Background image -->
     <div class="absolute inset-0">
-      <img
-        src="assets/images/mission-hero.jpg"
-        onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2000&q=80'"
-        class="w-full h-full object-cover object-center"
-        alt="Mission Vision Hero"
-      >
-      <!-- Dark + brand-tinted overlay -->
-      <div class="absolute inset-0 bg-gradient-to-b from-brand-primary/80 via-brand-dark/70 to-neutral-950/90"></div>
+      <picture>
+        <source media="(min-width: 768px)" srcset="/banners/vissionMissionLargerScreen.jpeg">
+        <img
+          src="/banners/visionMissionMoblile.jpeg"
+          class="w-full h-full object-cover object-center"
+          alt="Mission Vision Hero"
+        >
+      </picture>
+
     </div>
 
     <!-- Hero Content -->
@@ -24,6 +25,13 @@
       <p class="text-white/80 text-base md:text-lg font-light tracking-wide">
         Guided by purpose. Driven by impact.
       </p>
+    </div>
+
+    <!-- Curve Divider -->
+    <div class="absolute -bottom-[1px] left-0 w-full overflow-hidden leading-[0]">
+      <svg class="block w-full h-[40px] md:h-[70px] translate-y-[1px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,120 L0,60 Q600,-60 1200,60 L1200,120 Z" fill="#fdf5f5" />
+      </svg>
     </div>
   </section>
 

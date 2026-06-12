@@ -8,10 +8,10 @@
     <div class="absolute inset-0 bg-gradient-to-r from-neutral-950/60 to-transparent"></div>
 
     <div class="relative z-10 w-full max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 pb-20 md:pb-28">
-      <div class="flex items-center gap-3 mb-6">
+      <!-- <div class="flex items-center gap-3 mb-6">
         <div class="w-10 h-[2px] bg-brand-primary"></div>
         <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary">Nalapad College of Nursing</span>
-      </div>
+      </div> -->
       <h1 class="font-black text-white tracking-tighter leading-none mb-5"
           style="font-size: clamp(3rem, 8vw, 7.5rem); line-height: 0.9; text-shadow: 0 2px 24px rgba(0,0,0,0.8);">
         Placement &amp;<br><span class="text-brand-primary italic">Training.</span>
@@ -52,45 +52,50 @@
       <!-- Programme cards -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div *ngFor="let prog of trainingPrograms; let i = index"
-             class="group relative bg-white rounded-[2rem] border border-neutral-100 p-8 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden">
+             class="group relative rounded-[2rem] border border-white/10 p-8 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden isolate bg-neutral-900">
 
-          <!-- Hover fill -->
-          <div class="absolute inset-0 bg-brand-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem]"></div>
+          <!-- Background Image -->
+          <img [src]="prog.image" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-all duration-[2000ms] -z-20">
+          
+          <!-- Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 -z-10 group-hover:from-brand-primary/90 group-hover:via-brand-primary/80 transition-colors duration-500"></div>
 
           <!-- Content (z-10 to sit above fill) -->
-          <div class="relative z-10">
+          <div class="relative z-10 flex flex-col h-full">
             <!-- Tag + Duration -->
             <div class="flex items-center justify-between mb-6">
-              <span class="text-[0.55rem] font-black uppercase tracking-widest px-3 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary group-hover:bg-white/20 group-hover:text-white transition-colors">
+              <span class="text-[0.55rem] font-black uppercase tracking-widest px-3 py-1.5 rounded-full bg-white/10 text-white backdrop-blur-sm border border-white/20">
                 {{ prog.tag }}
               </span>
-              <span class="text-[0.55rem] font-bold text-neutral-400 group-hover:text-white/60 transition-colors">{{ prog.duration }}</span>
+              <span class="text-[0.55rem] font-bold text-white/60">{{ prog.duration }}</span>
             </div>
 
             <!-- Icon -->
-            <div class="w-12 h-12 rounded-2xl bg-neutral-100 group-hover:bg-white/20 flex items-center justify-center mb-6 transition-colors">
-              <svg *ngIf="prog.icon === 'shield'" class="w-5 h-5 text-brand-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center mb-6">
+              <svg *ngIf="prog.icon === 'shield'" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
               </svg>
-              <svg *ngIf="prog.icon === 'activity'" class="w-5 h-5 text-brand-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg *ngIf="prog.icon === 'activity'" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M22 12h-4l-3 9L9 3l-3 9H2"/>
               </svg>
-              <svg *ngIf="prog.icon === 'globe'" class="w-5 h-5 text-brand-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg *ngIf="prog.icon === 'globe'" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9h18"/>
               </svg>
-              <svg *ngIf="prog.icon === 'brain'" class="w-5 h-5 text-brand-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg *ngIf="prog.icon === 'brain'" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
               </svg>
-              <svg *ngIf="prog.icon === 'trending'" class="w-5 h-5 text-brand-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg *ngIf="prog.icon === 'trending'" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
               </svg>
-              <svg *ngIf="prog.icon === 'star'" class="w-5 h-5 text-brand-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg *ngIf="prog.icon === 'star'" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
               </svg>
             </div>
 
-            <h3 class="text-xl font-black text-neutral-900 group-hover:text-white mb-3 transition-colors leading-tight">{{ prog.title }}</h3>
-            <p class="text-neutral-400 group-hover:text-white/75 text-sm leading-relaxed transition-colors">{{ prog.desc }}</p>
+            <div class="mt-auto">
+              <h3 class="text-xl font-black text-white mb-3 leading-tight drop-shadow-md">{{ prog.title }}</h3>
+              <p class="text-white/70 text-sm leading-relaxed">{{ prog.desc }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -99,8 +104,14 @@
 
 
   <!-- ════════════════════════════════ PLACEMENT BENEFITS ════════════════════════════════ -->
-  <section class="py-24 bg-neutral-950">
-    <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20">
+  <section class="py-24 relative overflow-hidden bg-neutral-950">
+    <!-- Background Image -->
+    <img src="/placement_bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-40">
+    <!-- Gradient Overlay for readability -->
+    <div class="absolute inset-0 bg-neutral-950/60"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-neutral-950 via-transparent to-neutral-950"></div>
+
+    <div class="relative z-10 max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20">
       <div class="flex flex-col lg:flex-row gap-16 items-start mb-16">
         <div class="lg:w-1/2">
           <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-4">Placement Cell</span>
