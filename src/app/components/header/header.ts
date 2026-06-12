@@ -1,5 +1,5 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, HostListener, Inject, OnInit, PLATFORM_ID, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -9,14 +9,20 @@ import { filter } from 'rxjs/operators';
   imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './header.html',
 })
-export class Header implements OnInit {
+export class Header implements OnInit, OnDestroy {
   isMenuOpen = false;
   isHome = true;
   isScrolledPastAd = false;
-  isHeaderVisible = true;
-  hideTimeout: any;
+  isHeaderVisible = false;
+  isHovering = false;
+  lastInteractionTime = Date.now();
+  checkInterval: any;
 
-  constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    private router: Router, 
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     this.router.events.pipe(
@@ -28,37 +34,51 @@ export class Header implements OnInit {
     
     // Initial check
     setTimeout(() => this.checkScroll(), 100);
-    this.startHideTimer();
+
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkInterval = setInterval(() => {
+        if (this.isHeaderVisible && !this.isMenuOpen && !this.isHovering) {
+          if (Date.now() - this.lastInteractionTime > 3000) {
+            this.isHeaderVisible = false;
+            this.cdr.detectChanges();
+          }
+        }
+      }, 1000);
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.checkInterval) {
+      clearInterval(this.checkInterval);
+    }
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.checkScroll();
-    this.isHeaderVisible = true;
-    this.startHideTimer();
+    this.onUserInteraction();
   }
 
-  startHideTimer() {
-    if (!isPlatformBrowser(this.platformId)) return;
-    
-    if (this.hideTimeout) {
-      clearTimeout(this.hideTimeout);
+  @HostListener('window:mousemove', [])
+  @HostListener('window:touchstart', [])
+  @HostListener('window:click', [])
+  onUserInteraction() {
+    this.lastInteractionTime = Date.now();
+    if (!this.isHeaderVisible) {
+      this.isHeaderVisible = true;
+      this.cdr.detectChanges();
     }
-    
-    this.hideTimeout = setTimeout(() => {
-      if (!this.isMenuOpen) {
-        this.isHeaderVisible = false;
-      }
-    }, 5000);
   }
 
   onMouseEnter() {
-    if (this.hideTimeout) clearTimeout(this.hideTimeout);
+    this.isHovering = true;
     this.isHeaderVisible = true;
+    this.cdr.detectChanges();
   }
 
   onMouseLeave() {
-    this.startHideTimer();
+    this.isHovering = false;
+    this.lastInteractionTime = Date.now();
   }
 
   checkScroll() {
@@ -81,15 +101,15 @@ export class Header implements OnInit {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
     if (this.isMenuOpen) {
-      if (this.hideTimeout) clearTimeout(this.hideTimeout);
       this.isHeaderVisible = true;
+      this.cdr.detectChanges();
     } else {
-      this.startHideTimer();
+      this.lastInteractionTime = Date.now();
     }
   }
 
   closeMenu() {
     this.isMenuOpen = false;
-    this.startHideTimer();
+    this.lastInteractionTime = Date.now();
   }
 }
