@@ -29,5 +29,6 @@ export const routes: Routes = [
   { path: 'admissions/scholarship', loadComponent: () => import('./pages/admissions/scholarship/scholarship').then(m => m.Scholarship) },
   { path: 'admissions/video-counselling', loadComponent: () => import('./pages/admissions/video-counselling/video-counselling').then(m => m.VideoCounselling) },
   { path: 'contact', component: Contact },
+  { path: 'study-at-nalapad', loadComponent: () => import('./pages/study-at-nalapad/study-at-nalapad').then(m => m.StudyAtNalapad) },
   { path: '**', redirectTo: '' }
 ];

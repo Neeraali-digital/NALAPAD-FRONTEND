@@ -1,12 +1,11 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { CinematicAnimationsService } from '../../../services/cinematic-animations';
 
 @Component({
   selector: 'app-mission-vision',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './mission-vision.html'
 })
 export class MissionVision implements OnInit {
@@ -20,66 +19,16 @@ export class MissionVision implements OnInit {
   ];
 
   goals = [
-    {
-      id: '01',
-      title: 'Competent & Compassionate Professionals',
-      desc: 'To provide quality nursing education that develops competent and compassionate healthcare professionals.',
-      icon: 'academic'
-    },
-    {
-      id: '02',
-      title: 'Clinical & Ethical Knowledge',
-      desc: 'To equip students with scientific knowledge, clinical skills, and ethical values required for effective patient care.',
-      icon: 'beaker'
-    },
-    {
-      id: '03',
-      title: 'Leadership & Decision-Making',
-      desc: 'To promote critical thinking, leadership, and decision-making abilities among nursing students.',
-      icon: 'brain'
-    },
-    {
-      id: '04',
-      title: 'Research & Innovation',
-      desc: 'To encourage research, innovation, and evidence-based nursing practice for improved healthcare outcomes.',
-      icon: 'microscope'
-    },
-    {
-      id: '05',
-      title: 'Global Healthcare Preparedness',
-      desc: 'To prepare graduates to meet the healthcare needs of individuals, families, and communities at local and global levels.',
-      icon: 'globe'
-    },
-    {
-      id: '06',
-      title: 'Empathy & Lifelong Learning',
-      desc: 'To foster professionalism, discipline, empathy, and lifelong learning in the nursing profession.',
-      icon: 'shield'
-    },
-    {
-      id: '07',
-      title: 'Practical Clinical Exposure',
-      desc: 'To provide practical clinical exposure through collaboration with hospitals and healthcare institutions.',
-      icon: 'briefcase'
-    },
-    {
-      id: '08',
-      title: 'Community Health Promotion',
-      desc: 'To develop socially responsible nurses committed to community health promotion and disease prevention.',
-      icon: 'users'
-    },
-    {
-      id: '09',
-      title: 'Multidisciplinary Teamwork',
-      desc: 'To enhance communication and teamwork skills necessary for multidisciplinary healthcare environments.',
-      icon: 'chat'
-    },
-    {
-      id: '10',
-      title: 'Advanced Career Opportunities',
-      desc: 'To create opportunities for continuous professional development and advanced nursing education.',
-      icon: 'trending-up'
-    }
+    { desc: 'To provide quality nursing education that develops competent and compassionate healthcare professionals.' },
+    { desc: 'To equip students with scientific knowledge, clinical skills, and ethical values required for effective patient care.' },
+    { desc: 'To promote critical thinking, leadership, and decision-making abilities among nursing students.' },
+    { desc: 'To encourage research, innovation, and evidence-based nursing practice for improved healthcare outcomes.' },
+    { desc: 'To prepare graduates to meet the healthcare needs of individuals, families, and communities at local and global levels.' },
+    { desc: 'To foster professionalism, discipline, empathy, and lifelong learning in the nursing profession.' },
+    { desc: 'To provide practical clinical exposure through collaboration with hospitals and healthcare institutions.' },
+    { desc: 'To develop socially responsible nurses committed to community health promotion and disease prevention.' },
+    { desc: 'To enhance communication and teamwork skills necessary for multidisciplinary healthcare environments.' },
+    { desc: 'To create opportunities for continuous professional development and advanced nursing education.' }
   ];
 
   constructor(private cinematic: CinematicAnimationsService) {}

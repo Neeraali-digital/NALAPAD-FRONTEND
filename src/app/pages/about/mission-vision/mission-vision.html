@@ -1,196 +1,171 @@
 <main class="min-h-screen bg-white font-sans">
 
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- HERO SECTION                                            -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <section class="relative h-[85vh] min-h-[600px] flex items-end bg-neutral-950 overflow-hidden">
-    <!-- Background image with parallax-ready position -->
+  <!-- ═══════════════════════════════════════ -->
+  <!-- HERO SECTION                            -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="relative h-[55vh] min-h-[380px] flex items-center justify-center bg-neutral-950 overflow-hidden">
+    <!-- Background image -->
     <div class="absolute inset-0">
-      <img 
-        src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=2000&q=80" 
-        class="w-full h-full object-cover object-center scale-105"
-        alt="Nalapad Mission Vision"
+      <img
+        src="assets/images/mission-hero.jpg"
+        onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2000&q=80'"
+        class="w-full h-full object-cover object-center"
+        alt="Mission Vision Hero"
       >
-      <!-- Multi-layer gradient for editorial look -->
-      <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/50 to-neutral-900/30"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-neutral-950/60 to-transparent"></div>
+      <!-- Dark + brand-tinted overlay -->
+      <div class="absolute inset-0 bg-gradient-to-b from-brand-primary/80 via-brand-dark/70 to-neutral-950/90"></div>
     </div>
 
     <!-- Hero Content -->
-    <div class="relative z-10 w-full max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 pb-20 md:pb-28">
-      <div class="max-w-3xl">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-8 h-[2px] bg-brand-primary"></div>
-          <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary">Nalapad College of Nursing</span>
-        </div>
-        <h1 class="text-[clamp(3.5rem,9vw,8rem)] font-black text-white uppercase leading-none tracking-tighter mb-8">
-          Mission<br>
-          <span class="text-brand-primary italic">& Vision.</span>
-        </h1>
-        <p class="text-neutral-300 text-base md:text-xl font-light leading-relaxed max-w-2xl border-l-2 border-brand-primary/50 pl-6">
-          The principles that define who we are, the values we uphold, and the future we are committed to building — one nurse at a time.
-        </p>
-      </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 right-10 z-10 hidden md:flex flex-col items-center gap-2 text-neutral-500">
-      <span class="text-[0.55rem] tracking-[0.4em] uppercase rotate-90 origin-center mb-4 block">scroll</span>
-      <div class="w-[1px] h-16 bg-gradient-to-b from-neutral-500 to-transparent"></div>
+    <div class="relative z-10 text-center px-6">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-4 drop-shadow-lg">
+        Our Mission, Vision &amp; Goals
+      </h1>
+      <p class="text-white/80 text-base md:text-lg font-light tracking-wide">
+        Guided by purpose. Driven by impact.
+      </p>
     </div>
   </section>
 
 
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- VISION SECTION — Full-bleed editorial layout            -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <section class="bg-neutral-950 py-24 md:py-36">
-    <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20">
-      <div class="grid lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24 items-start">
+  <!-- ═══════════════════════════════════════ -->
+  <!-- THREE CARDS SECTION                     -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="bg-[#fdf5f5] py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-        <!-- Left: Label stack -->
-        <div class="lg:sticky lg:top-40">
-          <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-5">01 / Vision</span>
-          <h2 class="text-7xl md:text-[8rem] font-black uppercase text-white/5 tracking-tighter leading-none select-none -ml-2">VISION</h2>
-          <!-- Decorative quote mark -->
-          <svg class="w-20 h-20 text-brand-primary/20 mt-8" fill="currentColor" viewBox="0 0 32 32">
-            <path d="M10 8C5.6 8 2 11.6 2 16s3.6 8 8 8c1.5 0 2.8-.4 4-1.1L16 26l2-2-2-4.1c.6-1.1 1-2.5 1-3.9 0-4.4-3.6-8-7-8zm12 0c-4.4 0-8 3.6-8 8 0 1.4.4 2.8 1 3.9L13 24l2 2 2-3.1c1.2.7 2.5 1.1 4 1.1 4.4 0 8-3.6 8-8s-3.6-8-7-8z"/>
-          </svg>
-        </div>
-
-        <!-- Right: Vision content -->
-        <div>
-          <p class="text-2xl md:text-3xl lg:text-4xl text-white font-light leading-[1.6] tracking-tight">
-            Our vision is to inspire future nurses to serve humanity with 
-            <span class="text-brand-primary font-semibold">compassion, empathy, integrity,</span> and professionalism.
-          </p>
-          <div class="w-full h-[1px] bg-white/10 my-12"></div>
-          <p class="text-neutral-400 text-lg leading-relaxed">
-            We aspire to create a nurturing learning environment that encourages innovation, clinical excellence, and a deep commitment to caring for every individual with dignity and respect. By shaping competent and compassionate healthcare providers, we aim to bring hope, healing, and comfort to communities — improving the quality of life and making a meaningful difference in society.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- MISSION SECTION — Image + content split                 -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <section class="relative overflow-hidden">
-    <div class="grid lg:grid-cols-2 min-h-[700px]">
-
-      <!-- Left: Cinematic image panel -->
-      <div class="relative min-h-[400px] lg:min-h-full overflow-hidden isolate">
-        <img 
-          src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80" 
-          class="absolute inset-0 w-full h-full object-cover"
-          alt="Mission"
-        >
-        <!-- Dark overlay with brand tint -->
-        <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/80 to-brand-primary/30 mix-blend-multiply"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-
-        <!-- Watermark text -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <span class="text-[12rem] font-black text-white/5 uppercase tracking-tighter leading-none select-none">M</span>
-        </div>
-
-        <!-- Content on image -->
-        <div class="absolute bottom-10 left-10 right-10 z-10">
-          <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary/80 block mb-3">02 / Our Mission</span>
-          <h2 class="text-5xl md:text-6xl font-black text-white uppercase tracking-tight leading-none">
-            Our<br>Mission.
-          </h2>
-        </div>
-      </div>
-
-      <!-- Right: Mission statements -->
-      <div class="bg-neutral-950 p-10 md:p-16 lg:p-20 flex flex-col justify-center">
-        <p class="text-neutral-400 text-sm uppercase tracking-[0.3em] font-bold mb-10">Excellence through academic rigour, clinical training & empathy</p>
-        
-        <div class="flex flex-col gap-8">
-          <div *ngFor="let statement of missionStatements; let i = index" class="group flex gap-6 items-start">
-            <div class="shrink-0 w-10 h-10 rounded-full border border-brand-primary/30 group-hover:bg-brand-primary group-hover:border-brand-primary flex items-center justify-center transition-all duration-500">
-              <span class="text-[0.6rem] font-black text-brand-primary group-hover:text-white transition-colors">0{{ i + 1 }}</span>
+        <!-- MISSION CARD -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-100 flex flex-col relative overflow-hidden group hover:shadow-xl transition-shadow duration-500">
+          <!-- Icon -->
+          <div class="flex items-center gap-4 mb-5">
+            <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center shrink-0 group-hover:bg-brand-primary/10 transition-colors duration-300">
+              <svg class="w-8 h-8 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 10h.01M12 10h.01M15 10h.01"/>
+              </svg>
             </div>
-            <p class="text-neutral-300 text-base md:text-lg leading-relaxed font-light pt-1.5 group-hover:text-white transition-colors duration-300">
-              {{ statement }}
-            </p>
+            <h2 class="text-xl font-black text-neutral-900">Our Mission</h2>
           </div>
-        </div>
-      </div>
+          <!-- Red underline accent -->
+          <div class="w-10 h-[3px] bg-brand-primary rounded mb-6"></div>
 
+          <!-- Mission statements list -->
+          <ul class="flex flex-col gap-4 flex-1">
+            <li *ngFor="let statement of missionStatements" class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <p class="text-neutral-600 text-sm leading-relaxed">{{ statement }}</p>
+            </li>
+          </ul>
+
+        </div>
+
+
+        <!-- VISION CARD -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-100 flex flex-col relative overflow-hidden group hover:shadow-xl transition-shadow duration-500">
+          <!-- Icon -->
+          <div class="flex items-center gap-4 mb-5">
+            <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center shrink-0 group-hover:bg-brand-primary/10 transition-colors duration-300">
+              <svg class="w-8 h-8 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+            </div>
+            <h2 class="text-xl font-black text-neutral-900">Our Vision</h2>
+          </div>
+          <!-- Red underline accent -->
+          <div class="w-10 h-[3px] bg-brand-primary rounded mb-6"></div>
+
+          <!-- Vision text -->
+          <p class="text-neutral-600 text-sm leading-relaxed flex-1">{{ visionText }}</p>
+
+        </div>
+
+
+        <!-- GOALS CARD -->
+        <div class="md:col-span-2 bg-white rounded-2xl p-8 shadow-sm border border-neutral-100 flex flex-col relative overflow-hidden group hover:shadow-xl transition-shadow duration-500">
+          <!-- Icon -->
+          <div class="flex items-center gap-4 mb-5">
+            <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center shrink-0 group-hover:bg-brand-primary/10 transition-colors duration-300">
+              <svg class="w-8 h-8 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="12" r="1" fill="currentColor"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v2M12 19v2M3 12h2M19 12h2"/>
+              </svg>
+            </div>
+            <h2 class="text-xl font-black text-neutral-900">Our Goals</h2>
+          </div>
+          <!-- Red underline accent -->
+          <div class="w-10 h-[3px] bg-brand-primary rounded mb-6"></div>
+
+          <!-- Goals list -->
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 flex-1">
+            <li *ngFor="let goal of goals" class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <p class="text-neutral-600 text-sm leading-relaxed">{{ goal.desc }}</p>
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
     </div>
   </section>
 
 
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- GOALS SECTION — Magazine editorial style               -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <section class="bg-white py-24 md:py-36">
-    <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20">
+  <!-- ═══════════════════════════════════════ -->
+  <!-- STATS STRIP                             -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="bg-brand-primary py-12">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
 
-      <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-20 pb-10 border-b border-neutral-100">
-        <div>
-          <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-4">03 / Institutional Goals</span>
-          <h2 class="text-6xl md:text-8xl font-black text-neutral-900 uppercase tracking-tighter leading-none">
-            Our<br><span class="text-brand-primary">Goals.</span>
-          </h2>
-        </div>
-        <p class="text-neutral-400 max-w-sm text-base leading-relaxed md:text-right">
-          Ten core commitments that define how we shape every student into a globally competent healthcare professional.
-        </p>
-      </div>
-
-      <!-- Goals list — Clean editorial rows -->
-      <div class="flex flex-col divide-y divide-neutral-100">
-        <div 
-          *ngFor="let goal of goals; let i = index"
-          class="group flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 py-8 md:py-10 cursor-default transition-all duration-300 hover:bg-neutral-50 px-4 -mx-4 rounded-2xl"
-        >
-          <!-- Number -->
-          <span class="text-[0.6rem] font-black tracking-[0.4em] text-neutral-300 group-hover:text-brand-primary transition-colors shrink-0 sm:w-12">
-            {{ goal.id }}
-          </span>
-
-          <!-- Title -->
-          <h3 class="text-xl md:text-2xl font-black text-neutral-900 group-hover:text-brand-primary transition-colors duration-300 sm:w-72 shrink-0 tracking-tight">
-            {{ goal.title }}
-          </h3>
-
-          <!-- Animated divider -->
-          <div class="hidden sm:block flex-1 h-[1px] bg-neutral-100 group-hover:bg-brand-primary/20 transition-all duration-500 relative overflow-hidden">
-            <div class="absolute inset-y-0 left-0 w-0 group-hover:w-full bg-brand-primary/30 transition-all duration-700 ease-out"></div>
+        <div class="flex flex-col items-center gap-3">
+          <svg class="w-10 h-10 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+          </svg>
+          <div>
+            <p class="text-3xl md:text-4xl font-black text-white">25+</p>
+            <p class="text-white/70 text-xs font-semibold uppercase tracking-widest mt-1">Years of Excellence</p>
           </div>
-
-          <!-- Description -->
-          <p class="text-neutral-400 text-sm leading-relaxed sm:w-80 shrink-0 group-hover:text-neutral-700 transition-colors duration-300">
-            {{ goal.desc }}
-          </p>
         </div>
+
+        <div class="flex flex-col items-center gap-3">
+          <svg class="w-10 h-10 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+          </svg>
+          <div>
+            <p class="text-3xl md:text-4xl font-black text-white">15,000+</p>
+            <p class="text-white/70 text-xs font-semibold uppercase tracking-widest mt-1">Students Empowered</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center gap-3">
+          <svg class="w-10 h-10 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+          <div>
+            <p class="text-3xl md:text-4xl font-black text-white">8+</p>
+            <p class="text-white/70 text-xs font-semibold uppercase tracking-widest mt-1">Institutions</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center gap-3">
+          <svg class="w-10 h-10 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+          </svg>
+          <div>
+            <p class="text-3xl md:text-4xl font-black text-white">100+</p>
+            <p class="text-white/70 text-xs font-semibold uppercase tracking-widest mt-1">Awards &amp; Accolades</p>
+          </div>
+        </div>
+
       </div>
-
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- CTA STRIP                                               -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <section class="bg-brand-primary py-20">
-    <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 flex flex-col md:flex-row items-center justify-between gap-8">
-      <h2 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none">
-        Be Part of<br>Our Mission.
-      </h2>
-      <a routerLink="/admissions" class="shrink-0 inline-flex items-center gap-4 bg-white text-brand-primary font-black uppercase tracking-widest text-sm px-10 py-5 rounded-full hover:bg-neutral-100 transition-colors duration-300 group">
-        Apply Now
-        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-        </svg>
-      </a>
     </div>
   </section>
 

@@ -1,0 +1,216 @@
+<main class="min-h-screen bg-white font-sans">
+
+  <!-- ══════════════════════════════════ -->
+  <!-- HERO                               -->
+  <!-- ══════════════════════════════════ -->
+  <section class="relative min-h-[60vh] flex items-end bg-neutral-950 overflow-hidden pb-16 pt-32">
+    <!-- BG image with overlay -->
+    <div class="absolute inset-0">
+      <img
+        src="/gallery/DSC00843.jpg"
+        onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2000&q=80'"
+        class="w-full h-full object-cover"
+        alt="Study at Nalapad"
+      >
+      <div class="absolute inset-0 bg-gradient-to-r from-neutral-950/95 via-neutral-950/70 to-neutral-950/30"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase leading-none tracking-tighter mb-6">
+          Study at<br>
+          <span class="text-brand-primary italic">Nalapad.</span>
+        </h1>
+        <p class="text-neutral-300 text-base md:text-lg font-light leading-relaxed max-w-xl border-l-2 border-brand-primary/50 pl-5">
+          World-class nursing education that combines clinical excellence, compassionate values, and global career opportunities — all in one campus.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════ -->
+  <!-- STATS STRIP                        -->
+  <!-- ══════════════════════════════════ -->
+  <section class="bg-brand-primary py-8">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div *ngFor="let stat of stats">
+          <p class="text-3xl md:text-4xl font-black text-white">{{ stat.value }}</p>
+          <p class="text-white font-bold text-sm mt-0.5">{{ stat.label }}</p>
+          <p class="text-white/60 text-xs">{{ stat.sub }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════ -->
+  <!-- INTRO TEXT                         -->
+  <!-- ══════════════════════════════════ -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-4">Our Programmes</span>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-neutral-900 uppercase tracking-tighter leading-none mb-6">
+            2 Pathways to<br><span class="text-brand-primary">Excellence.</span>
+          </h2>
+          <p class="text-neutral-500 text-base leading-relaxed">
+            Nalapad College of Nursing offers two government-approved, professionally accredited nursing programmes. Whether you choose the four-year B.Sc or the three-year GNM, you will graduate career-ready, globally competitive, and deeply prepared.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-red-50 rounded-2xl p-6 text-center">
+            <p class="text-5xl font-black text-brand-primary">4</p>
+            <p class="text-sm font-bold text-neutral-700 mt-1">Years</p>
+            <p class="text-xs text-neutral-500">B.Sc Nursing</p>
+          </div>
+          <div class="bg-neutral-50 rounded-2xl p-6 text-center">
+            <p class="text-5xl font-black text-neutral-800">3</p>
+            <p class="text-sm font-bold text-neutral-700 mt-1">Years</p>
+            <p class="text-xs text-neutral-500">GNM Nursing</p>
+          </div>
+          <div class="col-span-2 bg-brand-primary rounded-2xl p-6 flex items-center gap-4">
+            <svg class="w-10 h-10 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+            <div>
+              <p class="text-white font-black text-sm">100% Placement Guaranteed</p>
+              <p class="text-white/70 text-xs">Across all graduating batches</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════ -->
+  <!-- PROGRAMME CARDS                    -->
+  <!-- ══════════════════════════════════ -->
+  <section class="bg-[#faf9f9] py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <div class="flex flex-col gap-10">
+        <div *ngFor="let prog of programs; let i = index"
+             class="group bg-white rounded-3xl overflow-hidden shadow-sm border border-neutral-100 hover:shadow-2xl transition-shadow duration-500">
+          <div class="grid md:grid-cols-2 min-h-[420px]">
+
+            <!-- Image panel -->
+            <div [class]="i % 2 === 0 ? 'order-1 md:order-1' : 'order-1 md:order-2'"
+                 class="relative min-h-[260px] md:min-h-full overflow-hidden">
+              <img [src]="prog.image"
+                   [alt]="prog.name"
+                   class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
+              <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent md:hidden"></div>
+              <!-- ID badge -->
+              <div class="absolute top-6 left-6">
+                <span class="text-[4rem] font-black text-white/10 leading-none select-none">{{ prog.id }}</span>
+              </div>
+              <!-- Badge -->
+              <div class="absolute top-6 right-6">
+                <span [class]="prog.badgeColor + ' text-white text-[0.6rem] font-black uppercase tracking-widest px-4 py-2 rounded-full'">
+                  {{ prog.badge }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Content panel -->
+            <div [class]="i % 2 === 0 ? 'order-2 md:order-2' : 'order-2 md:order-1'"
+                 class="p-8 md:p-12 flex flex-col justify-center">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-brand-primary text-xs font-black uppercase tracking-widest">{{ prog.duration }}</span>
+                <span class="w-1 h-1 bg-neutral-300 rounded-full"></span>
+                <span class="text-neutral-400 text-xs font-bold">{{ prog.seats }}</span>
+              </div>
+              <h3 class="text-3xl md:text-4xl font-black text-neutral-900 uppercase tracking-tighter mb-4">{{ prog.name }}</h3>
+              <div class="w-12 h-[3px] bg-brand-primary rounded mb-6"></div>
+              <p class="text-neutral-500 text-sm leading-relaxed mb-8">{{ prog.desc }}</p>
+
+              <!-- Highlights -->
+              <ul class="grid grid-cols-2 gap-3 mb-8">
+                <li *ngFor="let h of prog.highlights" class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-neutral-600 text-xs font-medium">{{ h }}</span>
+                </li>
+              </ul>
+
+              <div class="flex items-center gap-4">
+                <a [routerLink]="prog.link"
+                   class="inline-flex items-center gap-3 bg-brand-primary text-white font-black uppercase tracking-widest text-xs px-7 py-4 rounded-full hover:bg-brand-dark transition-colors duration-300 group/btn shadow-lg shadow-red-900/20">
+                  Explore Programme
+                  <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </a>
+                <a routerLink="/admissions" class="text-xs font-bold text-neutral-400 hover:text-brand-primary transition-colors uppercase tracking-widest">Apply Now</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════ -->
+  <!-- WHY CHOOSE NALAPAD                 -->
+  <!-- ══════════════════════════════════ -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+
+      <div class="text-center mb-14">
+        <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-4">Our Advantage</span>
+        <h2 class="text-4xl md:text-5xl font-black text-neutral-900 uppercase tracking-tighter leading-none">
+          Why Choose <span class="text-brand-primary">Nalapad?</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div *ngFor="let item of whyChoose"
+             class="group bg-[#faf9f9] hover:bg-brand-primary rounded-2xl p-7 border border-neutral-100 hover:border-brand-primary transition-all duration-500 cursor-default">
+          <div class="w-12 h-12 rounded-xl bg-white group-hover:bg-white/20 flex items-center justify-center mb-5 transition-colors duration-500 shadow-sm">
+            <svg class="w-6 h-6 text-brand-primary group-hover:text-white transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="text-base font-black text-neutral-900 group-hover:text-white transition-colors duration-500 mb-2">{{ item.title }}</h3>
+          <p class="text-neutral-500 group-hover:text-white/80 text-sm leading-relaxed transition-colors duration-500">{{ item.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════ -->
+  <!-- CTA                                -->
+  <!-- ══════════════════════════════════ -->
+  <section class="bg-neutral-950 py-20">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 text-center">
+      <h2 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none mb-4">
+        Ready to Begin<br><span class="text-brand-primary italic">Your Journey?</span>
+      </h2>
+      <p class="text-neutral-400 text-base max-w-xl mx-auto mb-10">Admissions are open for 2026–2027. Take the first step toward a life-changing career in nursing.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a routerLink="/admissions"
+           class="inline-flex items-center gap-3 bg-brand-primary text-white font-black uppercase tracking-widest text-xs px-10 py-5 rounded-full hover:bg-brand-dark transition-colors duration-300 shadow-lg shadow-red-900/30 group">
+          Apply for Admissions
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+        <a routerLink="/contact"
+           class="inline-flex items-center gap-3 bg-white/10 text-white font-black uppercase tracking-widest text-xs px-10 py-5 rounded-full hover:bg-white/20 transition-colors duration-300 border border-white/20">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
