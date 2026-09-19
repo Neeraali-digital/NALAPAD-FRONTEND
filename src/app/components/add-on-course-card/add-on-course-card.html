@@ -1,0 +1,22 @@
+<a [routerLink]="['/programs/add-on-courses', course().slug]"
+   class="group relative flex h-[140px] flex-col justify-between overflow-hidden rounded-[1.25rem] bg-neutral-900 p-3.5 shadow-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
+  <img [src]="course().image" alt="" loading="lazy"
+       class="absolute inset-0 h-full w-full object-cover object-[center_25%] transition-transform duration-700 group-hover:scale-110">
+  <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/55 to-neutral-950/10"></div>
+
+  <div class="relative flex items-start justify-between">
+    <span class="rounded-full bg-white px-3 py-1 text-[0.7rem] font-black uppercase tracking-wider text-neutral-900 shadow-md">
+      {{ course().duration }}
+    </span>
+    <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/40 bg-white/15 text-white backdrop-blur-md transition-all duration-300 group-hover:border-brand-primary group-hover:bg-brand-primary">
+      <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+      </svg>
+    </span>
+  </div>
+
+  <div class="relative">
+    <div class="mb-2 h-[3px] w-8 rounded-full bg-brand-primary transition-all duration-500 group-hover:w-14"></div>
+    <h4 class="text-[0.95rem] font-black leading-snug tracking-tight text-white">{{ course().badgeLabel }}</h4>
+  </div>
+</a>

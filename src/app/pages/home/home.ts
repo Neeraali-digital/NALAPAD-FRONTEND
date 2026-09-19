@@ -1,13 +1,14 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { CinematicAnimationsService } from '../../services/cinematic-animations';
+import { AddOnCoursesService, AddOnCourse } from '../../services/add-on-courses';
+import { AddOnCourseCard } from '../../components/add-on-course-card/add-on-course-card';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, AddOnCourseCard],
   templateUrl: './home.html',
   providers: [CinematicAnimationsService]
 })
@@ -150,71 +151,18 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
     { label: 'Alumni Network', value: '5000+', subLabel: 'Working Worldwide' }
   ];
 
-  // Fallback list shown until assets/data/add-on-courses.json loads (and overwrites this).
-  // Make sure that JSON file has all 7 entries too, or this will get replaced with fewer.
-  addOnCourses = [
-  {
-    slug: 'emergency-critical-care-nursing',
-    title: 'Emergency & Critical Care Nursing',
-    image: '/add-on-courses/emergency-critical-care.jpg',
-    description: 'Develop essential skills for emergency situations, critical patient care, and nursing support in high-acuity healthcare settings.'
-  },
-  {
-    slug: 'neonatal-pediatric-nursing-care',   // ← changed
-    title: 'Neonatal & Pediatric Nursing Care',
-    image: '/add-on-courses/neonatal-pediatric-care.jpg',
-    description: 'Build specialised knowledge and practical skills for providing effective nursing care to newborns, infants, and children.'
-  },
-  {
-    slug: 'maternal-midwifery-nursing-skills',   // ← changed
-    title: 'Maternal & Midwifery Nursing Skills',
-    image: '/add-on-courses/maternal-midwifery.jpg',
-    description: 'Strengthen essential skills in antenatal, intrapartum, postnatal, and maternal care.'
-  },
-  {
-    slug: 'community-public-health-nursing',
-    title: 'Community & Public Health Nursing',
-    image: '/add-on-courses/community-public-health.jpg',
-    description: 'Learn about community healthcare, health promotion, disease prevention, health education, and public health practices.'
-  },
-  {
-    slug: 'digital-health-nursing-informatics',
-    title: 'Digital Health & Nursing Informatics',
-    image: '/add-on-courses/digital-health.jpg',
-    description: 'Develop skills in digital healthcare systems, electronic health records, healthcare technology, and nursing informatics.'
-  },
-  {
-    slug: 'medical-coding-healthcare-documentation',
-    title: 'Medical Coding & Healthcare Documentation',
-    image: '/add-on-courses/medical-coding.jpg',
-    description: 'Gain an understanding of medical terminology, healthcare documentation, coding practices, and medical records management.'
-  },
-  {
-    slug: 'ai-smart-healthcare-in-nursing',   // ← changed
-    title: 'AI & Smart Healthcare in Nursing',
-    image: '/add-on-courses/ai-smart-healthcare.jpg',
-    description: 'Explore the role of Artificial Intelligence, smart technologies, and digital solutions in modern nursing and healthcare.'
-  }
-];
-
-  addOnWhyChoose = [
-    'Practical and skill-oriented learning',
-    'Industry-relevant knowledge',
-    'Exposure to emerging healthcare technologies',
-    'Specialised nursing skills',
-    'Career-focused learning opportunities',
-    'Certificate upon successful completion'
-  ];
+  addOnCourses: AddOnCourse[] = [];
 
   constructor(
     private cdr: ChangeDetectorRef,
     private cinematic: CinematicAnimationsService,
-    private http: HttpClient
+    private addOnCoursesService: AddOnCoursesService
   ) {}
 
   ngOnInit() {
-  this.startSlideShow();
-}
+    this.addOnCourses = this.addOnCoursesService.getAll();
+    this.startSlideShow();
+  }
 
   ngAfterViewInit() {
     this.cinematic.init();

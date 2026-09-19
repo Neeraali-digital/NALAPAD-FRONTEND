@@ -2,13 +2,21 @@
 
 import { Injectable } from '@angular/core';
 
+export const ADD_ON_BENEFITS: readonly string[] = [
+  'Practical and skill-oriented learning',
+  'Industry-relevant knowledge',
+  'Exposure to emerging healthcare technologies',
+  'Specialised nursing skills',
+  'Career-focused learning opportunities',
+  'Certificate upon successful completion',
+];
+
 export interface AddOnCourse {
   slug: string;
   titleTop: string;       // first line of big heading (black)
   titleBottom: string;    // second line of big heading (brand color)
-  badgeLabel: string;     // pill label used on the home-page card
-  cardImage: string;      // thumbnail used on the Add-on Courses grid
-  heroImage: string;      // large image on the detail page
+  badgeLabel: string;     // full course name, used as the card title
+  image: string;          // background photo for the card and the detail-page hero
   heroTag: string;        // small caption under hero image e.g. "Next-Gen Care"
   heroSubTag: string;     // e.g. "Training with the tools of tomorrow."
   statLabel: string;      // e.g. "PLACEMENT RATE" or "DEMAND GROWTH"
@@ -26,8 +34,7 @@ export class AddOnCoursesService {
       titleTop: 'EMERGENCY &',
       titleBottom: 'CRITICAL CARE',
       badgeLabel: 'Emergency & Critical Care Nursing',
-      cardImage: '/courses/add-on/emergency-critical-care.jpg',
-      heroImage: '/courses/add-on/emergency-critical-care-hero.jpg',
+      image: '/courses/add-on/emergency-critical-care-nursing.jpg',
       heroTag: 'Rapid Response',
       heroSubTag: 'Trained to act in the first critical minutes.',
       statLabel: 'PLACEMENT RATE',
@@ -42,8 +49,7 @@ export class AddOnCoursesService {
       titleTop: 'NEONATAL &',
       titleBottom: 'PEDIATRIC CARE',
       badgeLabel: 'Neonatal & Pediatric Nursing Care',
-      cardImage: '/courses/add-on/neonatal-pediatric.jpg',
-      heroImage: '/courses/add-on/neonatal-pediatric-hero.jpg',
+      image: '/courses/add-on/neonatal-pediatric-nursing-care.jpg',
       heroTag: 'Gentle Beginnings',
       heroSubTag: 'Specialised care for our smallest patients.',
       statLabel: 'PLACEMENT RATE',
@@ -58,8 +64,7 @@ export class AddOnCoursesService {
       titleTop: 'MATERNAL &',
       titleBottom: 'MIDWIFERY SKILLS',
       badgeLabel: 'Maternal & Midwifery Nursing Skills',
-      cardImage: '/courses/add-on/maternal-midwifery.jpg',
-      heroImage: '/courses/add-on/maternal-midwifery-hero.jpg',
+      image: '/courses/add-on/maternal-midwifery-nursing-skills.jpg',
       heroTag: 'New Life, Expert Care',
       heroSubTag: 'Supporting mothers through every stage.',
       statLabel: 'PLACEMENT RATE',
@@ -74,8 +79,7 @@ export class AddOnCoursesService {
       titleTop: 'COMMUNITY &',
       titleBottom: 'PUBLIC HEALTH',
       badgeLabel: 'Community & Public Health Nursing',
-      cardImage: '/courses/add-on/community-public-health.jpg',
-      heroImage: '/courses/add-on/community-public-health-hero.jpg',
+      image: '/courses/add-on/community-public-health-nursing.jpg',
       heroTag: 'Care Beyond the Ward',
       heroSubTag: 'Bringing healthcare to every doorstep.',
       statLabel: 'PLACEMENT RATE',
@@ -90,8 +94,7 @@ export class AddOnCoursesService {
       titleTop: 'DIGITAL HEALTH &',
       titleBottom: 'NURSING INFORMATICS',
       badgeLabel: 'Digital Health & Nursing Informatics',
-      cardImage: '/courses/add-on/digital-health-informatics.jpg',
-      heroImage: '/courses/add-on/digital-health-informatics-hero.jpg',
+      image: '/courses/add-on/digital-health-nursing-informatics.jpg',
       heroTag: 'Next-Gen Care',
       heroSubTag: 'Training with the tools of tomorrow.',
       statLabel: 'DEMAND GROWTH',
@@ -106,8 +109,7 @@ export class AddOnCoursesService {
       titleTop: 'MEDICAL CODING &',
       titleBottom: 'DOCUMENTATION',
       badgeLabel: 'Medical Coding & Healthcare Documentation',
-      cardImage: '/courses/add-on/medical-coding.jpg',
-      heroImage: '/courses/add-on/medical-coding-hero.jpg',
+      image: '/courses/add-on/medical-coding-healthcare-documentation.jpg',
       heroTag: 'Precision Behind the Scenes',
       heroSubTag: 'Where clinical care meets accurate records.',
       statLabel: 'PLACEMENT RATE',
@@ -122,8 +124,7 @@ export class AddOnCoursesService {
       titleTop: 'AI & SMART',
       titleBottom: 'HEALTHCARE',
       badgeLabel: 'AI & Smart Healthcare in Nursing',
-      cardImage: '/courses/add-on/ai-smart-healthcare.jpg',
-      heroImage: '/courses/add-on/ai-smart-healthcare-hero.jpg',
+      image: '/courses/add-on/ai-smart-healthcare-in-nursing.jpg',
       heroTag: 'The Future of Care',
       heroSubTag: 'Where nursing meets intelligent technology.',
       statLabel: 'DEMAND GROWTH',
