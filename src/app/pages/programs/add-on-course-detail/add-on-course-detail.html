@@ -1,0 +1,76 @@
+<main *ngIf="course" class="min-h-screen">
+  <section class="relative py-16 md:py-24 bg-gradient-to-br from-red-50 via-white to-blue-50">
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Left: Text -->
+      <div>
+        <span class="inline-block text-[0.65rem] font-black uppercase tracking-[0.3em] text-brand-primary bg-red-50 px-4 py-2 rounded-full mb-6">
+          {{ course.badgeLabel }}
+        </span>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.95] mb-8">
+          {{ course.titleTop }}<br>
+          <span class="text-brand-primary">{{ course.titleBottom }}</span>
+        </h1>
+
+        <p class="text-neutral-500 text-base leading-relaxed border-l-4 border-brand-primary pl-6 mb-10 max-w-lg">
+          {{ course.description }}
+        </p>
+
+        <div class="flex items-center gap-8">
+          <a routerLink="/admissions"
+             class="px-8 py-4 bg-brand-primary text-white rounded-full font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform shadow-xl">
+            Apply Now
+          </a>
+          <div>
+            <p class="text-2xl font-black text-neutral-900 tracking-tight">{{ course.duration }}</p>
+            <p class="text-[0.6rem] font-bold uppercase tracking-widest text-neutral-400">{{ course.durationType }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Hero image with stat badge -->
+      <div class="relative rounded-[3rem] overflow-hidden shadow-2xl">
+        <img [src]="course.heroImage" [alt]="course.titleTop + ' ' + course.titleBottom" class="w-full h-[420px] object-cover">
+
+        <div class="absolute top-6 right-6 bg-white/90 backdrop-blur-md rounded-2xl px-6 py-4 shadow-xl text-center">
+          <p class="text-[0.6rem] font-black uppercase tracking-widest text-brand-primary mb-1">{{ course.statLabel }}</p>
+          <p class="text-3xl font-black text-neutral-900 tracking-tighter">{{ course.statValue }}</p>
+        </div>
+
+        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+          <h3 class="text-white text-2xl font-black tracking-tight">{{ course.heroTag }}</h3>
+          <p class="text-white/70 text-sm">{{ course.heroSubTag }}</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Why choose this course -->
+  <section class="py-16 bg-white">
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-neutral-50 rounded-[2.5rem] border border-neutral-100 p-8 md:p-12">
+        <h4 class="text-2xl font-black text-neutral-900 uppercase tracking-tight mb-8">Why Choose This Course?</h4>
+        <ul class="grid sm:grid-cols-2 gap-6">
+          <li *ngFor="let reason of [
+                'Practical and skill-oriented learning',
+                'Industry-relevant knowledge',
+                'Exposure to emerging healthcare technologies',
+                'Specialised nursing skills',
+                'Career-focused learning opportunities',
+                'Certificate upon successful completion'
+              ]" class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-neutral-600 font-medium">{{ reason }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main *ngIf="!course" class="min-h-[60vh] flex items-center justify-center">
+  <p class="text-neutral-400 font-medium">Course not found.</p>
+</main>

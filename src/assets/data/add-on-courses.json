@@ -1,0 +1,12 @@
+{
+  "courses": [
+    {
+      "title": "Emergency & Critical Care Nursing",
+      "description": "Develop essential skills for emergency situations, critical patient care, and nursing support in high-acuity healthcare settings."
+    },
+    {
+      "title": "Neonatal & Pediatric Nursing Care",
+      "description": "Build specialised knowledge and practical skills for providing effective nursing care to newborns, infants, and children."
+    }
+  ]
+}
