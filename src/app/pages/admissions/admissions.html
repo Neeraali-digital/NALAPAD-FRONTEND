@@ -11,11 +11,15 @@
     <div class="text-center mb-24 lg:mb-32 max-w-4xl mx-auto">
 
       <h1 class="text-5xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.9] text-neutral-900 drop-shadow-sm mb-6">
-        Admissions <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-rose-500">2025</span>
+        Admissions <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-rose-500">{{ admissionYearLabel }}</span>
       </h1>
       <p class="text-xl text-neutral-500 font-medium">
         Begin your journey to a world-class healthcare career. Whether you are from India or abroad, we provide a seamless admission process tailored for excellence.
       </p>
+      <button type="button" (click)="openAdmissionForm()"
+              class="mt-10 px-10 py-5 rounded-full bg-brand-primary text-white font-black uppercase tracking-widest text-xs md:text-sm shadow-lg shadow-red-900/20 hover:bg-brand-dark transition-colors">
+        Quick Apply — 30 seconds
+      </button>
     </div>
 
     <!-- 4 Pillar Admissions Bento Grid (as requested in sketch) -->

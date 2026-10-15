@@ -1,7 +1,8 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, HostListener, Inject, OnInit, PLATFORM_ID, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { Component, HostListener, Inject, OnInit, PLATFORM_ID, ChangeDetectorRef, OnDestroy, inject } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { AdmissionEnquiryService } from '../../services/admission-enquiry';
 
 @Component({
   selector: 'app-header',
@@ -17,6 +18,7 @@ export class Header implements OnInit, OnDestroy {
   isHovering = false;
   lastInteractionTime = Date.now();
   checkInterval: any;
+  private readonly admissionEnquiry = inject(AdmissionEnquiryService);
 
   constructor(
     private router: Router, 
@@ -106,6 +108,11 @@ export class Header implements OnInit, OnDestroy {
     } else {
       this.lastInteractionTime = Date.now();
     }
+  }
+
+  openAdmissionForm() {
+    this.closeMenu();
+    this.admissionEnquiry.open();
   }
 
   closeMenu() {
