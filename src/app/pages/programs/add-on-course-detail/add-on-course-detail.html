@@ -27,12 +27,9 @@
           <p class="text-base md:text-lg text-neutral-600 font-medium leading-relaxed max-w-2xl mb-10 border-l-4 border-brand-primary/30 pl-6">
             {{ course.description }}
           </p>
-          <div class="flex flex-wrap items-center gap-6 md:gap-10">
-            <a routerLink="/admissions" class="px-10 py-5 md:px-14 md:py-6 bg-brand-primary text-white rounded-full font-black uppercase tracking-widest text-xs md:text-sm hover:bg-neutral-900 hover:scale-105 transition-all duration-500 shadow-[0_0_40px_rgba(230,57,70,0.4)]">Apply Now</a>
-            <div class="flex flex-col">
-              <span class="text-2xl md:text-3xl font-black text-neutral-900">{{ course.duration }}</span>
-              <span class="text-[0.6rem] font-bold text-neutral-500 uppercase tracking-widest">{{ course.durationType }}</span>
-            </div>
+          <div class="flex flex-wrap items-center gap-4 md:gap-6">
+            <button type="button" (click)="openAdmissionForm()" class="px-10 py-5 md:px-14 md:py-6 bg-brand-primary text-white rounded-full font-black uppercase tracking-widest text-xs md:text-sm hover:bg-neutral-900 hover:scale-105 transition-all duration-500 shadow-[0_0_40px_rgba(230,57,70,0.4)]">Apply Now</button>
+            <span class="text-[0.65rem] font-bold text-neutral-500 uppercase tracking-widest">Certificate programme · included with B.Sc / GNM</span>
           </div>
         </div>
 
@@ -78,7 +75,7 @@
         <h2 class="text-4xl lg:text-6xl font-black text-neutral-900 uppercase tracking-tighter leading-none italic">More <span class="not-italic text-brand-primary">Add-ons.</span></h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-        <app-add-on-course-card *ngFor="let other of otherCourses" [course]="other"></app-add-on-course-card>
+        <app-add-on-course-card *ngFor="let other of otherCourses; let i = index" [course]="other" [index]="i + 1"></app-add-on-course-card>
       </div>
     </section>
 
@@ -91,7 +88,7 @@
           <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter leading-[0.95] mb-4">Admissions Open <span class="text-white/40">2026–27</span></h2>
           <p class="text-white/85 text-sm md:text-base font-medium max-w-xl">Pick any two add-on specializations alongside your nursing programme.</p>
         </div>
-        <a routerLink="/admissions" class="shrink-0 self-start md:self-auto px-10 py-5 bg-white text-brand-primary rounded-full font-black uppercase tracking-widest text-xs md:text-sm hover:bg-neutral-900 hover:text-white hover:scale-105 transition-all duration-500">Apply Now</a>
+        <button type="button" (click)="openAdmissionForm()" class="shrink-0 self-start md:self-auto px-10 py-5 bg-white text-brand-primary rounded-full font-black uppercase tracking-widest text-xs md:text-sm hover:bg-neutral-900 hover:text-white hover:scale-105 transition-all duration-500">Apply Now</button>
       </div>
     </section>
 

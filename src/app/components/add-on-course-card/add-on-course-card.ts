@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AddOnCourse } from '../../services/add-on-courses';
 
@@ -10,4 +10,6 @@ import { AddOnCourse } from '../../services/add-on-courses';
 })
 export class AddOnCourseCard {
   course = input.required<AddOnCourse>();
+  index = input.required<number>();
+  indexLabel = computed(() => String(this.index()).padStart(2, '0'));
 }
