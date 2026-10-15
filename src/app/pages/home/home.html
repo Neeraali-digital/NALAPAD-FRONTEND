@@ -32,7 +32,7 @@
       <div class="hidden md:block absolute inset-0 bg-gradient-to-t from-brand-primary/95 via-brand-primary/40 to-transparent"></div>
       
       <!-- Bottom Content Area -->
-      <div class="absolute inset-x-0 top-[24%] bottom-[5%] md:top-auto md:bottom-0 md:pb-24 lg:pb-32 px-4 sm:px-10 lg:px-16 flex flex-col items-center justify-center md:justify-end text-center z-20">
+      <div class="absolute inset-x-0 top-[18%] bottom-[30%] md:top-auto md:bottom-0 md:pb-44 lg:pb-52 px-4 sm:px-10 lg:px-16 flex flex-col items-center justify-center md:justify-end text-center z-20">
          <h2 class="text-[3.5rem] sm:text-6xl md:text-7xl lg:text-[7rem] font-black text-white uppercase tracking-tighter leading-[0.9] mb-10 md:mb-8 drop-shadow-2xl">
             {{ slide.titleTop }} <br>
             <span class="font-normal normal-case tracking-normal">{{ slide.titleBottom }}</span>
@@ -60,6 +60,18 @@
               [class.bg-white/30]="activeSlide !== i">
       </button>
     </div>
+
+    <!-- Hero admission CTAs (outside slides so they stay put while slides fade) -->
+    <div class="absolute inset-x-0 bottom-44 md:bottom-24 lg:bottom-28 z-30 flex justify-center gap-3 px-4">
+      <button type="button" (click)="openAdmissionForm()"
+              class="whitespace-nowrap px-5 py-3.5 md:px-9 md:py-4 rounded-full bg-white text-brand-primary font-black uppercase tracking-widest text-[0.7rem] md:text-xs shadow-2xl hover:bg-brand-primary hover:text-white transition-colors">
+        Apply Now
+      </button>
+      <button type="button" (click)="scrollToAdmissionsInfo()"
+              class="whitespace-nowrap px-5 py-3.5 md:px-9 md:py-4 rounded-full border-2 border-white/80 text-white font-black uppercase tracking-widest text-[0.7rem] md:text-xs backdrop-blur-sm hover:bg-white/15 transition-colors">
+        Admission Details
+      </button>
+    </div>
   </section>
 
   <!-- SECTION 2: CERTIFICATIONS (TRUST BANNER) -->
@@ -72,6 +84,176 @@
           </div>
           <span class="text-[0.50rem] font-black uppercase tracking-[0.2em] text-neutral-600">{{ cert.name }}</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMISSIONS QUICK INFO (kept near the top so mobile users find it without scrolling far) -->
+  <section id="admissions-info" class="relative z-20 pt-12 pb-4 md:pt-16 scroll-mt-28">
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-[2rem] md:rounded-[2.5rem] border border-red-100 bg-gradient-to-br from-[#fff5f5] to-white p-6 md:p-10 shadow-[0_20px_50px_rgba(204,0,0,0.06)]">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
+          <div>
+            <span class="inline-flex items-center gap-2 rounded-full bg-brand-primary/10 px-3 py-1 text-[0.6rem] font-black uppercase tracking-[0.2em] text-brand-primary">
+              <span class="h-1.5 w-1.5 rounded-full bg-brand-primary animate-pulse"></span>
+              Admissions Open {{ admissionYearLabel }}
+            </span>
+            <h2 class="mt-3 text-3xl md:text-5xl font-black tracking-tighter text-neutral-900 leading-[0.95]">
+              Join Nalapad in <span class="text-brand-primary">4 simple steps.</span>
+            </h2>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button type="button" (click)="openAdmissionForm()"
+                    class="px-8 py-4 rounded-full bg-brand-primary text-white font-black uppercase tracking-widest text-xs shadow-lg shadow-red-900/20 hover:bg-brand-dark transition-colors">
+              Apply Now
+            </button>
+            <a routerLink="/admissions"
+               class="px-8 py-4 rounded-full border-2 border-neutral-900 text-neutral-900 font-black uppercase tracking-widest text-xs text-center hover:bg-neutral-900 hover:text-white transition-colors">
+              Full Admission Details
+            </a>
+          </div>
+        </div>
+
+        <ol class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-8">
+          <li *ngFor="let step of admissionSteps; let i = index" class="rounded-2xl bg-white border border-neutral-100 p-4 md:p-5">
+            <span class="text-2xl md:text-3xl font-black text-brand-primary/30 leading-none">0{{ i + 1 }}</span>
+            <h3 class="mt-2 text-sm md:text-base font-black text-neutral-900">{{ step.title }}</h3>
+            <p class="mt-1 text-[0.7rem] md:text-xs text-neutral-500 leading-relaxed">{{ step.description }}</p>
+          </li>
+        </ol>
+
+        <div class="flex flex-wrap gap-2">
+          <a *ngFor="let link of admissionLinks" [routerLink]="link.path"
+             class="px-4 py-2 rounded-full bg-white border border-neutral-200 text-[0.7rem] font-bold text-neutral-700 hover:border-brand-primary hover:text-brand-primary transition-colors">
+            {{ link.label }} →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDY AT NALAPAD: programmes + add-ons (programmes shown first on mobile) -->
+  <section id="study-at-nalapad" class="py-16 md:py-24 bg-[#fff8f8] relative overflow-hidden scroll-mt-28">
+    <div class="absolute top-0 right-0 w-[40%] h-full bg-brand-primary/3 rounded-l-[6rem] pointer-events-none"></div>
+    <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-brand-primary/5 rounded-full blur-[80px] pointer-events-none"></div>
+
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-[400px_1fr] gap-10 lg:gap-20 items-start">
+
+        <!-- Red title panel: compact strip on mobile, full panel on desktop -->
+        <div class="order-2 lg:order-none bg-brand-primary rounded-[2rem] lg:rounded-[2.5rem] p-6 md:p-10 lg:p-12 relative overflow-hidden shadow-2xl shadow-red-900/20 lg:h-full flex flex-col">
+          <span class="absolute -bottom-6 -right-4 text-[7rem] lg:text-[10rem] font-black text-white/5 leading-none select-none pointer-events-none">N</span>
+
+          <p class="text-white/60 text-[0.6rem] font-black uppercase tracking-[0.4em] mb-3 lg:mb-4">Nalapad College of Nursing</p>
+          <h2 class="text-3xl lg:text-6xl font-black text-white uppercase leading-[0.9] tracking-tighter mb-4 lg:mb-6">
+            Study <span class="text-white/30">at</span><br class="hidden lg:block"> Nalapad
+          </h2>
+          <p class="text-white/80 text-sm leading-relaxed mb-5 lg:hidden">Clinical excellence, expert faculty and career-ready training — see campus life, labs and more.</p>
+
+          <div class="hidden lg:flex flex-col">
+            <div class="w-12 h-[2px] bg-white/40 mb-6"></div>
+            <p class="text-3xl font-black text-white mb-6">{{ programmes.length }} <span class="font-light">programmes</span></p>
+            <div class="flex flex-col gap-6 py-4">
+              <div class="flex items-start gap-4">
+                <span class="text-white/40 text-4xl font-black leading-none">01</span>
+                <p class="text-white/80 text-sm leading-relaxed pt-1">Clinical excellence built on hands-on, hospital-integrated learning from day one.</p>
+              </div>
+              <div class="w-full h-px bg-white/10"></div>
+              <div class="flex items-start gap-4">
+                <span class="text-white/40 text-4xl font-black leading-none">02</span>
+                <p class="text-white/80 text-sm leading-relaxed pt-1">Expert faculty and globally relevant education, shaping compassionate, career-ready nurses.</p>
+              </div>
+            </div>
+          </div>
+
+          <a routerLink="/study-at-nalapad"
+             class="mt-auto lg:mt-6 self-start inline-flex items-center gap-3 rounded-full bg-white/15 hover:bg-white border-2 border-white/40 hover:border-white px-5 py-3 text-white hover:text-brand-primary text-xs font-black uppercase tracking-widest transition-all duration-300 group">
+            Explore Study at Nalapad
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+        <!-- Programmes + add-ons -->
+        <div class="order-1 lg:order-none min-w-0">
+          <p class="text-[0.6rem] font-black uppercase tracking-[0.4em] text-brand-primary mb-2">Courses Offered</p>
+          <h2 class="text-3xl md:text-4xl font-black text-neutral-900 tracking-tighter mb-6">Our Nursing Programmes</h2>
+
+          <!-- Programme tabs -->
+          <div role="tablist" aria-label="Nursing programmes" class="grid grid-cols-2 gap-2 p-1.5 rounded-2xl bg-white border border-neutral-100 shadow-sm mb-4">
+            <button *ngFor="let programme of programmes" type="button" role="tab"
+                    [id]="'programme-tab-' + programme.slug"
+                    [attr.aria-selected]="programme.slug === selectedProgramme().slug"
+                    [attr.aria-controls]="'programme-panel'"
+                    (click)="selectProgramme(programme.slug)"
+                    class="rounded-xl px-3 py-3 text-left transition-all duration-300"
+                    [class.bg-brand-primary]="programme.slug === selectedProgramme().slug"
+                    [class.text-white]="programme.slug === selectedProgramme().slug"
+                    [class.shadow-lg]="programme.slug === selectedProgramme().slug"
+                    [class.hover:bg-red-50]="programme.slug !== selectedProgramme().slug">
+              <span class="block text-base md:text-lg font-black tracking-tight">{{ programme.name }}</span>
+              <span class="block text-[0.6rem] font-bold uppercase tracking-widest opacity-70">{{ programme.level }} · {{ programme.duration }}</span>
+            </button>
+          </div>
+
+          <!-- Selected programme panel -->
+          <div id="programme-panel" role="tabpanel" [attr.aria-labelledby]="'programme-tab-' + selectedProgramme().slug"
+               class="rounded-[1.75rem] bg-white border border-neutral-100 shadow-[0_20px_50px_rgba(0,0,0,0.05)] p-6 md:p-8">
+            <p class="text-neutral-600 text-sm md:text-base leading-relaxed mb-6">{{ selectedProgramme().summary }}</p>
+
+            <dl class="grid sm:grid-cols-2 gap-3 mb-6">
+              <div class="rounded-2xl bg-neutral-50 p-4">
+                <dt class="text-[0.6rem] font-black uppercase tracking-widest text-neutral-400">Duration</dt>
+                <dd class="mt-1 text-lg font-black text-neutral-900">{{ selectedProgramme().duration }}</dd>
+              </div>
+              <div class="rounded-2xl bg-neutral-50 p-4">
+                <dt class="text-[0.6rem] font-black uppercase tracking-widest text-neutral-400">Eligibility</dt>
+                <dd class="mt-1 text-sm font-bold text-neutral-900 leading-snug">{{ selectedProgramme().eligibility }}</dd>
+              </div>
+            </dl>
+
+            <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-3 mb-8">
+              <li *ngFor="let highlight of selectedProgramme().highlights" class="flex items-start gap-3 text-sm font-semibold text-neutral-700">
+                <span class="mt-0.5 w-5 h-5 shrink-0 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                </span>
+                {{ highlight }}
+              </li>
+            </ul>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+              <button type="button" (click)="openAdmissionForm(selectedProgramme().name)"
+                      class="flex-1 px-6 py-4 rounded-full bg-brand-primary text-white font-black uppercase tracking-widest text-xs shadow-lg shadow-red-900/20 hover:bg-brand-dark transition-colors">
+                Apply for {{ selectedProgramme().name }}
+              </button>
+              <a [routerLink]="selectedProgramme().link"
+                 class="flex-1 px-6 py-4 rounded-full border-2 border-neutral-200 text-neutral-800 font-black uppercase tracking-widest text-xs text-center hover:border-brand-primary hover:text-brand-primary transition-colors">
+                View Programme
+              </a>
+            </div>
+          </div>
+
+          <!-- ADD-ON COURSES -->
+          <div class="mt-14">
+            <p class="text-[0.6rem] font-black uppercase tracking-[0.4em] text-brand-primary mb-2">Included with your programme</p>
+            <h3 class="text-2xl md:text-3xl font-black text-neutral-900 tracking-tighter mb-3">Add-on Specialisations</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed mb-6 max-w-2xl">
+              Every B.Sc Nursing and GNM student picks <span class="font-black text-neutral-900">any 2</span> of the specialisations below and earns a certificate in each, alongside the main degree or diploma.
+            </p>
+
+            <ol class="flex flex-col sm:flex-row gap-2 sm:gap-0 sm:items-center mb-6 text-xs font-bold text-neutral-700">
+              <li *ngFor="let step of addOnSteps; let i = index; let last = last" class="flex items-center gap-2">
+                <span class="w-6 h-6 shrink-0 rounded-full bg-neutral-900 text-white text-[0.65rem] font-black flex items-center justify-center">{{ i + 1 }}</span>
+                {{ step }}
+                <svg *ngIf="!last" class="hidden sm:block w-4 h-4 mx-3 text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+              </li>
+            </ol>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
+              <app-add-on-course-card *ngFor="let course of addOnCourses; let i = index" [course]="course" [index]="i + 1"></app-add-on-course-card>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -91,7 +273,14 @@
         </div>
         <div class="pt-10">
            <p class="text-neutral-500 text-[0.8rem] lg:text-[0.85rem] font-medium leading-[2.2] text-start">
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit animid est laborum. Harum quisquam amet debitis pariatur quas.Harum quisquam amet debitis pariatur quas.Harum quisquam amet debitis pariatur quas.Harum quisquam amet debitis pariatur quas.
+             Nalapad Group of Institutions, under the Nalapad Health and Educational Trust and led by Chairman Sri N. A. 
+Haris, was established in 2021 with a vision to provide quality higher and professional education. The institution 
+aims to create a learning environment that combines strong academic foundations with practical exposure and 
+industry-relevant skills. Along with academics, students are encouraged to take part in extracurricular activities, 
+leadership initiatives, and personality development programmes. This approach helps students build confidence, 
+improve their communication and professional skills, and prepare for the demands of the workplace. With 
+dedicated faculty, supportive learning facilities, and a focus on overall student development, Nalapad Group of 
+Institutions continues to work towards preparing capable, responsible, and confident professionals for the future. 
            </p>
         </div>
       </div>
@@ -130,8 +319,15 @@
          </div>
       </div>
 
-      <!-- Bottom Row: Reverted Media Layout (Synchronized) -->
-      <div class="grid lg:grid-cols-12 gap-8 items-stretch pt-10">
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- VIDEO + PHOTOS ROW (moved here, below Study at Nalapad) -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="py-16 bg-white relative z-20">
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-8 items-stretch">
          <div class="lg:col-span-7 h-[250px] lg:h-[350px] rounded-[3rem] lg:rounded-[4rem] overflow-hidden shadow-2xl border-4 border-white bg-neutral-900">
             <iframe class="w-full h-full object-cover" src="https://www.youtube.com/embed/UqhlqBbjxRw?autoplay=0&mute=1&controls=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
          </div>
@@ -145,174 +341,6 @@
   </section>
 
 
-
-
-
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- STUDY AT NALAPAD (COMPACT HOME SECTION)                 -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <section id="study-at-nalapad" class="py-16 md:py-24 bg-[#fff8f8] relative overflow-hidden">
-    <!-- Subtle decorative bg -->
-    <div class="absolute top-0 right-0 w-[40%] h-full bg-brand-primary/3 rounded-l-[6rem] pointer-events-none"></div>
-    <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-brand-primary/5 rounded-full blur-[80px] pointer-events-none"></div>
-
-    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid lg:grid-cols-[420px_1fr] gap-12 lg:gap-20 items-center">
-
-        <!-- Left: Title Panel (inspired by reference) -->
-        <div class="bg-brand-primary rounded-[2.5rem] p-10 md:p-12 relative overflow-hidden shadow-2xl shadow-red-900/20">
-          <!-- Subtle watermark -->
-          <span class="absolute -bottom-6 -right-4 text-[10rem] font-black text-white/5 leading-none select-none pointer-events-none">N</span>
-
-          <p class="text-white/60 text-[0.6rem] font-black uppercase tracking-[0.5em] mb-4">Nalapad College of Nursing</p>
-          <h2 class="text-5xl md:text-6xl font-black text-white uppercase leading-[0.9] tracking-tighter mb-6">
-            STUDY<br>
-            <span class="text-white/30">AT</span><br>
-            NALAPAD
-          </h2>
-
-          <div class="w-12 h-[2px] bg-white/40 mb-6"></div>
-
-          <p class="text-white font-bold text-sm mb-2">Nalapad offers</p>
-          <p class="text-3xl font-black text-white mb-6">2 <span class="font-light">programmes</span></p>
-
-          <p class="text-white/70 text-sm leading-relaxed mb-10">
-            With a strong focus on clinical excellence and compassionate care, we deliver globally relevant nursing education through expert faculty and hospital-integrated learning.
-          </p>
-
-          <!-- Arrow CTA -->
-          <a routerLink="/study-at-nalapad"
-             class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/20 hover:bg-white border-2 border-white/40 hover:border-white text-white hover:text-brand-primary transition-all duration-300 group">
-            <svg class="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-            </svg>
-          </a>
-        </div>
-
-        <!-- Right: Browse Programmes -->
-        <div>
-          <div class="flex items-center justify-between mb-8">
-            <h3 class="text-xl md:text-2xl font-black text-neutral-900 tracking-tight">Browse Programmes</h3>
-            <a routerLink="/study-at-nalapad" class="text-xs font-black text-brand-primary uppercase tracking-widest hover:underline flex items-center gap-2">
-              View All
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-              </svg>
-            </a>
-          </div>
-
-          <!-- Programme rows -->
-          <div class="flex flex-col divide-y divide-neutral-100">
-
-            <!-- B.Sc Nursing -->
-            <a routerLink="/departments/bsc-nursing"
-               class="group flex items-center gap-6 py-6 hover:bg-white rounded-2xl px-4 -mx-4 transition-all duration-300 cursor-pointer">
-              <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden shrink-0 shadow-md">
-                <img src="/courses/B.Sc Nursing.jpg" alt="B.Sc Nursing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-              </div>
-              <div class="flex-1 min-w-0">
-                <div class="flex items-center gap-3 mb-1">
-                  <span class="text-[0.55rem] font-black uppercase tracking-widest text-brand-primary bg-red-50 px-3 py-1 rounded-full">Undergraduate</span>
-                  <span class="text-[0.55rem] font-bold text-neutral-400 uppercase tracking-widest">4 Years</span>
-                </div>
-                <h4 class="text-lg md:text-xl font-black text-neutral-900 tracking-tight group-hover:text-brand-primary transition-colors">B.Sc Nursing</h4>
-                <p class="text-neutral-400 text-xs mt-1 leading-relaxed line-clamp-1">Clinical training, simulation labs, and global placement opportunities.</p>
-              </div>
-              <div class="w-9 h-9 rounded-full border border-neutral-200 group-hover:bg-brand-primary group-hover:border-brand-primary flex items-center justify-center transition-all duration-300 shrink-0">
-                <svg class="w-4 h-4 text-neutral-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                </svg>
-              </div>
-            </a>
-
-            <!-- GNM Nursing -->
-            <a routerLink="/departments/gnm"
-               class="group flex items-center gap-6 py-6 hover:bg-white rounded-2xl px-4 -mx-4 transition-all duration-300 cursor-pointer">
-              <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden shrink-0 shadow-md">
-                <img src="/courses/GNM Nursing.jpg" alt="GNM Nursing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-              </div>
-              <div class="flex-1 min-w-0">
-                <div class="flex items-center gap-3 mb-1">
-                  <span class="text-[0.55rem] font-black uppercase tracking-widest text-neutral-600 bg-neutral-100 px-3 py-1 rounded-full">Diploma</span>
-                  <span class="text-[0.55rem] font-bold text-neutral-400 uppercase tracking-widest">3 Years</span>
-                </div>
-                <h4 class="text-lg md:text-xl font-black text-neutral-900 tracking-tight group-hover:text-brand-primary transition-colors">GNM Nursing</h4>
-                <p class="text-neutral-400 text-xs mt-1 leading-relaxed line-clamp-1">Government recognized diploma with hands-on clinical practice and guaranteed placement.</p>
-              </div>
-              <div class="w-9 h-9 rounded-full border border-neutral-200 group-hover:bg-brand-primary group-hover:border-brand-primary flex items-center justify-center transition-all duration-300 shrink-0">
-                <svg class="w-4 h-4 text-neutral-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                </svg>
-              </div>
-            </a>
-
-          </div>
-
-          <!-- Bottom note -->
-          <div class="mt-8 flex items-center gap-3 p-5 bg-white rounded-2xl border border-neutral-100 shadow-sm">
-            <svg class="w-8 h-8 text-brand-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <p class="text-neutral-600 text-sm">
-              <span class="font-black text-neutral-900">Admissions Open 2026–27.</span>&nbsp;
-              <a routerLink="/admissions" class="text-brand-primary font-black hover:underline">Apply Now →</a>
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- SECTION 3: COURSES (BENTO GRID) -->
-    <section id="courses" class="mb-10 relative py-20 px-12 overflow-hidden rounded-b-[5rem] bg-neutral-50/50 border border-neutral-100 border-t-0">
-      <!-- Subtle Grid / Tech Pattern -->
-      <div class="absolute inset-0 opacity-[0.12] mix-blend-color-burn pointer-events-none" 
-           style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M54.627 0l.83.83L.83 55.457l-.83-.83L54.627 0zm-54.627 0l.83-.83L60.83 59.17l-.83.83L0 0z\' fill=\'%2364748b\' fill-opacity=\'0.4\' fill-rule=\'evenodd\'/%3E%3C/svg%3E'); background-size: 100px 100px;">
-      </div>
-      <!-- Background Accents -->
-      <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-primary/5 rounded-full blur-[120px] animate-float"></div>
-      <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-brand-primary/10 rounded-full blur-[100px] animate-float-delayed"></div>
-      
-      <div class="relative z-10 text-left mb-16">
-        <h3 class="text-[0.6rem] font-bold tracking-[0.6em] uppercase text-brand-primary mb-6">Educational Programs</h3>
-        <h2 class="text-xl md:text-4xl lg:text-6xl font-light uppercase tracking-[-0.02em] text-neutral-400 leading-none">
-          Future <span class="font-black text-brand-primary tracking-tighter ml-2">Healthcare.</span>
-        </h2>
-      </div>
-
-      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
-        <div *ngFor="let course of courses; let i = index" 
-             [routerLink]="course.link"
-             class="group relative h-[400px] md:h-[450px] lg:h-[550px] overflow-hidden rounded-[2.5rem] lg:rounded-[3.5rem] bento-hover border border-neutral-100 transition-all cursor-pointer shadow-xl">
-          <!-- Background Image -->
-          <img [src]="course.image" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110">
-          
-          <!-- Static Overlay for Legibility -->
-          <div class="absolute inset-0 bg-neutral-950/40 group-hover:bg-neutral-950/60 transition-colors duration-500"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/30 to-transparent"></div>
-
-          <!-- Content -->
-          <div class="relative h-full p-8 lg:p-12 flex flex-col justify-end z-10 text-white">
-            <h4 class="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter mb-3 group-hover:translate-x-2 transition-transform duration-500 drop-shadow-md">{{ course.name }}</h4>
-            <p class="text-[0.65rem] md:text-xs font-black text-brand-primary uppercase tracking-[0.4em] mb-6 md:mb-8">{{ course.duration }} Mastercourse</p>
-            <p class="text-xs md:text-sm text-neutral-200 font-medium leading-relaxed mb-8 md:mb-10 max-w-md lg:max-w-lg">
-              {{ course.description }}
-            </p>
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-brand-primary rounded-2xl lg:rounded-[1.5rem] flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-xl">
-                <svg class="w-5 h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-              </div>
-              <span class="text-[0.65rem] md:text-xs font-bold uppercase tracking-widest text-white/80 group-hover:text-white transition-colors">Explore Program</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
 
 
   <!-- SECTION 4: HOSPITAL TIE-UP (ORGANIC CURVY) -->
@@ -454,21 +482,26 @@
          <!-- CARD 2: FASHION CLUB -->
          <div routerLink="/clubs/fashion" class="group relative aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl transition-transform hover:scale-105 duration-700 cursor-pointer border border-neutral-100 isolate bg-neutral-900">
             <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1000" class="block w-full h-full object-cover transition-transform group-hover:scale-110 duration-[2000ms]" alt="Fashion Club">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-            <div class="absolute top-8 right-8 bg-white px-6 py-2 rounded-full border border-white/30 shadow-xl group-hover:bg-brand-primary transition-colors"><span class="text-[0.65rem] font-black text-neutral-900 group-hover:text-white uppercase tracking-widest">Fashion</span></div>
-            <div class="absolute bottom-10 left-10 text-left"><h3 class="text-white text-3xl font-black tracking-tight mb-1">Nalapad <br>Fashion</h3><p class="text-white/60 text-[0.65rem] font-bold uppercase tracking-widest">Milan Ceremony 2026</p></div>
+               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+   <div class="absolute top-8 right-8 bg-white px-6 py-2 rounded-full border border-white/30 shadow-xl group-hover:bg-brand-primary transition-colors"><span class="text-[0.65rem] font-black text-neutral-900 group-hover:text-white uppercase tracking-widest">Milan</span></div>
+   <div class="absolute bottom-10 left-10 text-left"><h3 class="text-white text-3xl font-black tracking-tight mb-1">Nalapad <br>Milan</h3><p class="text-white/60 text-[0.65rem] font-bold uppercase tracking-widest">Festive Fusion 2026</p></div>
+   <!-- Arrow indicator -->
+
             <!-- Arrow indicator -->
             <div class="absolute bottom-10 right-10 w-10 h-10 rounded-full bg-white/0 group-hover:bg-brand-primary flex items-center justify-center transition-all duration-500">
               <svg class="w-4 h-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </div>
          </div>
-         <!-- CARD 3: ATHLETIC PINNACLE -->
-         <div [routerLink]="['/gallery']" [queryParams]="{category: 'events'}" class="group relative aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl transition-transform hover:scale-105 duration-700 cursor-pointer border border-neutral-100 isolate bg-neutral-900">
-            <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=1000" class="block w-full h-full object-cover transition-transform group-hover:scale-110 duration-[2000ms]" alt="Athletic Sports Meet">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-            <div class="absolute top-8 right-8 bg-white px-6 py-2 rounded-full border border-white/30 shadow-xl group-hover:bg-brand-primary transition-colors"><span class="text-[0.65rem] font-black text-neutral-900 group-hover:text-white uppercase tracking-widest">Athletic</span></div>
-            <div class="absolute bottom-10 left-10 text-left"><h3 class="text-white text-3xl font-black tracking-tight mb-1">Athletic <br>Pinnacle</h3><p class="text-white/60 text-[0.65rem] font-bold uppercase tracking-widest">Student Olympics 2026</p></div>
-         </div>
+         <!-- CARD 3: NSC -->
+<div routerLink="/clubs/nsc" class="group relative aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl transition-transform hover:scale-105 duration-700 cursor-pointer border border-neutral-100 isolate bg-neutral-900">
+   <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=1000" class="block w-full h-full object-cover transition-transform group-hover:scale-110 duration-[2000ms]" alt="Nalapad Sports Club">
+   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+   <div class="absolute top-8 right-8 bg-white px-6 py-2 rounded-full border border-white/30 shadow-xl group-hover:bg-brand-primary transition-colors"><span class="text-[0.65rem] font-black text-neutral-900 group-hover:text-white uppercase tracking-widest">NSC</span></div>
+   <div class="absolute bottom-10 left-10 text-left"><h3 class="text-white text-3xl font-black tracking-tight mb-1">Nalapad <br>Sports Club</h3><p class="text-white/60 text-[0.65rem] font-bold uppercase tracking-widest">Play · Compete · Excel</p></div>
+   <div class="absolute bottom-10 right-10 w-10 h-10 rounded-full bg-white/0 group-hover:bg-brand-primary flex items-center justify-center transition-all duration-500">
+     <svg class="w-4 h-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+   </div>
+</div>
       </div>
     </div>
   </section>
@@ -555,17 +588,7 @@
          </div>
       </div>
 
-      <!-- TWO ROWS OF PLACED STUDENTS (WALL OF SUCCESS) -->
-      <div class="grid grid-cols-3 md:grid-cols-6 gap-4 mb-20 px-4">
-          <div *ngFor="let s of [1,2,3,4,5,6, 1,2,3,4,5,6]" class="group/st relative aspect-square rounded-[2rem] overflow-hidden border border-white/10 bg-white/5 shadow-2xl">
-              <img [src]="'/st' + (s) + '.png'" class="w-full h-full object-cover transition-all duration-700 group-hover/st:scale-110">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover/st:opacity-100 transition-opacity duration-500"></div>
-              <div class="absolute bottom-4 inset-x-4 translate-y-4 opacity-0 group-hover/st:translate-y-0 group-hover/st:opacity-100 transition-all duration-700">
-                  <span class="text-[0.5rem] font-black uppercase tracking-[0.2em] text-white">Registered Nurse</span>
-                  <p class="text-[0.6rem] font-bold text-brand-primary uppercase tracking-widest truncate mt-1">Multi-Specialty Care</p>
-              </div>
-          </div>
-      </div>
+     
       
       <div class="mt-20 text-center">
          <p class="text-neutral-500 font-medium text-xs max-w-2xl mx-auto leading-relaxed">Our clinical partnerships extend across continents, ensuring every Nalapad student enters the professional world with international certification and priority hiring status.</p>

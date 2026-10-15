@@ -1,0 +1,88 @@
+@if (isOpen()) {
+  <div class="fixed inset-0 z-[1100] flex items-end sm:items-center justify-center">
+    <div class="absolute inset-0 bg-neutral-950/60 backdrop-blur-sm animate-fade-in" (click)="close()"></div>
+
+    <div role="dialog" aria-modal="true" aria-labelledby="admission-modal-title"
+         class="relative w-full sm:max-w-md max-h-[92dvh] overflow-y-auto bg-white rounded-t-[2rem] sm:rounded-[2rem] shadow-2xl animate-sheet-up">
+
+      <div class="bg-brand-primary px-6 pt-6 pb-5 text-white relative">
+        <button type="button" (click)="close()" aria-label="Close admission form"
+                class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <p class="text-[0.6rem] font-black uppercase tracking-[0.3em] text-white/70 mb-1">Admissions Open {{ yearLabel }}</p>
+        <h2 id="admission-modal-title" class="text-2xl font-black tracking-tight">Apply in 30 seconds</h2>
+        <p class="text-sm text-white/80 mt-1">Share your details and our admissions team will call you back.</p>
+      </div>
+
+      @if (submitState(); as state) {
+        @if (state.kind === 'editing') {
+          <form [formGroup]="enquiryForm" (ngSubmit)="submit()" novalidate class="px-6 py-6 flex flex-col gap-4">
+            <label class="flex flex-col gap-1.5">
+              <span class="text-xs font-bold text-neutral-700">Full name *</span>
+              <input #nameInput formControlName="fullName" type="text" autocomplete="name" placeholder="Your full name"
+                     class="w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none"
+                     [attr.aria-invalid]="showError('fullName')">
+              @if (showError('fullName')) {
+                <span class="text-xs text-brand-primary font-semibold">Please enter your name.</span>
+              }
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="text-xs font-bold text-neutral-700">Mobile number *</span>
+              <div class="flex rounded-xl border border-neutral-200 focus-within:border-brand-primary focus-within:ring-2 focus-within:ring-brand-primary/20 overflow-hidden">
+                <span class="px-3 flex items-center bg-neutral-50 text-sm font-bold text-neutral-500 border-r border-neutral-200">+91</span>
+                <input formControlName="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="10" placeholder="10-digit mobile"
+                       class="w-full px-4 py-3 text-sm outline-none" [attr.aria-invalid]="showError('phone')">
+              </div>
+              @if (showError('phone')) {
+                <span class="text-xs text-brand-primary font-semibold">Enter a valid 10-digit mobile number.</span>
+              }
+            </label>
+
+            <fieldset class="flex flex-col gap-1.5">
+              <legend class="text-xs font-bold text-neutral-700 mb-1.5">Course interested in *</legend>
+              <div class="grid grid-cols-1 gap-2">
+                @for (courseName of courseOptions; track courseName) {
+                  <label class="flex items-center gap-3 rounded-xl border border-neutral-200 px-4 py-3 cursor-pointer has-[:checked]:border-brand-primary has-[:checked]:bg-red-50 transition-colors">
+                    <input type="radio" formControlName="course" [value]="courseName" class="accent-brand-primary w-4 h-4">
+                    <span class="text-sm font-bold text-neutral-800">{{ courseName }}</span>
+                  </label>
+                }
+              </div>
+            </fieldset>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="text-xs font-bold text-neutral-700">City <span class="font-medium text-neutral-400">(optional)</span></span>
+              <input formControlName="city" type="text" autocomplete="address-level2" placeholder="Where are you from?"
+                     class="w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none">
+            </label>
+
+            <button type="submit"
+                    class="mt-2 w-full py-4 rounded-full bg-brand-primary text-white font-black uppercase tracking-widest text-xs hover:bg-brand-dark transition-colors shadow-lg shadow-red-900/20">
+              Send Enquiry
+            </button>
+            <p class="text-[0.7rem] text-neutral-400 text-center">Opens WhatsApp with your details filled in. No spam, ever.</p>
+          </form>
+        } @else {
+          <div class="px-6 py-8 flex flex-col items-center text-center gap-4">
+            <div class="w-14 h-14 rounded-full bg-green-50 text-green-600 flex items-center justify-center">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <h3 class="text-xl font-black text-neutral-900">Almost done!</h3>
+            @if (state.popupBlocked) {
+              <p class="text-sm text-neutral-500">Your browser blocked WhatsApp from opening. Tap below to send your details.</p>
+            } @else {
+              <p class="text-sm text-neutral-500">WhatsApp has opened with your details. Just tap <span class="font-bold">Send</span> and our team will get back to you.</p>
+            }
+            <a [href]="state.whatsAppUrl" target="_blank" rel="noopener"
+               class="w-full py-4 rounded-full bg-[#25D366] text-white font-black uppercase tracking-widest text-xs text-center">
+              Open WhatsApp
+            </a>
+            <button type="button" (click)="close()" class="text-xs font-bold text-neutral-500 hover:text-brand-primary">Close</button>
+          </div>
+        }
+      }
+    </div>
+  </div>
+}

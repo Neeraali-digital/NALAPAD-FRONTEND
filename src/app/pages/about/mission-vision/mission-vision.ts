@@ -9,14 +9,9 @@ import { CinematicAnimationsService } from '../../../services/cinematic-animatio
   templateUrl: './mission-vision.html'
 })
 export class MissionVision implements OnInit {
-  visionText = 'Our vision is to inspire future nurses to serve humanity with compassion, empathy, integrity, and professionalism. We aspire to create a nurturing learning environment that encourages innovation, clinical excellence, and a deep commitment to caring for every individual with dignity and respect. By shaping competent and compassionate healthcare providers, we aim to bring hope, healing, and comfort to communities, improving the quality of life and making a meaningful difference in society.';
+  visionText = 'Our vision is to build a progressive institution that delivers quality higher and professional education through advanced teaching methods, practical learning, innovation, and technology. We aim to expand our academic programmes and introduce industry-relevant courses that meet the changing needs of society and the professional world. By providing modern learning facilities, practical exposure, specialised skill development, and opportunities for innovation and research, we strive to empower students to become confident, competent, adaptable, and responsible professionals. We envision Nalapad as an institution where academic excellence, professional growth, and holistic development come together to prepare students for successful careers and meaningful contributions to society. ';
 
-  missionStatements = [
-    'To provide high-quality nursing education that combines evidence-based practice, critical thinking, and ethical care.',
-    'To develop skilled and compassionate nurses through rigorous academic programs, clinical training, and community engagement.',
-    'To foster lifelong learning, research, and professional growth in nursing students, preparing them to meet evolving healthcare challenges.',
-    'To promote health equity and patient-centered care by instilling leadership, empathy, and professionalism in future nurses.'
-  ];
+ missionText = 'Our mission is to provide quality higher and professional education that combines academic excellence with practical and industry-oriented learning. We aim to equip students with relevant skills through clinical exposure, specialised add-on courses, modern healthcare practices, and emerging technologies such as AI and digital healthcare. We encourage extracurricular activities, leadership, communication, and personality development to support the overall growth of every student. Through experienced faculty, a supportive learning environment, and opportunities for continuous skill development, we strive to nurture confident, competent, ethical, and socially responsible professionals who are prepared to succeed in their careers and contribute meaningfully to society.' 
 
   goals = [
     { desc: 'To provide quality nursing education that develops competent and compassionate healthcare professionals.' },

@@ -1,0 +1,116 @@
+<main class="min-h-screen bg-white font-sans">
+
+  <!-- ══════════════════════════ HERO ══════════════════════════ -->
+  <section class="relative h-[75vh] min-h-[500px] flex items-end overflow-hidden bg-neutral-950">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=2000&q=80"
+           class="w-full h-full object-cover object-center scale-105" alt="Nalapad Sports Club">
+      <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-900/60 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-neutral-950/80 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 w-full max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 pb-16">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-6 h-[2px] bg-brand-primary"></div>
+        <span class="text-[0.7rem] font-black tracking-[0.4em] uppercase text-white">Play · Compete · Represent · Excel</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter leading-none mb-4">
+        Nalapad<br>Sports Club
+      </h1>
+      <p class="text-neutral-300 text-base md:text-lg mb-8 font-light max-w-xl">
+        A dedicated platform for students to discover their sporting potential, build teamwork, and pursue excellence beyond the classroom.
+      </p>
+      <div class="flex gap-4 flex-wrap">
+        <button (click)="setTab('gallery')" class="px-7 py-3 bg-brand-primary text-white font-black uppercase tracking-widest text-xs rounded-full hover:bg-red-700 transition-colors">View Gallery</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ TAB NAV ══════════════════════════ -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-neutral-100 shadow-sm">
+    <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20">
+      <div class="flex gap-0 overflow-x-auto scrollbar-none">
+        <button *ngFor="let tab of ['home', 'gallery']"
+          (click)="setTab(tab)"
+          class="shrink-0 px-6 py-5 text-sm font-bold uppercase tracking-widest transition-all duration-200 border-b-2 capitalize"
+          [ngClass]="activeTab() === tab
+            ? 'border-brand-primary text-brand-primary'
+            : 'border-transparent text-neutral-400 hover:text-neutral-800'">
+          {{ tab }}
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════ HOME TAB ══════════════════════════ -->
+  <div *ngIf="activeTab() === 'home'">
+
+    <!-- Our Story -->
+    <section class="py-20 md:py-28">
+      <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-4">Our Story</span>
+            <h2 class="text-5xl md:text-6xl font-black text-neutral-900 tracking-tighter leading-none mb-8">
+              Discipline, Teamwork<br>and Leadership.
+            </h2>
+            <p class="text-neutral-500 text-lg leading-relaxed mb-6">
+              The Nalapad Sports Club (NSC) is a dedicated platform for students to discover their sporting potential, develop teamwork, and pursue excellence beyond the classroom. NSC brings together a wide range of sporting activities, regular competitions, training opportunities, and student-led events throughout the academic year.
+            </p>
+            <p class="text-neutral-500 text-lg leading-relaxed mb-10">
+              With inter-house competitions, annual sports activities, athletics, recreational events, and college-level teams, NSC encourages students to participate, compete, and represent Nalapad with pride. The club aims to build a strong sporting culture that promotes discipline, teamwork, leadership, fitness, and a healthy spirit of competition.
+            </p>
+            <div class="flex gap-4 flex-wrap">
+              <button (click)="setTab('gallery')" class="px-7 py-3.5 bg-brand-primary text-white font-black uppercase tracking-widest text-xs rounded-full hover:bg-red-700 transition-colors">View Gallery</button>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="rounded-[3rem] overflow-hidden shadow-2xl aspect-[4/3]">
+              <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover" alt="NSC training">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Strip -->
+    <section class="py-16 bg-neutral-50">
+      <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20">
+        <div class="flex items-end justify-between mb-10">
+          <div>
+            <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-2">On the Field</span>
+            <h2 class="text-4xl font-black text-neutral-900 tracking-tighter">Moments of Excellence</h2>
+          </div>
+          <button (click)="setTab('gallery')" class="text-brand-primary font-black text-sm uppercase tracking-widest hover:underline">Full gallery →</button>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div *ngFor="let img of gallery.slice(0,4)" class="group relative rounded-2xl overflow-hidden aspect-square">
+            <img [src]="img" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Gallery">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ══════════════════════════ GALLERY TAB ══════════════════════════ -->
+  <div *ngIf="activeTab() === 'gallery'" class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 py-20 md:py-28">
+    <span class="text-[0.6rem] font-black tracking-[0.5em] uppercase text-brand-primary block mb-2">Gallery</span>
+    <h2 class="text-5xl md:text-6xl font-black text-neutral-900 tracking-tighter mb-14">Sporting Moments</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div *ngFor="let img of gallery" class="group relative rounded-3xl overflow-hidden aspect-[4/5]">
+        <img [src]="img" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Gallery">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back Link -->
+  <div class="max-w-[90rem] mx-auto px-6 sm:px-10 lg:px-20 pb-16">
+    <a routerLink="/" class="inline-flex items-center gap-2 text-neutral-400 hover:text-brand-primary font-bold text-sm uppercase tracking-widest transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+      Back to Home
+    </a>
+  </div>
+
+</main>

@@ -1,12 +1,17 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CinematicAnimationsService } from '../../services/cinematic-animations';
+import { AddOnCoursesService, AddOnCourse } from '../../services/add-on-courses';
+import { AddOnCourseCard } from '../../components/add-on-course-card/add-on-course-card';
+import { AdmissionEnquiryService } from '../../services/admission-enquiry';
+import { PROGRAMMES } from '../../constants/programmes';
+import { ADMISSION_YEAR_LABEL } from '../../constants/contact';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, AddOnCourseCard],
   templateUrl: './home.html',
   providers: [CinematicAnimationsService]
 })
@@ -60,22 +65,28 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
     { name: 'KNC Recognized', image: '/certifications/KNC Recognized.png' }
   ];
 
-  courses = [
-    {
-      name: 'B.Sc Nursing',
-      image: '/courses/B.Sc Nursing.jpg',
-      duration: '4 Years',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.',
-      link: '/departments/bsc-nursing'
-    },
-    {
-      name: 'GNM Nursing',
-      image: '/courses/GNM Nursing.jpg',
-      duration: '3 Years',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.',
-      link: '/departments/gnm'
-    }
+  readonly admissionYearLabel = ADMISSION_YEAR_LABEL;
+  readonly programmes = PROGRAMMES;
+  private readonly selectedProgrammeSlug = signal(PROGRAMMES[0].slug);
+  readonly selectedProgramme = computed(
+    () => PROGRAMMES.find(programme => programme.slug === this.selectedProgrammeSlug()) ?? PROGRAMMES[0]
+  );
+
+  readonly admissionSteps = [
+    { title: 'Enquire', description: 'Fill the 30-second form or call us.' },
+    { title: 'Counselling', description: 'Talk to our team on campus or by video.' },
+    { title: 'Documents', description: 'Submit marks cards and ID for verification.' },
+    { title: 'Join', description: 'Pay the fee and confirm your seat.' },
   ];
+
+  readonly admissionLinks = [
+    { label: 'Domestic', path: '/admissions/domestic' },
+    { label: 'International', path: '/admissions/international' },
+    { label: 'Scholarships', path: '/admissions/scholarship' },
+    { label: 'Video Counselling', path: '/admissions/video-counselling' },
+  ];
+
+  readonly addOnSteps = ['Join B.Sc Nursing or GNM', 'Choose any 2 specialisations', 'Earn a certificate in each'];
 
   hospitals = [
     { name: 'Aster CMI', logo: '/partners/Aster CMI.jpg', description: 'Premium multi-specialty care partner.' },
@@ -149,13 +160,18 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
     { label: 'Alumni Network', value: '5000+', subLabel: 'Working Worldwide' }
   ];
 
+  addOnCourses: AddOnCourse[] = [];
+
+  private readonly admissionEnquiry = inject(AdmissionEnquiryService);
 
   constructor(
     private cdr: ChangeDetectorRef,
-    private cinematic: CinematicAnimationsService
+    private cinematic: CinematicAnimationsService,
+    private addOnCoursesService: AddOnCoursesService
   ) {}
 
   ngOnInit() {
+    this.addOnCourses = this.addOnCoursesService.getAll();
     this.startSlideShow();
   }
 
@@ -190,5 +206,17 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
     this.activeSlide = index;
     this.startSlideShow();
     this.cdr.detectChanges();
+  }
+
+  selectProgramme(slug: string) {
+    this.selectedProgrammeSlug.set(slug);
+  }
+
+  openAdmissionForm(courseName?: string) {
+    this.admissionEnquiry.open(courseName);
+  }
+
+  scrollToAdmissionsInfo() {
+    document.getElementById('admissions-info')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }

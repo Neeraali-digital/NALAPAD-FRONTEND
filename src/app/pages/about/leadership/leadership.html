@@ -34,10 +34,10 @@
           <div class="w-full lg:w-1/2 relative">
             <div class="relative aspect-[4/5] max-w-md mx-auto lg:mx-0 rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white isolate">
               <img [src]="leader.image" [alt]="leader.name" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               
               <div class="absolute bottom-8 left-8 text-white">
-                <p class="text-[0.65rem] font-black tracking-[0.4em] uppercase text-brand-primary mb-1">{{ leader.role }}</p>
+                <p class="inline-block mb-2 px-3 py-1 rounded-full bg-brand-primary text-white text-[0.65rem] font-black tracking-[0.3em] uppercase">{{ leader.role }}</p>
                 <h3 class="text-3xl font-black tracking-tight">{{ leader.name }}</h3>
               </div>
             </div>
@@ -46,24 +46,31 @@
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[110%] max-h-[110%] bg-brand-primary/5 rounded-full blur-3xl -z-10"></div>
           </div>
           
-          <!-- Text Section -->
-          <div class="w-full lg:w-1/2 lg:px-10 text-center lg:text-left">
-            <svg class="w-12 h-12 text-brand-primary/20 mb-6 mx-auto lg:mx-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-            </svg>
-            <h2 class="text-4xl font-black text-neutral-900 tracking-tighter mb-6">{{ leader.role }}'s Message</h2>
-            <p class="text-neutral-500 text-lg leading-relaxed italic mb-8 border-l-4 border-brand-primary pl-6 py-2">
-              "{{ leader.message }}"
-            </p>
-            <p class="text-sm text-neutral-400 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Under the visionary guidance of {{ leader.name }}, the institution has reached new heights in educational innovation and healthcare impact. Their commitment to student success remains the cornerstone of our philosophy.
-            </p>
-          </div>
+        <!-- Text Section -->
+<div class="w-full lg:w-1/2 lg:px-10 text-center lg:text-left">
+  <svg class="w-12 h-12 text-brand-primary/20 mb-6 mx-auto lg:mx-0" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+  </svg>
+  <h2 class="text-4xl font-black text-neutral-900 tracking-tighter mb-6">{{ leader.role }}'s Message</h2>
 
-        </div>
-      </div>
+  <div class="max-w-xl mx-auto lg:mx-0 border-l-4 border-brand-primary pl-6 py-2">
+    <p class="text-neutral-700 text-base leading-relaxed mb-6">
+      "{{ leader.message }}"
+    </p>
 
-    </div>
-  </section>
+    <p *ngFor="let para of leader.paragraphs" 
+       class="text-neutral-700 text-base leading-relaxed mb-4 last:mb-0">
+      {{ para }}
+    </p>
 
-</main>
+    <p *ngIf="!leader.paragraphs" 
+       class="text-neutral-700 text-base leading-relaxed">
+      Under the visionary guidance of {{ leader.name }}, the institution has reached new heights in educational innovation and healthcare impact. Their commitment to student success remains the cornerstone of our philosophy.
+    </p>
+  </div>
+
+  <div class="mt-6 text-sm text-neutral-600 leading-relaxed max-w-xl mx-auto lg:mx-0" *ngIf="leader.credentials">
+    <p class="font-black text-neutral-900">{{ leader.name }}</p>
+    <p *ngFor="let credential of leader.credentials">{{ credential }}</p>
+  </div>
+</div>
