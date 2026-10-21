@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef, computed, inject, signal } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef, HostListener, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CinematicAnimationsService } from '../../services/cinematic-animations';
@@ -7,6 +7,11 @@ import { AddOnCourseCard } from '../../components/add-on-course-card/add-on-cour
 import { AdmissionEnquiryService } from '../../services/admission-enquiry';
 import { PROGRAMMES } from '../../constants/programmes';
 import { ADMISSION_YEAR_LABEL } from '../../constants/contact';
+
+interface CampusPhoto {
+  src: string;
+  alt: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -85,6 +90,13 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
     { label: 'Scholarships', path: '/admissions/scholarship' },
     { label: 'Video Counselling', path: '/admissions/video-counselling' },
   ];
+
+  readonly campusPhotos: CampusPhoto[] = [
+    { src: '/home/students-corridor.jpg', alt: 'Nalapad nursing students in the faculty corridor' },
+    { src: '/home/students-classroom.jpg', alt: 'Nalapad students in a classroom session' },
+    { src: '/home/campus-event.jpg', alt: 'Nalapad students at a campus cultural event' },
+  ];
+  readonly expandedPhoto = signal<CampusPhoto | null>(null);
 
   readonly addOnSteps = ['Join B.Sc Nursing or GNM', 'Choose any 2 specialisations', 'Earn a certificate in each'];
 
@@ -182,6 +194,7 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
   ngOnDestroy() {
     this.stopSlideShow();
     this.cinematic.killAll();
+    this.closePhoto();
   }
 
   startSlideShow() {
@@ -214,6 +227,19 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
 
   openAdmissionForm(courseName?: string) {
     this.admissionEnquiry.open(courseName);
+  }
+
+  openPhoto(photo: CampusPhoto) {
+    this.expandedPhoto.set(photo);
+    document.body.style.overflow = 'hidden';
+    document.body.classList.add('lightbox-open');
+  }
+
+  @HostListener('document:keydown.escape')
+  closePhoto() {
+    this.expandedPhoto.set(null);
+    document.body.style.overflow = '';
+    document.body.classList.remove('lightbox-open');
   }
 
   scrollToAdmissionsInfo() {
