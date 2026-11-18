@@ -104,7 +104,10 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
     { name: 'Aster CMI', logo: '/partners/Aster CMI.jpg', description: 'Premium multi-specialty care partner.' },
     { name: 'Manipal Hospitals', logo: '/partners/Manipal Hospitals.png', description: 'Leading healthcare network in India.' },
     { name: 'Apollo Hospitals', logo: '/partners/Apollo Hospitals.jpg', description: 'Pioneer of modern healthcare.' },
-    { name: 'Fortis Health', logo: '/partners/Fortis Health.jpg', description: 'Trustworthy name in critical care.' }
+    { name: 'Fortis Health', logo: '/partners/Fortis Health.jpg', description: 'Trustworthy name in critical care.' },
+    { name: 'Svastha Hospital', logo: '/partners/svastha.webp', description: 'Multi-specialty care partner.' },
+    { name: 'Suraksha Hospital', logo: '/partners/suraksha.webp', description: 'Trusted community healthcare partner.' },
+    { name: 'Medicover Hospitals', logo: '/partners/medicover.webp', description: 'International multi-specialty hospital network.' }
   ];
 
   clubs = [
