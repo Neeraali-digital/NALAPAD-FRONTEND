@@ -150,10 +150,13 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
   ];
 
   labs = [
-    { name: 'Anatomy Lab', image: '/labs/Anatomy Lab.jpg', count: '01' },
-    { name: 'Nutrition Lab', image: '/labs/Nutrition Lab.jpg', count: '02' },
-    { name: 'Nursing Arts Lab', image: '/labs/Nursing Arts Lab.jpg', count: '03' },
-    { name: 'Community Lab', image: '/labs/Community Lab.jpg', count: '04' }
+    { name: 'Nursing Foundation Lab', image: '/labs/Nursing Arts Lab.jpg', count: '01' },
+    { name: 'Community Health Nursing Lab', image: '/labs/Community Lab.jpg', count: '02' },
+    { name: 'OBG Nursing Lab', image: '/labs/Nursing Arts Lab.jpg', count: '03' },
+    { name: 'Pre-Clinical Science Lab', image: '/labs/Anatomy Lab.jpg', count: '04' },
+    { name: 'Clinical Health Nursing Lab', image: '/labs/Nursing Arts Lab.jpg', count: '05' },
+    { name: 'Pediatric Lab', image: '/labs/Community Lab.jpg', count: '06' },
+    { name: 'Computer Lab', image: '/labs/Nutrition Lab.jpg', count: '07' }
   ];
 
   heroStats = [
