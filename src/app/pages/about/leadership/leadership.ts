@@ -44,7 +44,7 @@ export class Leadership implements OnInit {
      {
       name: 'Anu Thomas',
       role: 'Dean',
-      image: 'PASTE_DEAN_PHOTO_URL_HERE',
+      image: '/leadership/anu-thomas.jpg',
       message: 'At Nalapad Group of Institutions, we believe that quality nursing education is founded on academic excellence, clinical competence, ethical practice, and compassion. Our aim is to prepare students not only with sound professional knowledge, but also with the confidence and skills required to meet the evolving needs of healthcare.',
       paragraphs: [
         'Our B.Sc. Nursing and GNM Nursing programmes combine structured academics, clinical training, practical exposure, and continuous skill development. Through specialised add-on courses in areas such as critical care, pediatric nursing, digital health, medical coding, and AI in healthcare, students are encouraged to expand their professional capabilities.',
