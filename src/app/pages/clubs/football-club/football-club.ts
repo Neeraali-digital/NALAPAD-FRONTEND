@@ -50,14 +50,12 @@ export class FootballClub implements OnInit {
     { name: 'Kiran Bhat', number: '#7', position: 'Forward', image: 'https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=500&q=80' }
   ];
 
-  gallery = [
-    'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1580153872834-1e6adfc32b95?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1551854838-212c50b4c184?auto=format&fit=crop&w=800&q=80'
-  ];
+  private static readonly GALLERY_PHOTO_COUNT = 43;
+
+  gallery = Array.from(
+    { length: FootballClub.GALLERY_PHOTO_COUNT },
+    (_, photoIndex) => `/clubs/football-gallery/football-${String(photoIndex + 1).padStart(2, '0')}.webp`
+  );
 
   setTab(tab: string) {
     this.activeTab.set(tab);
