@@ -1,6 +1,11 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+
+interface MilanEdition {
+  year: string;
+  photos: string[];
+}
 
 @Component({
   selector: 'app-fashion-club',
@@ -50,14 +55,34 @@ export class FashionClub implements OnInit {
     { name: 'Sana Khan', role: 'Accessories Designer', image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=500&q=80' }
   ];
 
-  gallery = [
-    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=800&q=80'
+  private static readonly MILAN_2024_PHOTO_COUNT = 28;
+  private static readonly CELEBRATION_PHOTOS_PER_YEAR = 2;
+
+  milanEditions: MilanEdition[] = [
+    {
+      year: '2024',
+      photos: Array.from(
+        { length: FashionClub.MILAN_2024_PHOTO_COUNT },
+        (_, photoIndex) => `/clubs/milan-gallery/2024/milan-2024-${String(photoIndex + 1).padStart(2, '0')}.webp`
+      )
+    },
+    { year: '2025', photos: [] },
+    { year: '2026', photos: [] }
   ];
+
+  selectedYear = signal<string>(this.milanEditions.find(edition => edition.photos.length)?.year ?? this.milanEditions[0].year);
+
+  selectedEdition = computed(() =>
+    this.milanEditions.find(edition => edition.year === this.selectedYear()) ?? this.milanEditions[0]
+  );
+
+  celebrationPhotos = this.milanEditions.flatMap(edition =>
+    edition.photos.slice(0, FashionClub.CELEBRATION_PHOTOS_PER_YEAR)
+  );
+
+  selectYear(year: string) {
+    this.selectedYear.set(year);
+  }
 
   setTab(tab: string) {
     this.activeTab.set(tab);
