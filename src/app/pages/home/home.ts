@@ -104,7 +104,10 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
     { name: 'Aster CMI', logo: '/partners/Aster CMI.jpg', description: 'Premium multi-specialty care partner.' },
     { name: 'Manipal Hospitals', logo: '/partners/Manipal Hospitals.png', description: 'Leading healthcare network in India.' },
     { name: 'Apollo Hospitals', logo: '/partners/Apollo Hospitals.jpg', description: 'Pioneer of modern healthcare.' },
-    { name: 'Fortis Health', logo: '/partners/Fortis Health.jpg', description: 'Trustworthy name in critical care.' },
+    { name: 'Fortis Health', logo: '/partners/Fortis Health.jpg', description: 'Trustworthy name in critical care.' }
+  ];
+
+  parentHospitals = [
     { name: 'Svastha Hospital', logo: '/partners/svastha.webp', description: 'Multi-specialty care partner.' },
     { name: 'Suraksha Hospital', logo: '/partners/suraksha.webp', description: 'Trusted community healthcare partner.' },
     { name: 'Medicover Hospitals', logo: '/partners/medicover.webp', description: 'International multi-specialty hospital network.' }
@@ -150,12 +153,12 @@ export class Home implements OnInit, OnDestroy, AfterViewInit {
   ];
 
   labs = [
-    { name: 'Nursing Foundation Lab', image: '/labs/Nursing Arts Lab.jpg', count: '01' },
-    { name: 'Community Health Nursing Lab', image: '/labs/Community Lab.jpg', count: '02' },
-    { name: 'OBG Nursing Lab', image: '/labs/Nursing Arts Lab.jpg', count: '03' },
-    { name: 'Pre-Clinical Science Lab', image: '/labs/Anatomy Lab.jpg', count: '04' },
-    { name: 'Clinical Health Nursing Lab', image: '/labs/Nursing Arts Lab.jpg', count: '05' },
-    { name: 'Pediatric Lab', image: '/labs/Community Lab.jpg', count: '06' },
+    { name: 'Nursing Foundation Lab', image: '/labs/nursing-foundation-lab.jpg', count: '01' },
+    { name: 'Community Health Nursing Lab', image: '/labs/community-health-nursing-lab.jpg', count: '02' },
+    { name: 'OBG Nursing Lab', image: '/labs/obg-nursing-lab.jpg', count: '03' },
+    { name: 'Pre-Clinical Science Lab', image: '/labs/pre-clinical-science-lab.jpg', count: '04' },
+    { name: 'Clinical Health Nursing Lab', image: '/labs/clinical-health-nursing-lab.jpg', count: '05' },
+    { name: 'Pediatric Lab', image: '/labs/pediatric-lab.jpg', count: '06' },
     { name: 'Computer Lab', image: '/labs/Nutrition Lab.jpg', count: '07' }
   ];
 
