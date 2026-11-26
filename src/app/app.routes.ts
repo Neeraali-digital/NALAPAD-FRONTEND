@@ -14,7 +14,6 @@ export const routes: Routes = [
   { path: 'about/mission-vision', loadComponent: () => import('./pages/about/mission-vision/mission-vision').then(m => m.MissionVision) },
   { path: 'about/leadership', loadComponent: () => import('./pages/about/leadership/leadership').then(m => m.Leadership) },
   { path: 'about/college', loadComponent: () => import('./pages/about/college/college').then(m => m.College) },
-  { path: 'about/faculties', loadComponent: () => import('./pages/about/faculties/faculties').then(m => m.Faculties) },
   { path: 'about/academic-calendar', loadComponent: () => import('./pages/about/academic-calendar/academic-calendar').then(m => m.AcademicCalendar) },
   { path: 'placement', loadComponent: () => import('./pages/placement/placement').then(m => m.Placement) },
    { path: 'clubs/football', loadComponent: () => import('./pages/clubs/football-club/football-club').then(m => m.FootballClub) },
