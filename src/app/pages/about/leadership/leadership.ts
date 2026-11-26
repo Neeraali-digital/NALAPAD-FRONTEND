@@ -13,7 +13,7 @@ export class Leadership implements OnInit {
     {
       name: 'Sri N. A. Haris',
       role: 'Chairman',
-      image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=80',
+      image: '/leadership/n-a-haris.jpg',
      message: 'Education has always been close to my vision for building a stronger and more responsible society. At Nalapad Group of Institutions, we believe that quality education can create opportunities, shape confident individuals, and contribute to the betterment of the community.',
       paragraphs: [
         'Since its establishment in 2021 under the Nalapad Health and Educational Trust, Nalapad has been committed to providing quality higher and professional education in an environment that encourages knowledge, discipline, confidence, and social responsibility.',
@@ -29,8 +29,8 @@ export class Leadership implements OnInit {
     },
     {
        name: 'Jestin Pappachen',
-  role: 'Director',   // ← this must say 'Director', not 'Principal'
-      image: 'https://images.unsplash.com/photo-1594824432258-f9b1df0ce82b?auto=format&fit=crop&w=800&q=80',
+      role: 'Director',
+      image: '/leadership/jestin-pappachen.jpg',
        message: 'At Nalapad Group of Institutions, our approach to education goes beyond the classroom. We strive to provide students with an environment where academic learning is supported by practical experience, professional skills, and opportunities to discover their potential.',
       paragraphs: [
         'Our programmes are designed to help students build a strong foundation while staying connected to the changing requirements of the healthcare and professional sectors. Through clinical and practical exposure, specialised add-on courses, technology-focused learning, and student activities, we encourage our students to become adaptable and future-ready.',
